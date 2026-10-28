@@ -3,13 +3,13 @@ const CITIES = {
     ar: "غوانزو",
     cn: "广州",
     en: "Guangzhou",
-    blurb: "أسواق الجملة، المولات، المساجد، المطار، ومحطات القطار.",
+    blurb: "جملة، مولات، مساجد، مطار، ومحطات قطار.",
   },
   sh: {
     ar: "شنغهاي",
     cn: "上海",
     en: "Shanghai",
-    blurb: "مولات، شوارع، كافيهات، ومعالم من البوند إلى حديقة يو.",
+    blurb: "مولات، شوارع، كافيهات، ومعالم للزيارة.",
   },
 };
 
@@ -34,6 +34,7 @@ let cat = "الكل";
 let toastTimer = 0;
 
 const citiesEl = document.getElementById("cities");
+const factsEl = document.getElementById("facts");
 const filtersEl = document.getElementById("filters");
 const cardsEl = document.getElementById("cards");
 const statsEl = document.getElementById("stats");
@@ -178,7 +179,23 @@ function renderCards() {
     .join("");
 }
 
+function renderFacts() {
+  const cities = new Set(PLACES.map((place) => place.city)).size;
+  const cats = new Set(PLACES.map((place) => place.cat)).size;
+  factsEl.innerHTML = [
+    ["عنوان", PLACES.length],
+    ["مدن", cities],
+    ["تصنيفات", cats],
+  ]
+    .map(
+      ([label, value]) =>
+        `<span><strong>${value}</strong> ${label}</span>`
+    )
+    .join("");
+}
+
 function render() {
+  renderFacts();
   renderCities();
   renderFilters();
   renderCards();

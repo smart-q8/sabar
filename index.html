@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#102c36" />
+    <meta name="theme-color" content="#2a1614" />
     <meta
       name="description"
-      content="دليل بويوسف الصبر لغوانزو وشنغهاي: أسواق، معالم، مطاعم، كافيهات، وفنادق، مع نسخ الاسم الصيني وبحث Amap وتاكسي DIDI."
+      content="الصبر للصين: دليل أعمال لعناوين غوانزو وشنغهاي. تسوق، معالم، ضيافة، ونسخ الاسم الصيني للخريطة والتاكسي."
     />
-    <title>دليل بويوسف الصبر | غوانزو وشنغهاي</title>
+    <title>الصبر للصين | دليل أعمال غوانزو وشنغهاي</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,57 +18,107 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <div class="hero-top">
-        <p class="kicker">دليل المسافر · الصين</p>
-        <a class="snap" href="https://www.snapchat.com/add/alsaber22" rel="noopener">
-          Snapchat · alsaber22
-        </a>
-      </div>
-      <h1>دليل بويوسف الصبر</h1>
-      <p class="lede">
-        غوانزو وشنغهاي في صفحة واحدة: أسواق، معالم، مطاعم، كافيهات، وفنادق.
-        انسخ الاسم الصيني قبل ما تطلب التاكسي.
-      </p>
-      <div class="cities" id="cities"></div>
+    <header class="nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark">ص</span>
+        <span>
+          <strong>الصبر للصين</strong>
+          <small>دليل بويوسف الصبر</small>
+        </span>
+      </a>
+      <nav class="nav-links">
+        <a href="#services">الخدمات</a>
+        <a href="#catalog">العناوين</a>
+        <a class="nav-snap" href="https://www.snapchat.com/add/alsaber22" rel="noopener">تواصل · alsaber22</a>
+      </nav>
     </header>
 
-    <main>
-      <section class="tips" aria-label="قبل ما تروح">
+    <main id="top">
+      <section class="hero">
+        <p class="kicker">مكتب دليل للصين</p>
+        <h1>عناوين غوانزو وشنغهاي، جاهزة للشغل والزيارة.</h1>
+        <p class="lede">
+          الصبر يجمع أسواق الجملة، المعالم، المطاعم، الكافيهات، والفنادق في دليل واحد.
+          من كل بطاقة تنسخ الاسم الصيني، تفتح البحث في الخريطة، أو تطلب التاكسي.
+        </p>
+        <div class="facts" id="facts"></div>
+        <div class="cities" id="cities"></div>
+      </section>
+
+      <section class="services" id="services" aria-label="الخدمات">
+        <div class="section-head">
+          <p class="kicker dark">ماذا نرتّب لك</p>
+          <h2>أربع خدمات من نفس الدليل</h2>
+        </div>
+        <div class="service-grid">
+          <article>
+            <span>01</span>
+            <h3>تسوق الجملة</h3>
+            <p>أسواق الملابس، الأقمشة، الأحذية، الإلكترونيات، والهدايا في غوانزو، ومولات شنغهاي.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>معالم المدينة</h3>
+            <p>شوارع، حدائق، أبراج، ومعارض. الاسم الصيني مكتوب حتى يوصلك السائق للمكان نفسه.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>ضيافة</h3>
+            <p>مطاعم، كافيهات، وفنادق من الدليل. الحلال غير مصنّف هنا، وتتأكد منه قبل الطلب.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>تنقّل</h3>
+            <p>نسخ الاسم، بحث Amap للتأكد من الفرع، وفتح Alipay للبحث عن تاكسي DiDi.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="steps" aria-label="طريقة الاستخدام">
         <article>
-          <h2>انسخ الاسم</h2>
-          <p>الاسم الصيني هو اللي يفهمه السائق والبائع. انسخه من البطاقة وأظهره له.</p>
+          <h3>اختر المدينة</h3>
+          <p>غوانزو للجملة والأسواق. شنغهاي للمولات والشوارع والمعالم.</p>
         </article>
         <article>
-          <h2>الخريطة بحث</h2>
-          <p>زر Amap يبحث عن المكان، وما يعني إن الإحداثية مؤكدة. تأكد من الفرع والعنوان.</p>
+          <h3>انسخ الاسم الصيني</h3>
+          <p>هذا هو العنوان الذي يفهمه السائق والبائع. أظهره من البطاقة مباشرة.</p>
         </article>
         <article>
-          <h2>تاكسي DIDI</h2>
-          <p>الزر يفتح Alipay قدر الإمكان. داخل التطبيق ابحث عن 滴滴出行. ما فيه رابط مباشر موثّق.</p>
-        </article>
-        <article>
-          <h2>الحلال</h2>
-          <p>المطاعم غير مصنفة حلالًا في هذا الدليل. تأكد بنفسك قبل الطلب.</p>
+          <h3>افتح الخريطة أو التاكسي</h3>
+          <p>Amap بحث وليس إحداثية مؤكدة. DiDi عبر Alipay بالبحث عن 滴滴出行.</p>
         </article>
       </section>
 
-      <section class="toolbar" aria-label="بحث وتصفية">
-        <label class="search-wrap">
-          <span class="sr">ابحث</span>
-          <input
-            id="search"
-            class="search"
-            type="search"
-            placeholder="ابحث بالعربية أو الصينية أو الإنجليزية..."
-            autocomplete="off"
-          />
-        </label>
-        <div class="filters" id="filters"></div>
-        <p class="stats" id="stats"></p>
+      <section class="catalog" id="catalog">
+        <div class="section-head">
+          <p class="kicker dark">دليل العناوين</p>
+          <h2>ابحث في المدينتين</h2>
+        </div>
+        <div class="toolbar" aria-label="بحث وتصفية">
+          <label class="search-wrap">
+            <span class="sr">ابحث</span>
+            <input
+              id="search"
+              class="search"
+              type="search"
+              placeholder="ابحث بالعربية أو الصينية أو الإنجليزية..."
+              autocomplete="off"
+            />
+          </label>
+          <div class="filters" id="filters"></div>
+          <p class="stats" id="stats"></p>
+        </div>
+        <div class="cards" id="cards" aria-live="polite"></div>
       </section>
 
-      <section class="cards" id="cards" aria-live="polite"></section>
+      <section class="contact">
+        <div>
+          <p class="kicker">للتوضيح والطلبات</p>
+          <h2>عنوان ناقص؟ راسل الدليل على سناب.</h2>
+          <p>ما نعرض أسعار ولا حجوزات من هذه الصفحة. التواصل للاستيضاح عن العناوين الموجودة في الدليل.</p>
+        </div>
+        <a class="contact-btn" href="https://www.snapchat.com/add/alsaber22" rel="noopener">Snapchat · alsaber22</a>
+      </section>
 
       <p class="disclaimer">
         زر الخريطة يبحث عن المكان في Amap، ولا يعني أن إحداثياته مؤكدة. تأكد من الفرع
@@ -78,7 +128,10 @@
       </p>
     </main>
 
-    <footer>دليل بويوسف الصبر · alsaber22</footer>
+    <footer>
+      <strong>الصبر للصين</strong>
+      <span>دليل بويوسف الصبر · alsaber22</span>
+    </footer>
 
     <dialog id="didiHelp">
       <h2>تاكسي DIDI داخل Alipay</h2>
