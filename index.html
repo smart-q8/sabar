@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="styles.css?v=2.1" />
+  <link rel="stylesheet" href="styles.css?v=2.2" />
 </head>
 <body>
 
@@ -34,19 +34,11 @@
         </div>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="nav-links" id="desktopNav">
-        <button class="nav-link active" onclick="switchSection('gz')">🏙️ غوانزو</button>
-        <button class="nav-link" onclick="switchSection('sh')">🌆 شنغهاي</button>
-        <button class="nav-link" onclick="switchSection('fs')">🛋️ فوشان</button>
-        <button class="nav-link" onclick="switchSection('arrival')">🛂 بطاقة الدخول</button>
-        <button class="nav-link" onclick="switchSection('fx')">💱 العملات والأسعار</button>
-        <button class="nav-link" onclick="switchSection('services')">🛍️ خدمات التوريد والشحن</button>
-        <button class="nav-link" onclick="switchSection('phrases')">🗣️ عبارات سريعة</button>
-        <button class="nav-link" onclick="switchSection('favorites')">⭐ المفضلة (<span id="favCountTop">0</span>)</button>
-      </nav>
-
       <div class="header-actions">
+        <button class="btn-fav-header" onclick="switchSection('favorites')">
+          <span>⭐ المفضلة</span>
+          <span class="badge-fav" id="favCountTop">0</span>
+        </button>
         <a class="btn-snap" href="https://www.snapchat.com/add/alsaber22" target="_blank" rel="noopener noreferrer" title="سناب شات بويوسف الصبر">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2.5c-3 0-4.6 2.1-4.6 5.1v2.2c-.8-.3-1.7-.4-1.9.3-.2.8 1 1.2 2 1.6-.4 2.5-1.8 3.9-4.1 4.7-.5.2-.5.8 0 1 1.1.5 2.3.5 2.8 1.6.2.4.4.6.8.5 1.4-.4 2.4-.1 3.3.5 1 .7 2.5.7 3.5 0 .9-.6 1.9-.9 3.3-.5.4.1.6-.1.8-.5.5-1.1 1.7-1.1 2.8-1.6.5-.2.5-.8 0-1-2.3-.8-3.7-2.2-4.1-4.7 1-.4 2.2-.8 2-1.6-.2-.7-1.1-.6-1.9-.3V7.6c0-3-1.6-5.1-4.6-5.1Z"/>
@@ -601,7 +593,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="places.js?v=2.1"></script>
-  <script src="app.js?v=2.1"></script>
+  <script src="places.js?v=2.2"></script>
+  <script src="app.js?v=2.2"></script>
 </body>
 </html>
