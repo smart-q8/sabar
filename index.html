@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#060709" />
+  <meta name="theme-color" content="#f0eee8" />
   <meta name="description" content="دليل بويوسف الصبر الشامل للأعمال والتسوق في الصين: غوانزو للجملة والأسواق، شنغهاي للأعمال والمعالم، وفوشان لعالم الأثاث والإنارة. نسخ العناوين بالصينية، بطاقة سائق التاكسي، خريطة Amap، بطاقة دخول الصين، ومحول العملات." />
   <meta name="keywords" content="الصبر للصين, غوانزو, شنغهاي, فوشان, أسواق الصين, كوانزو بالجملة, أثاث فوشان, بطاقة دخول الصين, مترو غوانزو, مطاعم حلال في الصين" />
   
@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="styles.css?v=2.2" />
+  <link rel="stylesheet" href="styles.css?v=2.3" />
 </head>
 <body>
 
@@ -52,38 +52,37 @@
   <!-- Main Container -->
   <main class="container" id="top">
     
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-pill">
-        <span>✨ الإصدار المطوّر الشامل ٢٠٢٦</span>
-        <span>•</span>
-        <span>دليل بويوسف الصبر</span>
-      </div>
-      <h1 class="hero-title">
-        دليلك الذكي للتجارة، التسوق،<br />
-        <span class="highlight">والسياحة في الصين 🇨🇳</span>
-      </h1>
-      <p class="hero-desc">
-        غوانزو لأسواق الجملة والمصانع · شنغهاي للحياة والمعالم العصرية · فوشان لعاصمة الأثاث والإنارة. كل مكان يحمل الاسم الصيني الدقيق، العنوان الكامل، بطاقة مخصصة لسائق التاكسي، وخريطة Amap المعتمدة داخل الصين.
-      </p>
+    <!-- Compact Hero Command Center -->
+    <section class="hero-compact">
+      <div class="hero-header-row">
+        <div class="hero-title-group">
+          <div class="hero-mini-badge">
+            <span>دليل بويوسف الصبر للتجارة والتسوق</span>
+            <span class="badge-sep">•</span>
+            <span>الصين ٢٠٢٦</span>
+          </div>
+          <h1 class="hero-compact-title">
+            دليلك الذكي للشغل والتسوق في الصين
+          </h1>
+          <p class="hero-compact-desc">
+            غوانزو للجملة والأسواق · شنغهاي للأعمال والمعالم · فوشان لعالم الأثاث والإنارة — العناوين الصينية المعتمدة، خرائط Amap، وبطاقة سائق التاكسي.
+          </p>
+        </div>
 
-      <!-- Stats Bar -->
-      <div class="hero-stats">
-        <div class="stat-card">
-          <span class="stat-num" id="statPlacesCount">271</span>
-          <span class="stat-label">موقعاً تجارياً وسياحياً</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num">3</span>
-          <span class="stat-label">مدن رئيسية (GZ • SH • FS)</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">دعم النسخ الصيني والتاكسي</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num">Offline</span>
-          <span class="stat-label">يعمل بدون إنترنت (PWA)</span>
+        <!-- Compact Stats Bar -->
+        <div class="hero-stats-strip">
+          <div class="stat-pill">
+            <span class="stat-pill-num" id="statPlacesCount">271</span>
+            <span class="stat-pill-lbl">موقعاً معتمداً</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">3</span>
+            <span class="stat-pill-lbl">مدن رئيسية</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">PWA</span>
+            <span class="stat-pill-lbl">يعمل بدون نت</span>
+          </div>
         </div>
       </div>
 
@@ -94,7 +93,7 @@
           type="text" 
           id="globalSearch" 
           class="search-input" 
-          placeholder="ابحث بالعربي، بالصيني، بالإنجليزي (مثل: بايما، أثاث فوشان، ساعات، مطعم حلال، ديزني...)" 
+          placeholder="ابحث عن سوق، مول، أثاث فوشان، ساعات، حقائب، مطعم حلال (مثال: بايما، اللوفر، ديزني...)" 
           autocomplete="off"
         />
         <button id="clearSearchBtn" class="search-clear" title="مسح البحث">✕</button>
@@ -103,13 +102,13 @@
       <!-- Quick Search Suggestions -->
       <div class="quick-tags">
         <span class="quick-tag-label">بحث سريع:</span>
-        <button class="quick-tag" onclick="quickSearch('ملابس')">👗 أسواق الملابس</button>
+        <button class="quick-tag" onclick="quickSearch('ملابس')">👗 ملابس</button>
         <button class="quick-tag" onclick="quickSearch('أثاث')">🛋️ أثاث فوشان</button>
-        <button class="quick-tag" onclick="quickSearch('ساعات')">⌚ سوق الساعات</button>
-        <button class="quick-tag" onclick="quickSearch('شنط')">👜 حقائب وجلديات</button>
-        <button class="quick-tag" onclick="quickSearch('إنارة')">💡 ثريات وإنارة</button>
-        <button class="quick-tag" onclick="quickSearch('مطعم')">🍽️ مطاعم حلال</button>
-        <button class="quick-tag" onclick="quickSearch('ألعاب')">🧸 ألعاب وهدايا</button>
+        <button class="quick-tag" onclick="quickSearch('ساعات')">⌚ ساعات</button>
+        <button class="quick-tag" onclick="quickSearch('شنط')">👜 حقائب</button>
+        <button class="quick-tag" onclick="quickSearch('إنارة')">💡 إنارة</button>
+        <button class="quick-tag" onclick="quickSearch('مطعم')">🍽️ مطاعم</button>
+        <button class="quick-tag" onclick="quickSearch('ألعاب')">🧸 ألعاب</button>
         <button class="quick-tag" onclick="quickSearch('بايما')">白马 بايما</button>
       </div>
     </section>
@@ -593,7 +592,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="places.js?v=2.2"></script>
-  <script src="app.js?v=2.2"></script>
+  <script src="places.js?v=2.3"></script>
+  <script src="app.js?v=2.3"></script>
 </body>
 </html>
