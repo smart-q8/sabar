@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#102c36" />
+    <meta
+      name="description"
+      content="دليل بويوسف الصبر لغوانزو وشنغهاي: أسواق، معالم، مطاعم، كافيهات، وفنادق، مع نسخ الاسم الصيني وبحث Amap وتاكسي DIDI."
+    />
+    <title>دليل بويوسف الصبر | غوانزو وشنغهاي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <p class="kicker">دليل المسافر · الصين</p>
+      <h1>دليل بويوسف الصبر</h1>
+      <p class="lede">
+        غوانزو وشنغهاي في صفحة واحدة: أسواق، معالم، مطاعم، كافيهات، وفنادق.
+        انسخ الاسم الصيني قبل ما تطلب التاكسي.
+      </p>
+      <a class="snap" href="https://www.snapchat.com/add/alsaber22" rel="noopener">
+        Snapchat · alsaber22
+      </a>
+      <div class="cities" id="cities"></div>
+    </header>
+
+    <main>
+      <section class="tips" aria-label="قبل ما تروح">
+        <article>
+          <h2>انسخ الاسم</h2>
+          <p>الاسم الصيني هو اللي يفهمه السائق والبائع. انسخه من البطاقة وأظهره له.</p>
+        </article>
+        <article>
+          <h2>الخريطة بحث</h2>
+          <p>زر Amap يبحث عن المكان، وما يعني إن الإحداثية مؤكدة. تأكد من الفرع والعنوان.</p>
+        </article>
+        <article>
+          <h2>تاكسي DIDI</h2>
+          <p>الزر يفتح Alipay قدر الإمكان. داخل التطبيق ابحث عن 滴滴出行. ما فيه رابط مباشر موثّق.</p>
+        </article>
+        <article>
+          <h2>الحلال</h2>
+          <p>المطاعم غير مصنفة حلالًا في هذا الدليل. تأكد بنفسك قبل الطلب.</p>
+        </article>
+      </section>
+
+      <section class="toolbar" aria-label="بحث وتصفية">
+        <label class="search-wrap">
+          <span class="sr">ابحث</span>
+          <input
+            id="search"
+            class="search"
+            type="search"
+            placeholder="ابحث بالعربية أو الصينية أو الإنجليزية..."
+            autocomplete="off"
+          />
+        </label>
+        <div class="filters" id="filters"></div>
+        <p class="stats" id="stats"></p>
+      </section>
+
+      <section class="cards" id="cards" aria-live="polite"></section>
+
+      <p class="disclaimer">
+        زر الخريطة يبحث عن المكان في Amap، ولا يعني أن إحداثياته مؤكدة. تأكد من الفرع
+        والعنوان قبل الذهاب. زر تاكسي DIDI يفتح Alipay قدر الإمكان، ثم ابحث عن خدمة
+        DiDi (滴滴出行). لا يتوفر رابط مباشر موثّق للخدمة داخل Alipay. قد يختلف فتح
+        التطبيقات حسب الجهاز. المطاعم غير مصنفة حلالًا إلا بعد التحقق.
+      </p>
+    </main>
+
+    <footer>دليل بويوسف الصبر · alsaber22</footer>
+
+    <dialog id="didiHelp">
+      <h2>تاكسي DIDI داخل Alipay</h2>
+      <p>افتح تطبيق Alipay (支付宝) وابحث عن 滴滴出行 ثم اختر خدمة التاكسي.</p>
+      <div class="dialog-actions">
+        <button type="button" id="copyDidi">نسخ اسم DIDI بالصيني</button>
+        <button type="button" id="closeDidi" class="ghost">إغلاق</button>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="places.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
