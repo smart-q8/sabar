@@ -130,9 +130,10 @@ function renderCities() {
     .map(([id, info]) => {
       const count = PLACES.filter((place) => place.city === id).length;
       return `<button type="button" class="city ${city === id ? "on" : ""}" data-city="${id}">
-        <span class="city-count">${count}</span>
+        <span class="city-cn" lang="zh">${info.cn}</span>
+        <span class="city-meta">${count} عنوان</span>
         <strong>${info.ar}</strong>
-        <small>${info.cn} · ${info.en}</small>
+        <small>${info.en}</small>
         <span class="city-blurb">${escapeHtml(info.blurb)}</span>
       </button>`;
     })
@@ -165,14 +166,16 @@ function renderCards() {
         : '<div class="cn missing">الاسم الصيني يحتاج إلى تحقق</div>';
       const note = place.note ? `<p class="note">${escapeHtml(place.note)}</p>` : "";
       return `<article class="card" data-cat="${escapeHtml(place.cat)}">
-        <span class="category">${escapeHtml(place.cat)}</span>
-        <h3>${escapeHtml(place.ar)}</h3>
+        <div class="card-main">
+          <span class="category">${escapeHtml(place.cat)}</span>
+          <h3>${escapeHtml(place.ar)}</h3>
+          ${note}
+        </div>
         ${chinese}
-        ${note}
         <div class="actions">
-          <button type="button" data-act="copy" data-i="${index}">نسخ الاسم</button>
-          <button type="button" data-act="map" data-i="${index}">Amap</button>
-          <button type="button" class="taxi" data-act="taxi">تاكسي DIDI</button>
+          <button type="button" data-act="copy" data-i="${index}">نسخ</button>
+          <button type="button" data-act="map" data-i="${index}">خريطة</button>
+          <button type="button" class="taxi" data-act="taxi">تاكسي</button>
         </div>
       </article>`;
     })
