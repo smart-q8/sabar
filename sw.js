@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sabar-china-v1';
+const CACHE_NAME = 'sabar-china-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
