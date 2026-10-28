@@ -175,6 +175,7 @@ function renderCards() {
         <div class="actions">
           <button type="button" data-act="copy" data-i="${index}">نسخ</button>
           <button type="button" data-act="map" data-i="${index}">خريطة</button>
+          ${place.site ? `<a class="site" href="${escapeHtml(place.site)}" target="_blank" rel="noopener">موقع</a>` : ""}
           <button type="button" class="taxi" data-act="taxi">تاكسي</button>
         </div>
       </article>`;

@@ -235,7 +235,8 @@ const PLACES = [
     "cat": "تسوق",
     "ar": "معرض الكوانزو العالمي",
     "cn": "琶洲广交会展馆",
-    "note": ""
+    "note": "",
+    "site": "https://www.cantonfair.org.cn/"
   },
   {
     "city": "gz",
@@ -298,14 +299,16 @@ const PLACES = [
     "cat": "تسوق",
     "ar": "مجمع ماركات الاصلي",
     "cn": "天河路太古汇",
-    "note": ""
+    "note": "",
+    "site": "https://www.taikoohui.com/en/"
   },
   {
     "city": "gz",
     "cat": "تسوق",
     "ar": "مجمع ماركات الاصلي",
     "cn": "天河路天环广场",
-    "note": ""
+    "note": "",
+    "site": "https://www.parccentral.com.cn/"
   },
   {
     "city": "gz",
@@ -382,14 +385,16 @@ const PLACES = [
     "cat": "تسوق",
     "ar": "المطار الكوانزو مبني 1",
     "cn": "白云机场T1",
-    "note": ""
+    "note": "",
+    "site": "https://www.baiyunairport.com/"
   },
   {
     "city": "gz",
     "cat": "تسوق",
     "ar": "المطار الكوانزو مبني 2",
     "cn": "白云机场T2",
-    "note": ""
+    "note": "",
+    "site": "https://www.baiyunairport.com/"
   },
   {
     "city": "gz",
@@ -473,7 +478,8 @@ const PLACES = [
     "cat": "فنادق",
     "ar": "فندق فورسيزن",
     "cn": "珠江新城四季酒店",
-    "note": ""
+    "note": "",
+    "site": "https://www.fourseasons.com/guangzhou/"
   },
   {
     "city": "gz",
@@ -564,14 +570,16 @@ const PLACES = [
     "cat": "تسوق",
     "ar": "Florentia Village Outlet",
     "cn": "佛罗伦萨小镇",
-    "note": ""
+    "note": "",
+    "site": "https://www.florentiavillage.com/en/guangfo"
   },
   {
     "city": "gz",
     "cat": "تسوق",
     "ar": "K11",
     "cn": "广州K11购物艺术中心",
-    "note": ""
+    "note": "",
+    "site": "https://gz.k11.com/"
   },
   {
     "city": "gz",
@@ -599,21 +607,24 @@ const PLACES = [
     "cat": "تسوق",
     "ar": "Super brand mall",
     "cn": "正大广场",
-    "note": ""
+    "note": "",
+    "site": "https://www.superbrandmall.com/"
   },
   {
     "city": "sh",
     "cat": "تسوق",
     "ar": "Xintiandi مول",
     "cn": "新天地",
-    "note": ""
+    "note": "",
+    "site": "https://www.xintiandi.com/en/"
   },
   {
     "city": "sh",
     "cat": "تسوق",
     "ar": "Outlet- Florentia village",
     "cn": "",
-    "note": "Florentia village"
+    "note": "Florentia village",
+    "site": "https://www.florentiavillage.com/en/shanghai"
   },
   {
     "city": "sh",
@@ -634,7 +645,8 @@ const PLACES = [
     "cat": "تسوق",
     "ar": "Ifc mall",
     "cn": "上海国金中心商场",
-    "note": ""
+    "note": "",
+    "site": "http://www.shanghaiifcmall.com.cn/"
   },
   {
     "city": "sh",
@@ -655,7 +667,8 @@ const PLACES = [
     "cat": "تسوق",
     "ar": "Plaza 66",
     "cn": "恒隆广场",
-    "note": ""
+    "note": "",
+    "site": "https://www.hanglung.com/zh-cn/properties/mainland-properties/shanghai/plaza-66/"
   },
   {
     "city": "sh",
@@ -669,7 +682,8 @@ const PLACES = [
     "cat": "تسوق",
     "ar": "Hkri taikoo hui",
     "cn": "兴业太古汇",
-    "note": ""
+    "note": "",
+    "site": "https://www.hkri.com/en/Our-Businesses/Mainland-China/HKRI-Taikoo-Hui"
   },
   {
     "city": "sh",
@@ -711,7 +725,8 @@ const PLACES = [
     "cat": "تسوق",
     "ar": "Yu garden",
     "cn": "豫园",
-    "note": ""
+    "note": "",
+    "site": "https://www.yugarden.com.cn/"
   },
   {
     "city": "sh",
@@ -1152,7 +1167,8 @@ const PLACES = [
     "cat": "سياحة",
     "ar": "Disneyland",
     "cn": "",
-    "note": ""
+    "note": "",
+    "site": "https://www.shanghaidisneyresort.com/"
   },
   {
     "city": "sh",
@@ -1208,7 +1224,8 @@ const PLACES = [
     "cat": "سياحة",
     "ar": "برج كانتون",
     "cn": "广州塔",
-    "note": ""
+    "note": "",
+    "site": "https://www.cantontower.com/en/"
   },
   {
     "city": "gz",
@@ -1222,7 +1239,8 @@ const PLACES = [
     "cat": "سياحة",
     "ar": "تشيميلونغ سفاري بارك",
     "cn": "长隆野生动物世界",
-    "note": ""
+    "note": "",
+    "site": "https://www.chimelong.com/"
   },
   {
     "city": "gz",
@@ -1243,55 +1261,63 @@ const PLACES = [
     "cat": "فنادق",
     "ar": "فندق فور سيزونز غوانزو",
     "cn": "广州四季酒店",
-    "note": ""
+    "note": "",
+    "site": "https://www.fourseasons.com/guangzhou/"
   },
   {
     "city": "gz",
     "cat": "فنادق",
     "ar": "فندق روزوود غوانزو",
     "cn": "广州瑰丽酒店",
-    "note": ""
+    "note": "",
+    "site": "https://www.rosewoodhotels.com/en/guangzhou"
   },
   {
     "city": "sh",
     "cat": "سياحة",
     "ar": "برج لؤلؤة الشرق",
     "cn": "东方明珠广播电视塔",
-    "note": ""
+    "note": "",
+    "site": "https://www.opg.cn/"
   },
   {
     "city": "sh",
     "cat": "سياحة",
     "ar": "برج شنغهاي",
     "cn": "上海中心大厦",
-    "note": ""
+    "note": "",
+    "site": "https://www.shanghaitower.com/"
   },
   {
     "city": "sh",
     "cat": "سياحة",
     "ar": "ديزني لاند شنغهاي",
     "cn": "上海迪士尼乐园",
-    "note": ""
+    "note": "",
+    "site": "https://www.shanghaidisneyresort.com/"
   },
   {
     "city": "sh",
     "cat": "فنادق",
     "ar": "فندق فيرمونت بيس",
     "cn": "和平饭店",
-    "note": ""
+    "note": "",
+    "site": "https://www.fairmont.com/zh/hotels/shanghai/fairmont-peace-hotel.html"
   },
   {
     "city": "sh",
     "cat": "فنادق",
     "ar": "فندق كونراد شنغهاي",
     "cn": "上海康莱德酒店",
-    "note": ""
+    "note": "",
+    "site": "https://www.hilton.com/en/hotels/shacyci-conrad-shanghai/"
   },
   {
     "city": "sh",
     "cat": "فنادق",
     "ar": "فندق ريتز كارلتون بودونغ",
     "cn": "上海浦东丽思卡尔顿酒店",
-    "note": ""
+    "note": "",
+    "site": "https://www.ritzcarlton.com/en/hotels/shasz-the-ritz-carlton-shanghai-pudong/overview/"
   }
 ];

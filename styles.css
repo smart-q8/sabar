@@ -154,7 +154,7 @@ a { color: inherit; text-decoration: none; }
 }
 .cn.missing { color: var(--muted); direction: rtl; font-size: 14px; font-weight: 500; }
 .actions { display: flex; gap: 6px; }
-.actions button, .dialog-actions button {
+.actions a, .actions button, .dialog-actions button {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 8px 12px;
