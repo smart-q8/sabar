@@ -129,10 +129,10 @@ function renderCities() {
     .map(([id, info]) => {
       const count = PLACES.filter((place) => place.city === id).length;
       return `<button type="button" class="city ${city === id ? "on" : ""}" data-city="${id}">
+        <span class="city-count">${count}</span>
         <strong>${info.ar}</strong>
         <small>${info.cn} · ${info.en}</small>
-        <span>${escapeHtml(info.blurb)}</span>
-        <span>${count} مكان</span>
+        <span class="city-blurb">${escapeHtml(info.blurb)}</span>
       </button>`;
     })
     .join("");
@@ -162,8 +162,8 @@ function renderCards() {
       const chinese = place.cn
         ? `<div class="cn" lang="zh">${escapeHtml(place.cn)}</div>`
         : '<div class="cn missing">الاسم الصيني يحتاج إلى تحقق</div>';
-      const note = place.note ? `<p class="note">${escapeHtml(place.note)}</p>` : '<p class="note"></p>';
-      return `<article class="card">
+      const note = place.note ? `<p class="note">${escapeHtml(place.note)}</p>` : "";
+      return `<article class="card" data-cat="${escapeHtml(place.cat)}">
         <span class="category">${escapeHtml(place.cat)}</span>
         <h3>${escapeHtml(place.ar)}</h3>
         ${chinese}
