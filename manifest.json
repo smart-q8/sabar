@@ -1,0 +1,22 @@
+{
+  "name": "الصبر للصين | غوانزو، شنغهاي، وفوشان",
+  "short_name": "الصبر للصين",
+  "description": "دليل بويوسف الصبر الشامل لعناوين الأعمال، أسواق الجملة، الأثاث، والمطاعم في الصين",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#08090a",
+  "theme_color": "#0d1117",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

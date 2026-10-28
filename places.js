@@ -1,1323 +1,2986 @@
+/* الصبر للصين - قاعدة البيانات الشاملة */
 const PLACES = [
   {
+    "id": "p_1",
     "city": "gz",
     "cat": "تسوق",
-    "ar": "سوق الملابس رجالي و النسائي",
+    "ar": "سوق بايما للملابس",
     "cn": "白马服装批发市场",
+    "en": "Baima Clothing Wholesale Market",
+    "cnAddr": "",
+    "enAddr": "",
     "note": ""
   },
   {
+    "id": "p_2",
     "city": "gz",
     "cat": "تسوق",
-    "ar": "سوق الملابس رجالي و النسائي",
-    "cn": "流花服装批发市场",
+    "ar": "سوق زانشي للملابس",
+    "cn": "站西服装城",
+    "en": "Zhanxi Clothing Market",
+    "cnAddr": "",
+    "enAddr": "",
     "note": ""
   },
   {
+    "id": "p_3",
     "city": "gz",
     "cat": "تسوق",
-    "ar": "سوق الملابس رجالي و النسائي والاطفال",
-    "cn": "站前路地一大道服装城",
+    "ar": "سوق وانلينغ للهدايا",
+    "cn": "万菱广场",
+    "en": "Onelink International Plaza",
+    "cnAddr": "",
+    "enAddr": "",
     "note": ""
   },
   {
+    "id": "p_4",
     "city": "gz",
     "cat": "تسوق",
-    "ar": "سوق ملابس الاطفال و لوازم الام",
-    "cn": "中山八路妇幼服装城",
+    "ar": "سوق ييد للسلع والهدايا",
+    "cn": "一德路",
+    "en": "Yide Road",
+    "cnAddr": "",
+    "enAddr": "",
     "note": ""
   },
   {
+    "id": "p_5",
     "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق ملابس الداخليه",
-    "cn": "站前路金祥大厦",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الملابس بالجمله 1",
-    "cn": "十三行服装批发市场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الملابس بالجمله 2",
-    "cn": "沙河服装批发市场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الملابس التقليدي والمودلات الجديده",
-    "cn": "站西路汇美国际服装城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الساعات",
-    "cn": "站西路钟表市场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الحقائب والجلديات والمقلد",
-    "cn": "桂花岗白云皮具城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الاحذيه",
-    "cn": "环市西路步云天地鞋城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الاحذيه",
-    "cn": "环市西路华丽宫鞋城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الاقمشه",
-    "cn": "中大轻纺城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الاكسسورات",
-    "cn": "站前路西郊大厦",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق ادوات التجميل و العطور 1",
-    "cn": "三元里美博城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق ادوات التجميل و العطور 2",
-    "cn": "机场路兴发广场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الهدايا والتحف",
-    "cn": "解放南路万菱广场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الالعاب",
-    "cn": "一德路国际玩具城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق القرطاسية",
-    "cn": "黄沙大道谊园文具批发市场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق اكسسورات الموبايلات",
-    "cn": "南方大厦",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الاكترونيات",
-    "cn": "大沙头海印电器城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق النظارات",
-    "cn": "人民中路南方眼镜城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الكمبيوتر",
-    "cn": "天河岗顶百脑汇电脑城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق زينة السيارات",
-    "cn": "恒福路益友汽配城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق قطعة الغياره السيارات",
-    "cn": "三元里汽配城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق اواني المنزلية",
-    "cn": "番禺沙溪酒店用品市场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق ادوات البناء",
-    "cn": "南岸路广东装饰材料市场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق ادوات الرياضيه",
-    "cn": "南岸路星之光南岸文体市场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الاحجار الكريم",
-    "cn": "荔湾路荔湾广场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق شاي الصيني",
-    "cn": "芳村茶叶市场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق ادوات الطبي",
-    "cn": "荔湾区花湾路国览医疗器械城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الطيور الاسماك",
-    "cn": "芳村花鸟鱼虫新世界",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق ادوات صيد الاسماك",
-    "cn": "荔湾区紫荆道73号金华池渔具商城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "معرض الكوانزو العالمي",
-    "cn": "琶洲广交会展馆",
-    "note": "",
-    "site": "https://www.cantonfair.org.cn/"
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مدينة السرايمك و ادوات الصحيه فوشان",
-    "cn": "佛山意陶瓷城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "سوق الاثاث شنده",
-    "cn": "顺德乐从家具城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مدينة الاضاءه قوتشن",
-    "cn": "中山古镇",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مدينة الاكترونيات",
-    "cn": "深圳华强北赛格大厦",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "عناوين اسواق و المجمع في الليل",
-    "cn": "广州步行街和商场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "شارع بكين",
-    "cn": "北京路步行街",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "شارع شانجشياجيو",
-    "cn": "上下九步行街",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
+    "cat": "مولات",
     "ar": "تي مول",
-    "cn": "天河路天河城",
+    "cn": "天河城",
+    "en": "Teemall",
+    "cnAddr": "",
+    "enAddr": "",
     "note": ""
   },
   {
+    "id": "p_6",
     "city": "gz",
-    "cat": "تسوق",
-    "ar": "مجمع ماركات الاصلي",
-    "cn": "天河路太古汇",
-    "note": "",
-    "site": "https://www.taikoohui.com/en/"
+    "cat": "مولات",
+    "ar": "تايكو هوي غوانزو",
+    "cn": "太古汇",
+    "en": "Taikoo Hui",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
   },
   {
+    "id": "p_7",
     "city": "gz",
-    "cat": "تسوق",
-    "ar": "مجمع ماركات الاصلي",
-    "cn": "天河路天环广场",
-    "note": "",
-    "site": "https://www.parccentral.com.cn/"
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مجمع ماركات الاصلي",
-    "cn": "环市东路友谊商店",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مجمع ماركات الاصلي",
-    "cn": "珠江新城金融城广场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مجمع ماركات الاصلي",
-    "cn": "珠江新城万象城",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "عناوين المطاعم",
-    "cn": "广州餐厅地址",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "مطاعم",
-    "ar": "مطعم السدة",
-    "cn": "环市东路金鹰大厦",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "مطاعم",
-    "ar": "مطعم الحضرموت",
-    "cn": "环市东路怡东大厦",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "مطاعم",
-    "ar": "مطعم بوسفور تركي",
-    "cn": "小北肇庆大厦",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "مطاعم",
-    "ar": "مطعم سلطان تركي",
-    "cn": "环市东路白云宾馆",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "شارع عرب في كوانزو",
-    "cn": "广州小北路",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مطار الكوانزو ومحطات القطارات",
-    "cn": "广州机场和火车站",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "المطار الكوانزو مبني 1",
-    "cn": "白云机场T1",
-    "note": "",
-    "site": "https://www.baiyunairport.com/"
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "المطار الكوانزو مبني 2",
-    "cn": "白云机场T2",
-    "note": "",
-    "site": "https://www.baiyunairport.com/"
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "محطة القطار الشرقيه",
-    "cn": "广州火车东站",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "محطة القطار السريع الجنوبيه",
-    "cn": "广州火车南站",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "محطة القطار الجديده",
-    "cn": "广州白云火车站",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "عناوين المساجد",
-    "cn": "广州清真寺",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مسجد الجامع الكبير",
-    "cn": "光塔路怀圣寺",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مسجد صحابي ابو وقاص",
-    "cn": "兰圃路先贤古墓清真寺",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "مسجد شياو دونجيينج",
-    "cn": "越秀区小东营1号",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "بعض عناوين فنادق في كوانزو",
-    "cn": "广州部分酒店地址",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "فنادق",
-    "ar": "فندق اسيا دولي",
-    "cn": "环市东路亚洲国际大酒店",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "فنادق",
-    "ar": "فندق ذا قاردن",
-    "cn": "环市东路花园酒店",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "فنادق",
-    "ar": "فندق كرون بلازا سيتي سنتر",
-    "cn": "环市东路广州皇冠中心假日酒店",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "فنادق",
-    "ar": "فندق فورسيزن",
-    "cn": "珠江新城四季酒店",
-    "note": "",
-    "site": "https://www.fourseasons.com/guangzhou/"
-  },
-  {
-    "city": "gz",
-    "cat": "سياحة",
-    "ar": "ساحة الممشى برج غوانزو",
-    "cn": "花城广场",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "مطاعم",
-    "ar": "Tiger Prawn – شارع بكين",
-    "cn": "北京路 Tiger Prawn",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "مطاعم",
-    "ar": "Mi Casa",
-    "cn": "Mi Casa 广州",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "كافيهات",
-    "ar": "Renren Cafe",
-    "cn": "Renren Cafe 广州",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "كافيهات",
-    "ar": "Deeper2",
-    "cn": "Deeper2 广州",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "كافيهات",
-    "ar": "Lilbee Coffee",
-    "cn": "Lilbee Coffee 广州",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "كافيهات",
-    "ar": "Silly Dog Coffee",
-    "cn": "Silly Dog Coffee 广州",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "كافيهات",
-    "ar": "Monkey Pai Coffee",
-    "cn": "Monkey Pai Coffee 广州",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "كافيهات",
-    "ar": "Withchill",
-    "cn": "Withchill 广州",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "كافيهات",
-    "ar": "Cedar Bakery",
-    "cn": "Cedar Bakery 广州",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "كافيهات",
-    "ar": "City Sweet Beijing",
-    "cn": "City Sweet 北京路",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "Wanguo Outlet",
-    "cn": "万国奥特莱斯",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "Florentia Village Outlet",
-    "cn": "佛罗伦萨小镇",
-    "note": "",
-    "site": "https://www.florentiavillage.com/en/guangfo"
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "K11",
-    "cn": "广州K11购物艺术中心",
-    "note": "",
-    "site": "https://gz.k11.com/"
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "Link Plaza",
-    "cn": "Link Plaza 广州",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "سياحة",
-    "ar": "Shamian Island",
-    "cn": "沙面岛",
-    "note": ""
-  },
-  {
-    "city": "gz",
-    "cat": "سياحة",
-    "ar": "Yongqing Fang",
-    "cn": "永庆坊",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Super brand mall",
-    "cn": "正大广场",
-    "note": "",
-    "site": "https://www.superbrandmall.com/"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Xintiandi مول",
-    "cn": "新天地",
-    "note": "",
-    "site": "https://www.xintiandi.com/en/"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Outlet- Florentia village",
-    "cn": "",
-    "note": "Florentia village",
-    "site": "https://www.florentiavillage.com/en/shanghai"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "New one mall -nanjing road",
-    "cn": "",
-    "note": "nanjing road"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "The bund",
-    "cn": "外滩",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Ifc mall",
-    "cn": "上海国金中心商场",
-    "note": "",
-    "site": "http://www.shanghaiifcmall.com.cn/"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Shs",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Stc",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Plaza 66",
-    "cn": "恒隆广场",
-    "note": "",
-    "site": "https://www.hanglung.com/zh-cn/properties/mainland-properties/shanghai/plaza-66/"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Reel man",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Hkri taikoo hui",
-    "cn": "兴业太古汇",
-    "note": "",
-    "site": "https://www.hkri.com/en/Our-Businesses/Mainland-China/HKRI-Taikoo-Hui"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Iapm",
-    "cn": "环贸iapm商场",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "1000 tres",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "New world - Nanjing",
-    "cn": "",
-    "note": "Nanjing"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "W zone سوق كوري",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Prisma مجمع يديد",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Yu garden",
-    "cn": "豫园",
-    "note": "",
-    "site": "https://www.yugarden.com.cn/"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Nanjing road",
-    "cn": "南京路步行街",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "North bund",
-    "cn": "北外滩",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Wukang building شارع كافيهات",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Tianzifang",
-    "cn": "田子坊",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "City god temple",
-    "cn": "上海城隍庙",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Sundy park",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Anfu road",
-    "cn": "安福路",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Wujiang road",
-    "cn": "吴江路",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Shanghi Yuyuan old street",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Qipu road- شارع مجمعات الملابس",
-    "cn": "七浦路",
-    "note": "شارع مجمعات الملابس"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Panlong Xintiandi",
-    "cn": "蟠龙天地",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "沙面岛",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Yalla shawrma - yu garden فندق كونراد و كراون",
-    "cn": "",
-    "note": "yu garden فندق كونراد و كراون"
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "new york bagelous museum بيكري ريوق",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Il teatro ايطالي",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Flair - فندق rits مو حلال بس ناكل بحري حق عيد زواجنا",
-    "cn": "",
-    "note": "فندق rits مو حلال بس ناكل بحري حق عيد زواجنا"
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Eli falafel",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Were house - تقول مو وايد حلو",
-    "cn": "",
-    "note": "تقول مو وايد حلو"
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Amam bakery",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Dior cafe قهوه",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Lv cafe قهوه",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Otantik",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Mado",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "M3 Crafting special dirty- dirty espresso قهوه",
-    "cn": "",
-    "note": "dirty espresso قهوه"
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "13de marzo قهوه الدب",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Matcha wang قهوه",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Kukuang gelato برد",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Molly’s dessert برد",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "O.P.S قهوه",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Crab deshis مطعم بحري",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Captain george كافيه",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Dirty soe قهوه",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Manner cafe",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Blacksheep espresso",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Holiland - bakery",
-    "cn": "",
-    "note": "bakery"
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Nudake - bakery",
-    "cn": "",
-    "note": "bakery"
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Boulang كافية",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Horlguchi coffee كافيه",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Coach cafe",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Blue bottle كافية",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Tiger coffee كافية",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Jellooo مطعم بحري",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Bella napoli ايطالي",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Pasha turkish مطعم",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "الف ليله و ليله مطعم",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "In elephant مطعم هندي",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Ranmin cafe-white magnolia plaza",
-    "cn": "",
-    "note": "white magnolia plaza"
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Minions cafe",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Le bistro pasta ايطالي",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Fat face كافيه",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Moofin كافيه ريوق",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Bottega مطعم ايطالي حلو",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "مطاعم",
-    "ar": "Klay مطعم هندي",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Corner coffee gelato برد",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "كافيهات",
-    "ar": "Holiland travel بيكري",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Qinzhi محل الكريمات",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Taoxia محل كريمات",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Jelly cat looknow park",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Harmny",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "Wiggle wiggle - محل كوابه و خرابيط",
-    "cn": "",
-    "note": "محل كوابه و خرابيط"
-  },
-  {
-    "city": "sh",
-    "cat": "تسوق",
-    "ar": "blan bunny's tea shanghai",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "سياحة",
-    "ar": "Omg park",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "سياحة",
-    "ar": "Disneyland",
-    "cn": "",
-    "note": "",
-    "site": "https://www.shanghaidisneyresort.com/"
-  },
-  {
-    "city": "sh",
-    "cat": "سياحة",
-    "ar": "Green house",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "سياحة",
-    "ar": "the starry band museum",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "سياحة",
-    "ar": "Jin mao tower sky",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "سياحة",
-    "ar": "Wow color",
-    "cn": "",
-    "note": ""
-  },
-  {
-    "city": "sh",
-    "cat": "سياحة",
-    "ar": "Twoi design lab-محل بجايم",
-    "cn": "",
-    "note": "محل بجايم"
-  },
-  {
-    "city": "sh",
-    "cat": "سياحة",
-    "ar": "Rockfish-محل جواتي",
-    "cn": "",
-    "note": "محل جواتي"
-  },
-  {
-    "city": "sh",
-    "cat": "سياحة",
-    "ar": "Muva محل جناط",
-    "cn": "",
+    "cat": "مولات",
+    "ar": "غراندفيو مول",
+    "cn": "正佳广场",
+    "en": "Grandview Mall",
+    "cnAddr": "",
+    "enAddr": "",
     "note": ""
   },
   {
+    "id": "p_8",
     "city": "gz",
     "cat": "سياحة",
     "ar": "برج كانتون",
     "cn": "广州塔",
-    "note": "",
-    "site": "https://www.cantontower.com/en/"
+    "en": "Canton Tower",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
   },
   {
+    "id": "p_9",
+    "city": "gz",
+    "cat": "سياحة",
+    "ar": "جزيرة شاميان",
+    "cn": "沙面岛",
+    "en": "Shamian Island",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_10",
     "city": "gz",
     "cat": "سياحة",
     "ar": "حديقة يوشيو",
     "cn": "越秀公园",
+    "en": "Yuexiu Park",
+    "cnAddr": "",
+    "enAddr": "",
     "note": ""
   },
   {
+    "id": "p_11",
     "city": "gz",
     "cat": "سياحة",
-    "ar": "تشيميلونغ سفاري بارك",
+    "ar": "جبل بايون",
+    "cn": "白云山",
+    "en": "Baiyun Mountain",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_12",
+    "city": "gz",
+    "cat": "سياحة",
+    "ar": "دار أوبرا غوانزو",
+    "cn": "广州大剧院",
+    "en": "Guangzhou Opera House",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_13",
+    "city": "gz",
+    "cat": "سياحة",
+    "ar": "حديقة حيوان تشيميلونغ",
     "cn": "长隆野生动物世界",
-    "note": "",
-    "site": "https://www.chimelong.com/"
-  },
-  {
-    "city": "gz",
-    "cat": "تسوق",
-    "ar": "تي مول",
-    "cn": "天河城",
+    "en": "Chimelong Safari Park",
+    "cnAddr": "",
+    "enAddr": "",
     "note": ""
   },
   {
+    "id": "p_14",
     "city": "gz",
-    "cat": "تسوق",
-    "ar": "غراندفيو مول",
-    "cn": "正佳广场",
+    "cat": "كافيهات",
+    "ar": "كافيهات تيانخه",
+    "cn": "天河区咖啡馆",
+    "en": "كافيهات تيانخه",
+    "cnAddr": "",
+    "enAddr": "",
     "note": ""
   },
   {
+    "id": "p_15",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "كافيهات جزيرة شاميان",
+    "cn": "沙面岛咖啡馆",
+    "en": "كافيهات جزيرة شاميان",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_16",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم سبأ",
+    "cn": "沙巴餐厅",
+    "en": "Saba Restaurant",
+    "cnAddr": "广州市环市中路300号天秀大厦C座",
+    "enAddr": "Guangzhou, Huanshi Middle Road, Tianxiu Building, Block C",
+    "note": ""
+  },
+  {
+    "id": "p_17",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم حضرموت",
+    "cn": "哈德拉毛餐厅",
+    "en": "Hadramout Restaurant",
+    "cnAddr": "广州市环市中路鸿辉国际商贸城",
+    "enAddr": "Honghui International Trading Mall, Huanshi Middle Road, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_18",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم الباشا",
+    "cn": "阿尔巴沙餐厅",
+    "en": "Al Basha Restaurant",
+    "cnAddr": "广州市东风西路156号湖天宾馆首层",
+    "enAddr": "156 Dongfeng West Road, Hutian Hotel, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_19",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم البوسفور",
+    "cn": "铂斯土耳其餐厅",
+    "en": "Bosphorus Restaurant",
+    "cnAddr": "广州市越秀区建设六马路1号",
+    "enAddr": "1 Jianshe 6th Road, Yuexiu, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_20",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم السلطان التركي",
+    "cn": "托普卡皮土耳其烧烤餐厅",
+    "en": "Sultan Turkish Restaurant",
+    "cnAddr": "广州市环市东路367号",
+    "enAddr": "367 Huanshi East Road, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_21",
     "city": "gz",
     "cat": "فنادق",
-    "ar": "فندق فور سيزونز غوانزو",
+    "ar": "فندق فورسيزونز غوانزو",
     "cn": "广州四季酒店",
-    "note": "",
-    "site": "https://www.fourseasons.com/guangzhou/"
+    "en": "Four Seasons Hotel Guangzhou",
+    "cnAddr": "广州市天河区珠江新城珠江西路5号",
+    "enAddr": "5 Zhujiang West Road, Tianhe District, Guangzhou",
+    "note": ""
   },
   {
+    "id": "p_22",
     "city": "gz",
     "cat": "فنادق",
-    "ar": "فندق روزوود غوانزو",
-    "cn": "广州瑰丽酒店",
-    "note": "",
-    "site": "https://www.rosewoodhotels.com/en/guangzhou"
+    "ar": "فندق ماريوت غوانزو تيانخه",
+    "cn": "广州天河万豪酒店",
+    "en": "Guangzhou Marriott Hotel Tianhe",
+    "cnAddr": "广州市天河区天河路228号",
+    "enAddr": "228 Tianhe Road, Tianhe District, Guangzhou",
+    "note": ""
   },
   {
+    "id": "p_23",
+    "city": "gz",
+    "cat": "فنادق",
+    "ar": "فندق ماندارين أورينتال غوانزو",
+    "cn": "广州文华东方酒店",
+    "en": "Mandarin Oriental Guangzhou",
+    "cnAddr": "广州市天河区天河路389号",
+    "enAddr": "389 Tianhe Road, Tianhe District, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_24",
+    "city": "gz",
+    "cat": "فنادق",
+    "ar": "فندق بارك حياة غوانزو",
+    "cn": "广州柏悦酒店",
+    "en": "Park Hyatt Guangzhou",
+    "cnAddr": "广州市天河区华夏路16号",
+    "enAddr": "16 Huaxia Road, Tianhe District, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_25",
+    "city": "gz",
+    "cat": "فنادق",
+    "ar": "فندق سوفيتيل غوانزو صن ريتش",
+    "cn": "广州圣丰索菲特大酒店",
+    "en": "Sofitel Guangzhou Sunrich",
+    "cnAddr": "广州市天河区广州大道中988号",
+    "enAddr": "988 Guangzhou Avenue Middle, Tianhe District, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_26",
+    "city": "gz",
+    "cat": "فنادق",
+    "ar": "فندق كونراد غوانزو",
+    "cn": "广州康莱德酒店",
+    "en": "Conrad Guangzhou",
+    "cnAddr": "广州市天河区兴民路222号",
+    "enAddr": "222 Xingmin Road, Tianhe District, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_27",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم تايغر براون – شارع بكين",
+    "cn": "Tiger Prawn Restaurant 北京路",
+    "en": "Tiger Prawn – Beijing Road",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_28",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم مي كاسا",
+    "cn": "Mi Casa 餐厅",
+    "en": "Mi Casa",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_29",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "مقهى رين رين",
+    "cn": "Renren Cafe",
+    "en": "Renren Cafe",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_30",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "مقهى ديبر 2",
+    "cn": "Deeper2 Coffee",
+    "en": "Deeper2",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_31",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "مقهى ليل بي",
+    "cn": "Lilbee Coffee",
+    "en": "Lilbee Coffee",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_32",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "مقهى سيلي دوغ",
+    "cn": "Silly Dog Coffee",
+    "en": "Silly Dog Coffee",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_33",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "مقهى مونكي باي",
+    "cn": "Monkey Pai Coffee",
+    "en": "Monkey Pai Coffee",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_34",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "مقهى ويذ تشيل",
+    "cn": "Withchill Coffee",
+    "en": "Withchill",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_35",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "مخبز سيدار",
+    "cn": "Cedar Bakery",
+    "en": "Cedar Bakery",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_36",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "سيتي سويت – شارع بكين",
+    "cn": "City Sweet 北京路",
+    "en": "City Sweet Beijing",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_37",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "وانغو أوتلت",
+    "cn": "万国奥特莱斯",
+    "en": "Wanguo Outlet",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_38",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "فلورنتيا فيليج أوتلت – غوانزو",
+    "cn": "广州佛罗伦萨小镇",
+    "en": "Florentia Village Outlet Guangzhou",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_39",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "بارك سنترال",
+    "cn": "天环广场",
+    "en": "Parc Central",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_40",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "كي 11 غوانزو",
+    "cn": "广州K11购物艺术中心",
+    "en": "K11 Guangzhou",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_41",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "لينك بلازا",
+    "cn": "Link Plaza 广州",
+    "en": "Link Plaza",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_42",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "ميكس سي مول",
+    "cn": "广州万象城",
+    "en": "MixC Mall Guangzhou",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_43",
+    "city": "gz",
+    "cat": "سياحة",
+    "ar": "يونغتشينغ فانغ",
+    "cn": "永庆坊",
+    "en": "Yongqing Fang",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_44",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق APM",
+    "cn": "APM购物中心",
+    "en": "APM Shopping Mall",
+    "cnAddr": "广州市天河区天河路228号",
+    "enAddr": "228 Tianhe Road, Tianhe District, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_45",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "مول APM",
+    "cn": "APM购物中心",
+    "en": "APM Shopping Mall",
+    "cnAddr": "广州市天河区天河路228号",
+    "enAddr": "228 Tianhe Road, Tianhe District, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_46",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم مادو التركي – تاوجين",
+    "cn": "MADO 土耳其餐厅",
+    "en": "MADO Turkish Restaurant – Taojin",
+    "cnAddr": "中国广东省广州市越秀区环市东路363号",
+    "enAddr": "363 Huanshi East Road, Yuexiu District, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_47",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم بوراك التركي",
+    "cn": "Burak 土耳其餐厅",
+    "en": "Burak Turkish Restaurant",
+    "cnAddr": "广州市越秀区环市东路362好世界广场F1层",
+    "enAddr": "F1, Good World Plaza, 362 Huanshi East Road, Yuexiu District, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_48",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم زيتونة – فرع هوانشي الشرقي",
+    "cn": "Zaitouna 餐厅",
+    "en": "Zaitouna Restaurant – Huanshi East Road",
+    "cnAddr": "广州市越秀区环市东路362-363号好世界广场首层101-102铺",
+    "enAddr": "Shops 101–102, Ground Floor, Good World Plaza, 362–363 Huanshi East Road, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_49",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم زيتونة – فرع إكسيكون",
+    "cn": "Zaitouna 餐厅",
+    "en": "Zaitouna Restaurant – Exicon Area",
+    "cnAddr": "广州市越秀区环市东路362-363号好世界广场首层101-102铺",
+    "enAddr": "Shops 101–102, Ground Floor, Good World Plaza, 362–363 Huanshi East Road, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_50",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم أنطاليا التركي – فرع المنطقة العربية",
+    "cn": "安塔利亚土耳其餐厅",
+    "en": "Antalya Turkish Restaurant – Arab Area",
+    "cnAddr": "环市中路304号肇庆大厦2楼",
+    "enAddr": "2nd Floor, Zhaoqing Building, 304 Huanshi Middle Road, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_51",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم أنطاليا التركي – فرع ليده",
+    "cn": "安塔利亚土耳其餐厅",
+    "en": "Antalya Turkish Restaurant – Liede",
+    "cnAddr": "天河区猎德大道2号西浦大街第12栋29A-30A",
+    "enAddr": "Rooms 29A–30A, Building 12, Xipu Street, No. 2 Liede Avenue, Tianhe District, Guangzhou",
+    "note": ""
+  },
+  {
+    "id": "p_52",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم أنطاليا التركي – فرع شينغشنغ",
+    "cn": "安塔利亚土耳其餐厅",
+    "en": "Antalya Turkish Restaurant – Xingsheng",
+    "cnAddr": "天河区猎德大道2号西浦大街第12栋29A-30A",
+    "enAddr": "Rooms 29A-30A, Building 12, Xipu Street, No. 2 Liede Avenue",
+    "note": ""
+  },
+  {
+    "id": "p_53",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الملابس رجالي و النسائي",
+    "cn": "流花服装批发市场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_54",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الملابس رجالي و النسائي والاطفال",
+    "cn": "站前路地一大道服装城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_55",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق ملابس الاطفال و لوازم الام",
+    "cn": "中山八路妇幼服装城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_56",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق ملابس الداخليه",
+    "cn": "站前路金祥大厦",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_57",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الملابس بالجمله 1",
+    "cn": "十三行服装批发市场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_58",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الملابس بالجمله 2",
+    "cn": "沙河服装批发市场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_59",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الملابس التقليدي والمودلات الجديده",
+    "cn": "站西路汇美国际服装城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_60",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الساعات",
+    "cn": "站西路钟表市场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_61",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الحقائب والجلديات والمقلد",
+    "cn": "桂花岗白云皮具城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_62",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الاحذيه",
+    "cn": "环市西路步云天地鞋城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_63",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الاحذيه",
+    "cn": "环市西路华丽宫鞋城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_64",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الاقمشه",
+    "cn": "中大轻纺城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_65",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الاكسسورات",
+    "cn": "站前路西郊大厦",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_66",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق ادوات التجميل و العطور 1",
+    "cn": "三元里美博城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_67",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق ادوات التجميل و العطور 2",
+    "cn": "机场路兴发广场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_68",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الالعاب",
+    "cn": "一德路国际玩具城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_69",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق القرطاسية",
+    "cn": "黄沙大道谊园文具批发市场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_70",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق اكسسورات الموبايلات",
+    "cn": "南方大厦",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_71",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الاكترونيات",
+    "cn": "大沙头海印电器城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_72",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق النظارات",
+    "cn": "人民中路南方眼镜城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_73",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الكمبيوتر",
+    "cn": "天河岗顶百脑汇电脑城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_74",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق زينة السيارات",
+    "cn": "恒福路益友汽配城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_75",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق قطعة الغياره السيارات",
+    "cn": "三元里汽配城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_76",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق اواني المنزلية",
+    "cn": "番禺沙溪酒店用品市场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_77",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق ادوات البناء",
+    "cn": "南岸路广东装饰材料市场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_78",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق ادوات الرياضيه",
+    "cn": "南岸路星之光南岸文体市场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_79",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الاحجار الكريم",
+    "cn": "荔湾路荔湾广场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_80",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق شاي الصيني",
+    "cn": "芳村茶叶市场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_81",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق ادوات الطبي",
+    "cn": "荔湾区花湾路国览医疗器械城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_82",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الطيور الاسماك",
+    "cn": "芳村花鸟鱼虫新世界",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_83",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق ادوات صيد الاسماك",
+    "cn": "荔湾区紫荆道73号金华池渔具商城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_84",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "معرض الكوانزو العالمي",
+    "cn": "琶洲广交会展馆",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_85",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "مدينة الاكترونيات",
+    "cn": "深圳华强北赛格大厦",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_86",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "شارع بكين",
+    "cn": "北京路步行街",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_87",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "شارع شانجشياجيو",
+    "cn": "上下九步行街",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_88",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "تي مول",
+    "cn": "天河路天河城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_89",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "مجمع ماركات الاصلي",
+    "cn": "天河路太古汇",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_90",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "مجمع ماركات الاصلي",
+    "cn": "天河路天环广场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_91",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "مجمع ماركات الاصلي",
+    "cn": "环市东路友谊商店",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_92",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "مجمع ماركات الاصلي",
+    "cn": "珠江新城金融城广场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_93",
+    "city": "gz",
+    "cat": "مولات",
+    "ar": "مجمع ماركات الاصلي",
+    "cn": "珠江新城万象城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_94",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم السدة",
+    "cn": "环市东路金鹰大厦",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_95",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم الحضرموت",
+    "cn": "环市东路怡东大厦",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_96",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم بوسفور تركي",
+    "cn": "小北肇庆大厦",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_97",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "مطعم سلطان تركي",
+    "cn": "环市东路白云宾馆",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_98",
+    "city": "gz",
+    "cat": "سياحة",
+    "ar": "شارع عرب في كوانزو",
+    "cn": "广州小北路",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_99",
+    "city": "gz",
+    "cat": "مواصلات",
+    "ar": "المطار الكوانزو مبني 1",
+    "cn": "白云机场T1",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_100",
+    "city": "gz",
+    "cat": "مواصلات",
+    "ar": "المطار الكوانزو مبني 2",
+    "cn": "白云机场T2",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_101",
+    "city": "gz",
+    "cat": "مواصلات",
+    "ar": "محطة القطار الشرقيه",
+    "cn": "广州火车东站",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_102",
+    "city": "gz",
+    "cat": "مواصلات",
+    "ar": "محطة القطار السريع الجنوبيه",
+    "cn": "广州火车南站",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_103",
+    "city": "gz",
+    "cat": "مواصلات",
+    "ar": "محطة القطار الجديده",
+    "cn": "广州白云火车站",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_104",
+    "city": "gz",
+    "cat": "مساجد",
+    "ar": "مسجد الجامع الكبير",
+    "cn": "光塔路怀圣寺",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_105",
+    "city": "gz",
+    "cat": "مساجد",
+    "ar": "مسجد صحابي ابو وقاص",
+    "cn": "兰圃路先贤古墓清真寺",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_106",
+    "city": "gz",
+    "cat": "مساجد",
+    "ar": "مسجد شياو دونجيينج",
+    "cn": "越秀区小东营1号",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_107",
+    "city": "gz",
+    "cat": "فنادق",
+    "ar": "فندق اسيا دولي",
+    "cn": "环市东路亚洲国际大酒店",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_108",
+    "city": "gz",
+    "cat": "فنادق",
+    "ar": "فندق ذا قاردن",
+    "cn": "环市东路花园酒店",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_109",
+    "city": "gz",
+    "cat": "فنادق",
+    "ar": "فندق كرون بلازا سيتي سنتر",
+    "cn": "环市东路广州皇冠中心假日酒店",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_110",
+    "city": "gz",
+    "cat": "فنادق",
+    "ar": "فندق فورسيزن",
+    "cn": "珠江新城四季酒店",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_111",
+    "city": "gz",
+    "cat": "سياحة",
+    "ar": "ساحة الممشى برج غوانزو",
+    "cn": "花城广场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_112",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "شارع نانجينغ",
+    "cn": "南京路步行街",
+    "en": "Nanjing Road Pedestrian Street",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_113",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "سوق تشيبو للملابس",
+    "cn": "七浦路服装批发市场",
+    "en": "Qipu Road Clothing Market",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_114",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "سوق يويوان القديم",
+    "cn": "豫园老街",
+    "en": "Yuyuan Old Street",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_115",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "سوبر براند مول",
+    "cn": "正大广场",
+    "en": "Super Brand Mall",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_116",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "آي إف سي مول",
+    "cn": "上海国金中心商场",
+    "en": "IFC Mall",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_117",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "بلازا 66",
+    "cn": "恒隆广场",
+    "en": "Plaza 66",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_118",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "آي إيه بي إم",
+    "cn": "环贸iapm商场",
+    "en": "IAPM Mall",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_119",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "تايكو هوي",
+    "cn": "兴业太古汇",
+    "en": "HKRI Taikoo Hui",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_120",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "فلورنتيا فيليج أوتلت",
+    "cn": "上海佛罗伦萨小镇",
+    "en": "Florentia Village Outlet",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_121",
     "city": "sh",
     "cat": "سياحة",
-    "ar": "برج لؤلؤة الشرق",
-    "cn": "东方明珠广播电视塔",
-    "note": "",
-    "site": "https://www.opg.cn/"
+    "ar": "شينتياندي",
+    "cn": "新天地",
+    "en": "Xintiandi",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
   },
   {
+    "id": "p_122",
     "city": "sh",
     "cat": "سياحة",
-    "ar": "برج شنغهاي",
-    "cn": "上海中心大厦",
-    "note": "",
-    "site": "https://www.shanghaitower.com/"
+    "ar": "ذا بوند",
+    "cn": "外滩",
+    "en": "The Bund",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
   },
   {
+    "id": "p_123",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "حديقة يو",
+    "cn": "豫园",
+    "en": "Yu Garden",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_124",
     "city": "sh",
     "cat": "سياحة",
     "ar": "ديزني لاند شنغهاي",
     "cn": "上海迪士尼乐园",
-    "note": "",
-    "site": "https://www.shanghaidisneyresort.com/"
+    "en": "Shanghai Disneyland",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
   },
   {
+    "id": "p_125",
     "city": "sh",
-    "cat": "فنادق",
-    "ar": "فندق فيرمونت بيس",
-    "cn": "和平饭店",
-    "note": "",
-    "site": "https://www.fairmont.com/zh/hotels/shanghai/fairmont-peace-hotel.html"
+    "cat": "سياحة",
+    "ar": "برج لؤلؤة الشرق",
+    "cn": "东方明珠广播电视塔",
+    "en": "Oriental Pearl Tower",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
   },
   {
+    "id": "p_126",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "تيانزيفانغ",
+    "cn": "田子坊",
+    "en": "Tianzifang",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_127",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "مبنى ووكانغ",
+    "cn": "武康大楼",
+    "en": "Wukang Mansion",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_128",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "1000 تريز",
+    "cn": "天安千树",
+    "en": "1000 Trees",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_129",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "بانلونغ شينتياندي",
+    "cn": "蟠龙天地",
+    "en": "Panlong Tiandi",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_130",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "كافيهات شارع آنفو",
+    "cn": "安福路咖啡馆",
+    "en": "كافيهات شارع آنفو",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_131",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "كافيهات شارع ووكانغ",
+    "cn": "武康路咖啡馆",
+    "en": "كافيهات شارع ووكانغ",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_132",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "كافيهات شارع ووجيانغ",
+    "cn": "吴江路咖啡馆",
+    "en": "كافيهات شارع ووجيانغ",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_133",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "إيلي فلافل - جيوجيانغ",
+    "cn": "ELI FALAFEL黎巴嫩美食（九江路店）",
+    "en": "Eli Falafel – Jiujiang Road",
+    "cnAddr": "上海市黄浦区九江路686号107室",
+    "enAddr": "Room 107, 686 Jiujiang Road, Huangpu, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_134",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "إيلي فلافل - يانبينغ",
+    "cn": "ELI FALAFEL黎巴嫩美食（延平路店）",
+    "en": "Eli Falafel – Yanping Road",
+    "cnAddr": "上海市静安区延平路135号101室",
+    "enAddr": "Room 101, 135 Yanping Road, Jing’an, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_135",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "إيلي فلافل - نانجينغ الغربية",
+    "cn": "ELI FALAFEL黎巴嫩美食（南京西路店）",
+    "en": "Eli Falafel – West Nanjing Road",
+    "cnAddr": "上海市静安区南京西路1376号107室",
+    "enAddr": "Room 107, 1376 West Nanjing Road, Jing’an, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_136",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "مطعم الأندلس المغربي",
+    "cn": "安达卢斯摩洛哥餐厅·休闲吧",
+    "en": "Andalus Moroccan Restaurant",
+    "cnAddr": "上海市静安区常熟路77号",
+    "enAddr": "77 Changshu Road, Jing’an, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_137",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "مطعم نوماد الشرق أوسطي",
+    "cn": "Nomad游牧中东美食餐厅",
+    "en": "Nomad Middle Eastern Restaurant",
+    "cnAddr": "上海市黄浦区巨鹿路FOUND158地下一层",
+    "enAddr": "B1 FOUND 158, Julu Road, Huangpu, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_138",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "مطعم بيروت هاوس",
+    "cn": "贝鲁特之家上海",
+    "en": "Beirut House Shanghai",
+    "cnAddr": "上海市茂名路",
+    "enAddr": "Maoming Road, Shanghai (verify branch)",
+    "note": ""
+  },
+  {
+    "id": "p_139",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "مطعم مغربي",
+    "cn": "摩洛哥餐厅（上海）",
+    "en": "Moroccan Restaurant Shanghai",
+    "cnAddr": "上海市黄浦区云南南路",
+    "enAddr": "Yunnan South Road, Huangpu, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_140",
     "city": "sh",
     "cat": "فنادق",
     "ar": "فندق كونراد شنغهاي",
     "cn": "上海康莱德酒店",
-    "note": "",
-    "site": "https://www.hilton.com/en/hotels/shacyci-conrad-shanghai/"
+    "en": "Conrad Shanghai",
+    "cnAddr": "上海市黄浦区南京东路789号",
+    "enAddr": "789 East Nanjing Road, Huangpu District, Shanghai",
+    "note": ""
   },
   {
+    "id": "p_141",
+    "city": "sh",
+    "cat": "فنادق",
+    "ar": "فندق هوليداي إن شنغهاي نانجينغ رود",
+    "cn": "上海南京路步行街假日酒店",
+    "en": "Holiday Inn Shanghai Nanjing Road",
+    "cnAddr": "上海市黄浦区九江路595号",
+    "enAddr": "595 Jiujiang Road, Huangpu District, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_142",
+    "city": "sh",
+    "cat": "فنادق",
+    "ar": "فندق راديسون كوليكشن هايلاند شنغهاي",
+    "cn": "上海丽笙精选海仑宾馆",
+    "en": "Radisson Collection Hotel Hyland Shanghai",
+    "cnAddr": "上海市黄浦区南京东路505号",
+    "enAddr": "505 East Nanjing Road, Huangpu District, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_143",
+    "city": "sh",
+    "cat": "فنادق",
+    "ar": "فندق راديسون بلو نيو وورلد",
+    "cn": "上海新世界丽笙大酒店",
+    "en": "Radisson Blu Hotel Shanghai New World",
+    "cnAddr": "上海市黄浦区南京西路88号",
+    "enAddr": "88 West Nanjing Road, Huangpu District, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_144",
+    "city": "sh",
+    "cat": "فنادق",
+    "ar": "فندق والدورف أستوريا شنغهاي ذا بوند",
+    "cn": "上海外滩华尔道夫酒店",
+    "en": "Waldorf Astoria Shanghai on the Bund",
+    "cnAddr": "上海市黄浦区中山东一路2号",
+    "enAddr": "2 Zhongshan East 1st Road, Huangpu District, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_145",
+    "city": "sh",
+    "cat": "فنادق",
+    "ar": "فندق ذا شنغهاي إديشن",
+    "cn": "上海艾迪逊酒店",
+    "en": "The Shanghai EDITION",
+    "cnAddr": "上海市黄浦区南京东路199号",
+    "enAddr": "199 East Nanjing Road, Huangpu District, Shanghai",
+    "note": ""
+  },
+  {
+    "id": "p_146",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "نيو ون مول",
+    "cn": "New One Mall Nanjing Road",
+    "en": "New One Mall Nanjing Road",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_147",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "إس إتش إس",
+    "cn": "SHS",
+    "en": "SHS",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_148",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "إس تي سي",
+    "cn": "STC",
+    "en": "STC",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_149",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "ريل مول",
+    "cn": "芮欧百货",
+    "en": "Reel Mall",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_150",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "نيو وورلد",
+    "cn": "新世界城",
+    "en": "New World Shanghai Nanjing",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_151",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "دبليو زون السوق الكوري",
+    "cn": "W Zone Korean Market",
+    "en": "W Zone Korean Market",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_152",
+    "city": "sh",
+    "cat": "مولات",
+    "ar": "بريزما مول",
+    "cn": "Prisma Mall Shanghai",
+    "en": "Prisma Mall Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_153",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "نورث بوند",
+    "cn": "北外滩",
+    "en": "North Bund",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_154",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "معبد إله المدينة",
+    "cn": "上海城隍庙",
+    "en": "City God Temple Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_155",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "ساندي بارك",
+    "cn": "Sundy Park Shanghai",
+    "en": "Sundy Park Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_156",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "شارع آنفو",
+    "cn": "安福路",
+    "en": "Anfu Road",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_157",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "شارع ووجيانغ",
+    "cn": "吴江路",
+    "en": "Wujiang Road",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_158",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "شارع تشيبو للملابس",
+    "cn": "七浦路",
+    "en": "Qipu Road",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_159",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "أو إم جي بارك",
+    "cn": "OMG Park Shanghai",
+    "en": "OMG Park Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_160",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "غرين هاوس",
+    "cn": "Green House Shanghai",
+    "en": "Green House Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_161",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "متحف ستاري باند",
+    "cn": "Starry Band Museum Shanghai",
+    "en": "Starry Band Museum Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_162",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "برج جين ماو",
+    "cn": "金茂大厦观光厅",
+    "en": "Jin Mao Tower Observation Deck",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_163",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "يلا شاورما",
+    "cn": "Yalla Shawarma Shanghai",
+    "en": "Yalla Shawarma Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_164",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "إل تياترو الإيطالي",
+    "cn": "Il Teatro Shanghai",
+    "en": "Il Teatro Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_165",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "فلير فندق ريتز (مأكولات بحرية، غير معتمد حلال)",
+    "cn": "FLAIR顶层餐厅酒吧",
+    "en": "Flair Ritz Carlton Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_166",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "إيلي فلافل",
+    "cn": "Eli Falafel Shanghai",
+    "en": "Eli Falafel Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_167",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "وير هاوس",
+    "cn": "Were House Shanghai",
+    "en": "Were House Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_168",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "أوتانتيك",
+    "cn": "Otantik Shanghai",
+    "en": "Otantik Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_169",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "مادو",
+    "cn": "Mado Shanghai",
+    "en": "Mado Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_170",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "كراب ديشيز البحري",
+    "cn": "Crab Deshis Shanghai",
+    "en": "Crab Deshis Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_171",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "جيلوو البحري",
+    "cn": "Jellooo Shanghai",
+    "en": "Jellooo Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_172",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "بيلا نابولي الإيطالي",
+    "cn": "Bella Napoli Shanghai",
+    "en": "Bella Napoli Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_173",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "باشا التركي",
+    "cn": "Pasha Turkish Shanghai",
+    "en": "Pasha Turkish Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_174",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "ألف ليلة وليلة",
+    "cn": "一千零一夜餐厅",
+    "en": "1001 Nights Restaurant Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_175",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "إنديا إليفانت الهندي",
+    "cn": "India Elephant Shanghai",
+    "en": "India Elephant Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_176",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "لو بيسترو باستا",
+    "cn": "Le Bistro Pasta Shanghai",
+    "en": "Le Bistro Pasta Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_177",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "بوتيغا الإيطالي",
+    "cn": "Bottega Shanghai",
+    "en": "Bottega Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_178",
+    "city": "sh",
+    "cat": "مطاعم",
+    "ar": "كلاي الهندي",
+    "cn": "Klay Shanghai",
+    "en": "Klay Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_179",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "نيويورك بيغلوس ميوزيم",
+    "cn": "New York Bagelous Museum Shanghai",
+    "en": "New York Bagelous Museum Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_180",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "أمام بيكري",
+    "cn": "Amam Bakery Shanghai",
+    "en": "Amam Bakery Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_181",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "ديور كافيه",
+    "cn": "Dior Cafe Shanghai",
+    "en": "Dior Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_182",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "لويس فيتون كافيه",
+    "cn": "Louis Vuitton Cafe Shanghai",
+    "en": "Louis Vuitton Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_183",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "إم 3 كرافتينغ",
+    "cn": "M3 Crafting Special Dirty Shanghai",
+    "en": "M3 Crafting Special Dirty Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_184",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "كافيه 13 دي مارزو",
+    "cn": "13 De Marzo Cafe Shanghai",
+    "en": "13 De Marzo Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_185",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "ماتشا وانغ",
+    "cn": "Matcha Wang Shanghai",
+    "en": "Matcha Wang Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_186",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "كوكوانغ جيلاتو",
+    "cn": "Kukuang Gelato Shanghai",
+    "en": "Kukuang Gelato Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_187",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "موليز ديزرت",
+    "cn": "Molly's Dessert Shanghai",
+    "en": "Molly's Dessert Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_188",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "أو بي إس كافيه",
+    "cn": "OPS Cafe Shanghai",
+    "en": "OPS Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_189",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "كابتن جورج",
+    "cn": "Captain George Cafe Shanghai",
+    "en": "Captain George Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_190",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "ديرتي سو",
+    "cn": "Dirty Soe Coffee Shanghai",
+    "en": "Dirty Soe Coffee Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_191",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "مانر كوفي",
+    "cn": "Manner咖啡",
+    "en": "Manner Coffee Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_192",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "بلاك شيب إسبريسو",
+    "cn": "Blacksheep Espresso Shanghai",
+    "en": "Blacksheep Espresso Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_193",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "هولي لاند بيكري",
+    "cn": "好利来",
+    "en": "Holiland Bakery Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_194",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "نوديك بيكري",
+    "cn": "Nudake Shanghai",
+    "en": "Nudake Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_195",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "بولانغ",
+    "cn": "Boulang Cafe Shanghai",
+    "en": "Boulang Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_196",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "هوريغوتشي كوفي",
+    "cn": "Horiguchi Coffee Shanghai",
+    "en": "Horiguchi Coffee Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_197",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "كوتش كافيه",
+    "cn": "Coach Cafe Shanghai",
+    "en": "Coach Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_198",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "بلو بوتل",
+    "cn": "蓝瓶咖啡",
+    "en": "Blue Bottle Coffee Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_199",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "تايغر كوفي",
+    "cn": "Tiger Coffee Shanghai",
+    "en": "Tiger Coffee Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_200",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "رانمين كافيه",
+    "cn": "Ranmin Cafe White Magnolia Plaza Shanghai",
+    "en": "Ranmin Cafe White Magnolia Plaza Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_201",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "مينيونز كافيه",
+    "cn": "Minions Cafe Shanghai",
+    "en": "Minions Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_202",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "فات فيس",
+    "cn": "Fat Face Cafe Shanghai",
+    "en": "Fat Face Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_203",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "موفين كافيه",
+    "cn": "Moofin Cafe Shanghai",
+    "en": "Moofin Cafe Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_204",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "كورنر كوفي جيلاتو",
+    "cn": "Corner Coffee Gelato Shanghai",
+    "en": "Corner Coffee Gelato Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_205",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "هولي لاند ترافل بيكري",
+    "cn": "Holiland Travel Bakery Shanghai",
+    "en": "Holiland Travel Bakery Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_206",
+    "city": "sh",
+    "cat": "كافيهات",
+    "ar": "بلان بانيز تي",
+    "cn": "Blan Bunny's Tea Shanghai",
+    "en": "Blan Bunny's Tea Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_207",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "تشينتشي للعناية",
+    "cn": "Qinzhi Skincare Shanghai",
+    "en": "Qinzhi Skincare Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_208",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "تاوشيا للعناية",
+    "cn": "Taoxia Skincare Shanghai",
+    "en": "Taoxia Skincare Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_209",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "جيلي كات لوك ناو",
+    "cn": "Jellycat Looknow Park Shanghai",
+    "en": "Jellycat Looknow Park Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_210",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "هارماي",
+    "cn": "话梅",
+    "en": "Harmay Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_211",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "ويغل ويغل",
+    "cn": "Wiggle Wiggle Shanghai",
+    "en": "Wiggle Wiggle Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_212",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "واو كولور",
+    "cn": "Wow Color Shanghai",
+    "en": "Wow Color Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_213",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "توي ديزاين لاب",
+    "cn": "Twoi Design Lab Shanghai",
+    "en": "Twoi Design Lab Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_214",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "روكفيش أحذية",
+    "cn": "Rockfish Shanghai",
+    "en": "Rockfish Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_215",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "موفا حقائب",
+    "cn": "Muva Shanghai",
+    "en": "Muva Shanghai",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_216",
+    "city": "fs",
+    "cat": "أثاث",
+    "ar": "لوفر الدولي للأثاث",
+    "cn": "佛山市顺德区乐从镇罗浮宫国际家居博览中心",
+    "en": "لوفر الدولي للأثاث",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_217",
+    "city": "fs",
+    "cat": "أثاث",
+    "ar": "سوق شونليان للأثاث - القسم الجنوبي",
+    "cn": "佛山市顺德区乐从镇顺联家具城南区",
+    "en": "سوق شونليان للأثاث - القسم الجنوبي",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_218",
+    "city": "fs",
+    "cat": "أثاث",
+    "ar": "سوق شونليان للأثاث - القسم الشمالي",
+    "cn": "佛山市顺德区乐从镇顺联家具城北区",
+    "en": "سوق شونليان للأثاث - القسم الشمالي",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_219",
+    "city": "fs",
+    "cat": "أثاث",
+    "ar": "سوق هوانغتشاو للأثاث",
+    "cn": "佛山市顺德区乐从镇皇朝家私城",
+    "en": "سوق هوانغتشاو للأثاث",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_220",
+    "city": "fs",
+    "cat": "أثاث",
+    "ar": "ريد ستار ماكالين للأثاث",
+    "cn": "佛山市顺德区乐从镇325国道水藤路段红星美凯龙",
+    "en": "ريد ستار ماكالين للأثاث",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_221",
+    "city": "fs",
+    "cat": "أثاث",
+    "ar": "سوق الأثاث في لونغجيانغ",
+    "cn": "佛山市顺德区龙江镇家具市场",
+    "en": "سوق الأثاث في لونغجيانغ",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_222",
+    "city": "fs",
+    "cat": "إنارة",
+    "ar": "سوق شونليان للإنارة والخزائن",
+    "cn": "佛山市顺德区振华路顺联橱柜灯饰城",
+    "en": "سوق شونليان للإنارة والخزائن",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_223",
+    "city": "fs",
+    "cat": "إنارة",
+    "ar": "سوق فيبنغ للإنارة والخزائن",
+    "cn": "广东省佛山市顺德区兴乐路153号飞鹏橱柜灯饰城",
+    "en": "سوق فيبنغ للإنارة والخزائن",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_224",
+    "city": "fs",
+    "cat": "إنارة",
+    "ar": "سوق شونله للإضاءة",
+    "cn": "佛山市顺德区顺乐灯饰市场",
+    "en": "سوق شونله للإضاءة",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_225",
+    "city": "fs",
+    "cat": "أوت لت",
+    "ar": "أوت لت فوشان - البحث عن الفروع",
+    "cn": "佛山奥特莱斯",
+    "en": "أوت لت فوشان - البحث عن الفروع",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_226",
+    "city": "fs",
+    "cat": "مطاعم",
+    "ar": "مطعم سويتاي العربي الحلال",
+    "cn": "广东省佛山市顺德区乐从镇乐从大道东A37号索威泰阿拉伯餐厅",
+    "en": "مطعم سويتاي العربي الحلال",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_227",
+    "city": "fs",
+    "cat": "مطاعم",
+    "ar": "مطعم تركي - فرع دونغي",
+    "cn": "佛山市顺德区乐从大道东A82号土耳其餐厅",
+    "en": "مطعم تركي - فرع دونغي",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_228",
+    "city": "fs",
+    "cat": "مطاعم",
+    "ar": "مطعم شاورما العربي",
+    "cn": "佛山市顺德区乐从镇皇朝家私城B座3楼101室莎瓦玛",
+    "en": "مطعم شاورما العربي",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_229",
+    "city": "fs",
+    "cat": "مطاعم",
+    "ar": "مطعم ألتاي للمأكولات الحلال",
+    "cn": "佛山市顺德区容桂富华路8号阿勒泰新疆羊排手抓饭",
+    "en": "مطعم ألتاي للمأكولات الحلال",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_230",
+    "city": "fs",
+    "cat": "سياحة",
+    "ar": "معبد الأجداد زومياو",
+    "cn": "佛山市禅城区祖庙",
+    "en": "معبد الأجداد زومياو",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_231",
+    "city": "fs",
+    "cat": "سياحة",
+    "ar": "جبل شيشياو",
+    "cn": "佛山市南海区西樵山风景名胜区",
+    "en": "جبل شيشياو",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_232",
+    "city": "fs",
+    "cat": "سياحة",
+    "ar": "حديقة تشينغهوي",
+    "cn": "佛山市顺德区大良清晖园",
+    "en": "حديقة تشينغهوي",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_233",
+    "city": "fs",
+    "cat": "سياحة",
+    "ar": "منطقة لينغنان تياندي",
+    "cn": "佛山市禅城区岭南天地",
+    "en": "منطقة لينغنان تياندي",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_234",
+    "city": "fs",
+    "cat": "سياحة",
+    "ar": "منطقة نانفنغ للأفران القديمة",
+    "cn": "佛山市禅城区南风古灶",
+    "en": "منطقة نانفنغ للأفران القديمة",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_235",
+    "city": "fs",
+    "cat": "مولات",
+    "ar": "واندا بلازا نانهاي",
+    "cn": "佛山市南海区万达广场",
+    "en": "واندا بلازا نانهاي",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_236",
+    "city": "fs",
+    "cat": "مولات",
+    "ar": "إيون مول فوشان",
+    "cn": "佛山永旺梦乐城",
+    "en": "إيون مول فوشان",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_237",
+    "city": "fs",
+    "cat": "مولات",
+    "ar": "مول شونده هابي كوست",
+    "cn": "佛山市顺德区欢乐海岸PLUS",
+    "en": "مول شونده هابي كوست",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_238",
+    "city": "fs",
+    "cat": "مطاعم",
+    "ar": "مطعم سويتاي العربي",
+    "cn": "索威泰阿拉伯餐厅",
+    "en": "Syt Halal Arab Restaurant",
+    "cnAddr": "佛山市顺德区乐从镇乐从大道东A37号",
+    "enAddr": "Shop A37, Lecong Avenue East, Shunde, Foshan",
+    "note": ""
+  },
+  {
+    "id": "p_239",
+    "city": "fs",
+    "cat": "مطاعم",
+    "ar": "مطعم شاورما",
+    "cn": "莎瓦玛",
+    "en": "Shawerma",
+    "cnAddr": "佛山市顺德区乐从镇皇朝家私城B座3楼101室",
+    "enAddr": "Room 101, 3F, Building B, Huangchao Furniture City, Lecong, Foshan",
+    "note": ""
+  },
+  {
+    "id": "p_240",
+    "city": "fs",
+    "cat": "فنادق",
+    "ar": "فندق سوفيتيل فوشان",
+    "cn": "佛山罗浮宫索菲特酒店",
+    "en": "Sofitel Foshan",
+    "cnAddr": "佛山市顺德区乐从镇河滨南路3号",
+    "enAddr": "3 Hebin South Road, Lecong, Shunde District, Foshan",
+    "note": ""
+  },
+  {
+    "id": "p_241",
+    "city": "fs",
+    "cat": "فنادق",
+    "ar": "فندق ماريوت فوشان",
+    "cn": "佛山万豪酒店",
+    "en": "Foshan Marriott Hotel",
+    "cnAddr": "佛山市南海区桂城街道海八东路38号",
+    "enAddr": "38 Haibadong Road, Guicheng, Nanhai District, Foshan",
+    "note": ""
+  },
+  {
+    "id": "p_242",
+    "city": "fs",
+    "cat": "فنادق",
+    "ar": "فندق هيلتون فوشان",
+    "cn": "佛山希尔顿酒店",
+    "en": "Hilton Foshan",
+    "cnAddr": "佛山市禅城区岭南大道北127号",
+    "enAddr": "127 Lingnan North Avenue, Chancheng District, Foshan",
+    "note": ""
+  },
+  {
+    "id": "p_243",
+    "city": "fs",
+    "cat": "فنادق",
+    "ar": "فندق كراون بلازا فوشان",
+    "cn": "佛山皇冠假日酒店",
+    "en": "Crowne Plaza Foshan",
+    "cnAddr": "佛山市禅城区汾江中路118号",
+    "enAddr": "118 Fenjiang Middle Road, Chancheng District, Foshan",
+    "note": ""
+  },
+  {
+    "id": "p_244",
+    "city": "fs",
+    "cat": "فنادق",
+    "ar": "فندق كورديس فوشان لينغنان تياندي",
+    "cn": "佛山岭南天地康得思酒店",
+    "en": "Cordis Foshan Lingnan Tiandi",
+    "cnAddr": "佛山市禅城区人民路97号",
+    "enAddr": "97 Renmin Road, Chancheng District, Foshan",
+    "note": ""
+  },
+  {
+    "id": "p_245",
+    "city": "fs",
+    "cat": "فنادق",
+    "ar": "فندق سويس أوتيل فوشان",
+    "cn": "佛山恒安瑞士大酒店",
+    "en": "Swissotel Foshan",
+    "cnAddr": "佛山市禅城区城门头西路1号",
+    "enAddr": "1 Chengmentou West Road, Chancheng District, Foshan",
+    "note": ""
+  },
+  {
+    "id": "p_246",
+    "city": "fs",
+    "cat": "أثاث",
+    "ar": "مدينة السرايمك و ادوات الصحيه فوشان",
+    "cn": "佛山意陶瓷城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_247",
+    "city": "fs",
+    "cat": "أثاث",
+    "ar": "سوق الاثاث شنده",
+    "cn": "顺德乐从家具城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_248",
+    "city": "fs",
+    "cat": "إنارة",
+    "ar": "مدينة الاضاءه قوتشن",
+    "cn": "中山古镇",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_249",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الهدايا والتحف",
+    "cn": "解放南路万菱广场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_250",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "مدينة السرايمك و ادوات الصحيه فوشان",
+    "cn": "佛山意陶瓷城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_251",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "سوق الاثاث شنده",
+    "cn": "顺德乐从家具城",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_252",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "مدينة الاضاءه قوتشن",
+    "cn": "中山古镇",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_253",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "عناوين اسواق و المجمع في الليل",
+    "cn": "广州步行街和商场",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_254",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "عناوين المطاعم",
+    "cn": "广州餐厅地址",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_255",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "مطار الكوانزو ومحطات القطارات",
+    "cn": "广州机场和火车站",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_256",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "عناوين المساجد",
+    "cn": "广州清真寺",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_257",
+    "city": "gz",
+    "cat": "تسوق",
+    "ar": "بعض عناوين فنادق في كوانزو",
+    "cn": "广州部分酒店地址",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_258",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "Tiger Prawn – شارع بكين",
+    "cn": "北京路 Tiger Prawn",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_259",
+    "city": "gz",
+    "cat": "مطاعم",
+    "ar": "Mi Casa",
+    "cn": "Mi Casa 广州",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_260",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "Renren Cafe",
+    "cn": "Renren Cafe 广州",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_261",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "Deeper2",
+    "cn": "Deeper2 广州",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_262",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "Lilbee Coffee",
+    "cn": "Lilbee Coffee 广州",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_263",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "Silly Dog Coffee",
+    "cn": "Silly Dog Coffee 广州",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_264",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "Monkey Pai Coffee",
+    "cn": "Monkey Pai Coffee 广州",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_265",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "Withchill",
+    "cn": "Withchill 广州",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_266",
+    "city": "gz",
+    "cat": "كافيهات",
+    "ar": "Cedar Bakery",
+    "cn": "Cedar Bakery 广州",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_267",
+    "city": "sh",
+    "cat": "تسوق",
+    "ar": "Outlet- Florentia village",
+    "cn": "",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": "Florentia village"
+  },
+  {
+    "id": "p_268",
+    "city": "gz",
+    "cat": "فنادق",
+    "ar": "فندق روزوود غوانزو",
+    "cn": "广州瑰丽酒店",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_269",
+    "city": "sh",
+    "cat": "سياحة",
+    "ar": "برج شنغهاي",
+    "cn": "上海中心大厦",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_270",
+    "city": "sh",
+    "cat": "فنادق",
+    "ar": "فندق فيرمونت بيس",
+    "cn": "和平饭店",
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
+  },
+  {
+    "id": "p_271",
     "city": "sh",
     "cat": "فنادق",
     "ar": "فندق ريتز كارلتون بودونغ",
     "cn": "上海浦东丽思卡尔顿酒店",
-    "note": "",
-    "site": "https://www.ritzcarlton.com/en/hotels/shasz-the-ritz-carlton-shanghai-pudong/overview/"
+    "en": "",
+    "cnAddr": "",
+    "enAddr": "",
+    "note": ""
   }
 ];
+
+if (typeof module !== "undefined") { module.exports = { PLACES }; }
