@@ -179,11 +179,15 @@ dialog p {
 
 .toolbar {
   position: sticky;
-  top: 10px;
+  top: 8px;
   z-index: 3;
   margin-top: 14px;
   padding: 12px;
   box-shadow: 0 10px 30px rgba(16, 44, 54, 0.08);
+}
+
+.search-wrap {
+  display: block;
 }
 
 .search {
@@ -192,13 +196,19 @@ dialog p {
   background: #f8fbfb;
   border-radius: 12px;
   padding: 13px 14px;
+  appearance: none;
+}
+
+.search::-webkit-search-decoration,
+.search::-webkit-search-cancel-button {
+  appearance: none;
 }
 
 .filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  overflow: auto;
-  padding-top: 12px;
+  margin-top: 12px;
 }
 
 .filter {
@@ -221,6 +231,7 @@ dialog p {
   margin: 12px 2px 0;
   color: var(--muted);
   font-size: 14px;
+  line-height: 1.6;
 }
 
 .cards {
@@ -368,13 +379,12 @@ dialog::backdrop {
   .cities,
   .tips,
   .cards,
-  .actions,
   .dialog-actions {
     grid-template-columns: 1fr;
   }
 
-  .cities {
-    grid-template-columns: 1fr;
+  .toolbar {
+    position: static;
   }
 
   .actions {

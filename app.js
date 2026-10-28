@@ -94,7 +94,13 @@ function openAmap(place) {
 
 function openDidi() {
   showToast("فتح Alipay… ابحث داخل التطبيق عن 滴滴出行");
-  window.location.assign("alipays://");
+  const link = document.createElement("a");
+  link.href = "alipays://";
+  link.target = "_blank";
+  link.rel = "noopener";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
   setTimeout(() => {
     if (!document.hidden && !didiHelp.open) {
       didiHelp.showModal();
