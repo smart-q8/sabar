@@ -45,6 +45,7 @@ let state = {
   activeSection: "gz",
   currentCity: "gz",
   currentCategory: "الكل",
+  currentSubFilter: "الكل",
   searchQuery: "",
   calcDiscount: 15,
   favorites: new Set()
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initPWA();
   initSearch();
   initFxConverter();
+  initCbmCalculator();
   initPhrases();
   updateCityHeader();
   renderFilters();
@@ -324,6 +326,18 @@ function setCategory(cat) {
   renderPlaces();
 }
 
+function setSubFilter(sub) {
+  state.currentSubFilter = sub;
+  document.querySelectorAll("#subCategoryChips .subchip").forEach((btn) => {
+    if (btn.getAttribute("data-sub") === sub) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+  renderPlaces();
+}
+
 /* =================================================================
    Places Card Rendering
    ================================================================= */
@@ -342,9 +356,18 @@ function renderPlaces() {
       return false;
     }
 
+    // Sub-category niche match
+    if (state.currentSubFilter && state.currentSubFilter !== "الكل") {
+      const sf = state.currentSubFilter;
+      const matchSub =
+        (p.subTags && p.subTags.includes(sf)) ||
+        [p.ar, p.cn, p.cat, p.en, p.note].join(" ").includes(sf);
+      if (!matchSub) return false;
+    }
+
     // Search query match
     if (q) {
-      const haystack = [p.ar, p.cn, p.en, p.cnAddr, p.enAddr, p.cat, p.note]
+      const haystack = [p.ar, p.cn, p.en, p.cnAddr, p.enAddr, p.cat, p.note, p.metro || ""]
         .join(" ")
         .toLowerCase();
       if (!haystack.includes(q)) return false;
@@ -414,6 +437,7 @@ function createPlaceCardHtml(place, showCityBadge = false) {
       </div>
 
       ${place.note ? `<div class="place-note">💡 ${escapeHtml(place.note)}</div>` : ""}
+      ${place.metro ? `<div class="place-metro-badge">🚇 <strong>المترو:</strong> ${escapeHtml(place.metro)}</div>` : ""}
 
       <div class="card-actions">
         <button class="btn-card btn-card-copy" onclick="copyChineseAddress('${escapeAttr(displayAddr)}')">
@@ -672,6 +696,58 @@ function updateShoppingCalculator() {
   if (totalCnyEl) totalCnyEl.textContent = `${totalCny} CNY`;
   if (totalKwdEl) totalKwdEl.textContent = `~ ${totalKwd} KWD`;
   if (totalSarEl) totalSarEl.textContent = `~ ${totalSar} SAR`;
+}
+
+/* =================================================================
+   CBM & Freight Container Calculator
+   ================================================================= */
+function initCbmCalculator() {
+  const ids = ["cbmLength", "cbmWidth", "cbmHeight", "cbmQty", "cbmWeight"];
+  ids.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("input", updateCbmCalculator);
+  });
+  updateCbmCalculator();
+}
+
+function updateCbmCalculator() {
+  const l = parseFloat(document.getElementById("cbmLength")?.value || 0);
+  const w = parseFloat(document.getElementById("cbmWidth")?.value || 0);
+  const h = parseFloat(document.getElementById("cbmHeight")?.value || 0);
+  const qty = parseFloat(document.getElementById("cbmQty")?.value || 0);
+  const wt = parseFloat(document.getElementById("cbmWeight")?.value || 0);
+
+  // Volume of 1 carton in m3 = (L * W * H) / 1,000,000
+  const cbmPerCarton = (l * w * h) / 1000000;
+  const totalCbm = (cbmPerCarton * qty).toFixed(2);
+  const totalWeight = Math.round(wt * qty);
+  // Air freight volumetric weight = (L * W * H / 5000) * qty
+  const airVolWeight = Math.round(((l * w * h) / 5000) * qty);
+
+  // Container 20ft: ~28 CBM, Container 40ft HQ: ~68 CBM
+  const pct20 = Math.min(100, Math.round((totalCbm / 28) * 100));
+  const pct40 = Math.min(100, Math.round((totalCbm / 68) * 100));
+
+  const elCbm = document.getElementById("resTotalCbm");
+  const elWt = document.getElementById("resTotalWeight");
+  const elAir = document.getElementById("resAirVolWeight");
+  const el20 = document.getElementById("resContainer20");
+  const elAdvice = document.getElementById("cbmAdvice");
+
+  if (elCbm) elCbm.textContent = `${totalCbm} م³ (CBM)`;
+  if (elWt) elWt.textContent = `${totalWeight} كجم`;
+  if (elAir) elAir.textContent = `${airVolWeight} كجم`;
+  if (el20) el20.textContent = `~ ${pct20}% من حاوية 20 قدم (${pct40}% من 40HQ)`;
+
+  if (elAdvice) {
+    if (totalCbm < 15) {
+      elAdvice.innerHTML = `💡 <strong>توصية الشحن:</strong> حجم شحنتك (<strong>${totalCbm} م³</strong>) اقتصادي جداً للشحن الجزئي البحري المجمّع <strong>(LCL)</strong>.`;
+    } else if (totalCbm <= 30) {
+      elAdvice.innerHTML = `💡 <strong>توصية الشحن:</strong> حجم شحنتك يقترب من حاوية كاملة <strong>20 قدم (FCL)</strong>، الأوفر حجز حاوية كاملة لأمان البضاعة وسرعة وصولها.`;
+    } else {
+      elAdvice.innerHTML = `💡 <strong>توصية الشحن:</strong> شحنة كبيرة (<strong>${totalCbm} م³</strong>) تناسب حاوية كاملة <strong>40 قدم High Cube (FCL)</strong>.`;
+    }
+  }
 }
 
 /* =================================================================

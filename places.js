@@ -1,4 +1,4 @@
-/* الصبر للصين - قاعدة البيانات الشاملة */
+/* الصبر للصين - قاعدة البيانات الشاملة مع المترو والتصنيفات الدقيقة */
 const PLACES = [
   {
     "id": "p_1",
@@ -9,7 +9,8 @@ const PLACES = [
     "en": "Baima Clothing Wholesale Market",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/5 (محطة Guangzhou Railway Station 广州火车站) مخرج D1"
   },
   {
     "id": "p_2",
@@ -20,7 +21,8 @@ const PLACES = [
     "en": "Zhanxi Clothing Market",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/5 (محطة Guangzhou Railway Station) مخرج F"
   },
   {
     "id": "p_3",
@@ -31,7 +33,10 @@ const PLACES = [
     "en": "Onelink International Plaza",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "ألعاب"
+    ]
   },
   {
     "id": "p_4",
@@ -42,7 +47,11 @@ const PLACES = [
     "en": "Yide Road",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 6 (محطة Yide Lu 一德路) مخرج A",
+    "subTags": [
+      "ألعاب"
+    ]
   },
   {
     "id": "p_5",
@@ -53,7 +62,8 @@ const PLACES = [
     "en": "Teemall",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 1/3 (محطة Tiyu Xilu 体育西路) مخرج C"
   },
   {
     "id": "p_6",
@@ -64,7 +74,8 @@ const PLACES = [
     "en": "Taikoo Hui",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 3 (محطة Shipaiqiao 石牌桥) مخرج D"
   },
   {
     "id": "p_7",
@@ -75,7 +86,8 @@ const PLACES = [
     "en": "Grandview Mall",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 1 (محطة Tianhe Sports Center 体育中心) مخرج D3"
   },
   {
     "id": "p_8",
@@ -86,7 +98,8 @@ const PLACES = [
     "en": "Canton Tower",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 3 / APM (محطة Canton Tower 广州塔) مخرج A"
   },
   {
     "id": "p_9",
@@ -97,7 +110,8 @@ const PLACES = [
     "en": "Shamian Island",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 1/6 (محطة Huangsha 黄沙) مخرج F"
   },
   {
     "id": "p_10",
@@ -163,7 +177,8 @@ const PLACES = [
     "en": "كافيهات جزيرة شاميان",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 1/6 (محطة Huangsha 黄沙) مخرج F"
   },
   {
     "id": "p_16",
@@ -581,7 +596,12 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/5 (محطة Guangzhou Railway Station) مخرج D4",
+    "subTags": [
+      "نسائي",
+      "رجالي"
+    ]
   },
   {
     "id": "p_54",
@@ -592,7 +612,13 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/5 (محطة Guangzhou Railway Station) تحت الأرض",
+    "subTags": [
+      "أطفال",
+      "نسائي",
+      "رجالي"
+    ]
   },
   {
     "id": "p_55",
@@ -603,7 +629,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 5 (محطة Zhongshanba 中山八) مخرج A",
+    "subTags": [
+      "أطفال"
+    ]
   },
   {
     "id": "p_56",
@@ -614,7 +644,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/5 (محطة Guangzhou Railway Station)"
   },
   {
     "id": "p_57",
@@ -625,7 +656,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 6/8 (محطة Cultural Park 文化公园) مخرج A"
   },
   {
     "id": "p_58",
@@ -636,7 +668,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 6 (محطة Shaheding 沙河顶) مخرج B"
   },
   {
     "id": "p_59",
@@ -647,7 +680,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/5 (محطة Guangzhou Railway Station) مخرج F"
   },
   {
     "id": "p_60",
@@ -658,7 +692,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/5 (محطة Guangzhou Railway Station) شارع تشانشي",
+    "subTags": [
+      "ساعات"
+    ]
   },
   {
     "id": "p_61",
@@ -669,7 +707,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2 (محطة Sanyuanli 三元里) مخرج A1 أو تاكسي 5 دقائق",
+    "subTags": [
+      "حقائب"
+    ]
   },
   {
     "id": "p_62",
@@ -680,7 +722,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 5 (محطة Xicun 西村) أو Railway Station",
+    "subTags": [
+      "أحذية"
+    ]
   },
   {
     "id": "p_63",
@@ -691,7 +737,10 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أحذية"
+    ]
   },
   {
     "id": "p_64",
@@ -702,7 +751,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 8 (محطة Sun Yat-sen Univ 中大) مخرج D",
+    "subTags": [
+      "أقمشة"
+    ]
   },
   {
     "id": "p_65",
@@ -713,7 +766,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 5 (محطة Guangzhou Railway Station) مخرج D"
   },
   {
     "id": "p_66",
@@ -724,7 +778,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2 (محطة Sanyuanli 三元里) مخرج C",
+    "subTags": [
+      "تجميل"
+    ]
   },
   {
     "id": "p_67",
@@ -735,7 +793,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2 (محطة Feixiang Park 飞翔公园) مخرج A",
+    "subTags": [
+      "تجميل"
+    ]
   },
   {
     "id": "p_68",
@@ -746,7 +808,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 6 (محطة Yide Lu 一德路) مخرج A",
+    "subTags": [
+      "ألعاب"
+    ]
   },
   {
     "id": "p_69",
@@ -757,7 +823,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 1/6 (محطة Huangsha 黄沙) مخرج F",
+    "subTags": [
+      "ألعاب"
+    ]
   },
   {
     "id": "p_70",
@@ -768,7 +838,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 6/8 (محطة Cultural Park 文化公园) مخرج B",
+    "subTags": [
+      "إلكترونيات"
+    ]
   },
   {
     "id": "p_71",
@@ -779,7 +853,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 6 (محطة Donghu 东湖) مخرج B2",
+    "subTags": [
+      "إلكترونيات"
+    ]
   },
   {
     "id": "p_72",
@@ -790,7 +868,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 1 (محطة Ximenkou 西门口) مخرج B",
+    "subTags": [
+      "نظارات"
+    ]
   },
   {
     "id": "p_73",
@@ -801,7 +883,11 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 3 (محطة Gangding 岗顶) مخرج D",
+    "subTags": [
+      "إلكترونيات"
+    ]
   },
   {
     "id": "p_74",
@@ -944,7 +1030,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 1/2 (محطة Gongyuanqian 公园前) مخرج D أو خط 6 (Beijing Lu)"
   },
   {
     "id": "p_87",
@@ -955,7 +1042,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 1 (محطة Changshou Lu 长寿路) مخرج D2"
   },
   {
     "id": "p_88",
@@ -966,7 +1054,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 1/3 (محطة Tiyu Xilu 体育西路) مخرج C"
   },
   {
     "id": "p_89",
@@ -977,7 +1066,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 3 (محطة Shipaiqiao 石牌桥) مخرج D"
   },
   {
     "id": "p_90",
@@ -1230,7 +1320,8 @@ const PLACES = [
     "en": "Nanjing Road Pedestrian Street",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/8 (محطة People Square 人民广场) أو خط 2/10 (East Nanjing Rd)"
   },
   {
     "id": "p_113",
@@ -1252,7 +1343,8 @@ const PLACES = [
     "en": "Yuyuan Old Street",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 10/14 (محطة Yuyuan 豫园) مخرج 1"
   },
   {
     "id": "p_115",
@@ -1307,7 +1399,8 @@ const PLACES = [
     "en": "HKRI Taikoo Hui",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 3 (محطة Shipaiqiao 石牌桥) مخرج D"
   },
   {
     "id": "p_120",
@@ -1329,7 +1422,8 @@ const PLACES = [
     "en": "Xintiandi",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 10/13 (محطة Xintiandi 新天地) مخرج 6"
   },
   {
     "id": "p_122",
@@ -1340,7 +1434,8 @@ const PLACES = [
     "en": "The Bund",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/10 (محطة East Nanjing Road 南京东路) مخرج 2"
   },
   {
     "id": "p_123",
@@ -1351,7 +1446,8 @@ const PLACES = [
     "en": "Yu Garden",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 10/14 (محطة Yuyuan 豫园) مخرج 1"
   },
   {
     "id": "p_124",
@@ -1373,7 +1469,8 @@ const PLACES = [
     "en": "Oriental Pearl Tower",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/14 (محطة Lujiazui 陆家嘴) مخرج 1"
   },
   {
     "id": "p_126",
@@ -1549,7 +1646,8 @@ const PLACES = [
     "en": "Holiday Inn Shanghai Nanjing Road",
     "cnAddr": "上海市黄浦区九江路595号",
     "enAddr": "595 Jiujiang Road, Huangpu District, Shanghai",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/8 (محطة People Square 人民广场) أو خط 2/10 (East Nanjing Rd)"
   },
   {
     "id": "p_142",
@@ -1582,7 +1680,8 @@ const PLACES = [
     "en": "Waldorf Astoria Shanghai on the Bund",
     "cnAddr": "上海市黄浦区中山东一路2号",
     "enAddr": "2 Zhongshan East 1st Road, Huangpu District, Shanghai",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/10 (محطة East Nanjing Road 南京东路) مخرج 2"
   },
   {
     "id": "p_145",
@@ -1681,7 +1780,8 @@ const PLACES = [
     "en": "North Bund",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/10 (محطة East Nanjing Road 南京东路) مخرج 2"
   },
   {
     "id": "p_154",
@@ -2275,7 +2375,10 @@ const PLACES = [
     "en": "Qinzhi Skincare Shanghai",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "تجميل"
+    ]
   },
   {
     "id": "p_208",
@@ -2286,7 +2389,10 @@ const PLACES = [
     "en": "Taoxia Skincare Shanghai",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "تجميل"
+    ]
   },
   {
     "id": "p_209",
@@ -2352,7 +2458,10 @@ const PLACES = [
     "en": "Rockfish Shanghai",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أحذية"
+    ]
   },
   {
     "id": "p_215",
@@ -2363,7 +2472,10 @@ const PLACES = [
     "en": "Muva Shanghai",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "حقائب"
+    ]
   },
   {
     "id": "p_216",
@@ -2374,7 +2486,10 @@ const PLACES = [
     "en": "لوفر الدولي للأثاث",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أثاث"
+    ]
   },
   {
     "id": "p_217",
@@ -2385,7 +2500,10 @@ const PLACES = [
     "en": "سوق شونليان للأثاث - القسم الجنوبي",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أثاث"
+    ]
   },
   {
     "id": "p_218",
@@ -2396,7 +2514,10 @@ const PLACES = [
     "en": "سوق شونليان للأثاث - القسم الشمالي",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أثاث"
+    ]
   },
   {
     "id": "p_219",
@@ -2407,7 +2528,10 @@ const PLACES = [
     "en": "سوق هوانغتشاو للأثاث",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أثاث"
+    ]
   },
   {
     "id": "p_220",
@@ -2418,7 +2542,10 @@ const PLACES = [
     "en": "ريد ستار ماكالين للأثاث",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أثاث"
+    ]
   },
   {
     "id": "p_221",
@@ -2429,7 +2556,10 @@ const PLACES = [
     "en": "سوق الأثاث في لونغجيانغ",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أثاث"
+    ]
   },
   {
     "id": "p_222",
@@ -2440,7 +2570,10 @@ const PLACES = [
     "en": "سوق شونليان للإنارة والخزائن",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "إنارة"
+    ]
   },
   {
     "id": "p_223",
@@ -2451,7 +2584,10 @@ const PLACES = [
     "en": "سوق فيبنغ للإنارة والخزائن",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "إنارة"
+    ]
   },
   {
     "id": "p_224",
@@ -2462,7 +2598,10 @@ const PLACES = [
     "en": "سوق شونله للإضاءة",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "إنارة"
+    ]
   },
   {
     "id": "p_225",
@@ -2704,7 +2843,10 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أثاث"
+    ]
   },
   {
     "id": "p_247",
@@ -2715,7 +2857,10 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أثاث"
+    ]
   },
   {
     "id": "p_248",
@@ -2726,7 +2871,10 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "إنارة"
+    ]
   },
   {
     "id": "p_249",
@@ -2737,7 +2885,10 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "ألعاب"
+    ]
   },
   {
     "id": "p_250",
@@ -2759,7 +2910,10 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "subTags": [
+      "أثاث"
+    ]
   },
   {
     "id": "p_252",
@@ -2935,7 +3089,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": "Florentia village"
+    "note": "Florentia village",
+    "metro": "مترو خط 2/5 (محطة Guangzhou Railway Station 广州火车站) مخرج D1"
   },
   {
     "id": "p_268",
@@ -2957,7 +3112,8 @@ const PLACES = [
     "en": "",
     "cnAddr": "",
     "enAddr": "",
-    "note": ""
+    "note": "",
+    "metro": "مترو خط 2/14 (محطة Lujiazui 陆家嘴) مخرج 6"
   },
   {
     "id": "p_270",

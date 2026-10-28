@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="styles.css?v=2.4" />
+  <link rel="stylesheet" href="styles.css?v=2.5" />
 </head>
 <body>
 
@@ -156,6 +156,25 @@
 
       <!-- Category Filter Chips -->
       <div class="chips-wrap" id="categoryChips"></div>
+
+      <!-- Specialized Niche Sub-category Chips (الفلاتر الفرعية الدقيقة) -->
+      <div class="subchips-wrap" id="subCategoryChips">
+        <span class="subchip-title">🏷️ تخصص السوق:</span>
+        <button class="subchip active" data-sub="الكل" onclick="setSubFilter('الكل')">الكل</button>
+        <button class="subchip" data-sub="نسائي" onclick="setSubFilter('نسائي')">👗 ملابس نسائية</button>
+        <button class="subchip" data-sub="أطفال" onclick="setSubFilter('أطفال')">👶 ملابس أطفال</button>
+        <button class="subchip" data-sub="رجالي" onclick="setSubFilter('رجالي')">👔 ملابس رجالية</button>
+        <button class="subchip" data-sub="حقائب" onclick="setSubFilter('حقائب')">👜 حقائب وجلود</button>
+        <button class="subchip" data-sub="ساعات" onclick="setSubFilter('ساعات')">⌚ ساعات</button>
+        <button class="subchip" data-sub="أحذية" onclick="setSubFilter('أحذية')">👠 أحذية</button>
+        <button class="subchip" data-sub="أثاث" onclick="setSubFilter('أثاث')">🛋️ أثاث</button>
+        <button class="subchip" data-sub="إنارة" onclick="setSubFilter('إنارة')">💡 إنارة</button>
+        <button class="subchip" data-sub="إلكترونيات" onclick="setSubFilter('إلكترونيات')">📱 إلكترونيات</button>
+        <button class="subchip" data-sub="أقمشة" onclick="setSubFilter('أقمشة')">🧵 أقمشة</button>
+        <button class="subchip" data-sub="تجميل" onclick="setSubFilter('تجميل')">💄 تجميل وعطور</button>
+        <button class="subchip" data-sub="ألعاب" onclick="setSubFilter('ألعاب')">🧸 ألعاب وقرطاسية</button>
+        <button class="subchip" data-sub="نظارات" onclick="setSubFilter('نظارات')">👓 نظارات</button>
+      </div>
 
       <!-- Places Grid -->
       <div class="places-grid" id="placesContainer"></div>
@@ -354,6 +373,63 @@
               <span>ما يعادله بالريال السعودي:</span>
               <strong id="calcTotalSar">~ 449.1 SAR</strong>
             </div>
+          </div>
+        </div>
+
+        <!-- Freight & CBM Container Calculator -->
+        <div class="tool-card" style="grid-column: 1 / -1;">
+          <div class="tool-card-header">
+            <div class="tool-icon">🚢</div>
+            <div class="tool-card-title">
+              <h3>حاسبة حجم الشحن والكراتين (CBM Calculator)</h3>
+              <p>احسب الحجم بالمتر المكعب (CBM) وتقدير سعة الحاويات البحرية والوزن الحجمي للشحن الجوي</p>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 12px;">
+            <div class="fx-input-group">
+              <label class="fx-label">الطول (سم L):</label>
+              <input type="number" id="cbmLength" class="fx-input" value="60" min="1" />
+            </div>
+            <div class="fx-input-group">
+              <label class="fx-label">العرض (سم W):</label>
+              <input type="number" id="cbmWidth" class="fx-input" value="40" min="1" />
+            </div>
+            <div class="fx-input-group">
+              <label class="fx-label">الارتفاع (سم H):</label>
+              <input type="number" id="cbmHeight" class="fx-input" value="50" min="1" />
+            </div>
+            <div class="fx-input-group">
+              <label class="fx-label">عدد الكراتين:</label>
+              <input type="number" id="cbmQty" class="fx-input" value="20" min="1" />
+            </div>
+            <div class="fx-input-group">
+              <label class="fx-label">وزن الكرتون (كجم):</label>
+              <input type="number" id="cbmWeight" class="fx-input" value="15" min="1" />
+            </div>
+          </div>
+
+          <div class="cbm-results-box">
+            <div class="cbm-stat">
+              <span class="cbm-lbl">الحجم الإجمالي (CBM)</span>
+              <strong class="cbm-val" id="resTotalCbm">2.40 م³</strong>
+            </div>
+            <div class="cbm-stat">
+              <span class="cbm-lbl">الوزن الفعلي الكلي</span>
+              <strong class="cbm-val" id="resTotalWeight">300 كجم</strong>
+            </div>
+            <div class="cbm-stat">
+              <span class="cbm-lbl">الوزن الحجمي للشحن الجوي</span>
+              <strong class="cbm-val" id="resAirVolWeight">480 كجم</strong>
+            </div>
+            <div class="cbm-stat">
+              <span class="cbm-lbl">تقدير الحاوية البحرية</span>
+              <strong class="cbm-val" id="resContainer20">~ 8.6% من حاوية 20 قدم</strong>
+            </div>
+          </div>
+
+          <div class="cbm-advice-box" id="cbmAdvice">
+            💡 <strong>توصية الشحن:</strong> حجم شحنتك اقتصادي ومناسب جداً للشحن الجزئي البحري المجمّع <strong>(LCL)</strong>.
           </div>
         </div>
       </div>
@@ -584,7 +660,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="places.js?v=2.4"></script>
-  <script src="app.js?v=2.4"></script>
+  <script src="places.js?v=2.5"></script>
+  <script src="app.js?v=2.5"></script>
 </body>
 </html>
