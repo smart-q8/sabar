@@ -59,213 +59,163 @@
     <!-- ============================================================== -->
     <div id="view-home" class="active-view">
       
-      <!-- Welcome Hero Hub -->
-      <section class="home-portal-hero">
-        <div class="home-hero-badge">🇨🇳 دليلك الرقمي الشامل للتجارة والتسوق والسياحة</div>
-        <h1 class="home-portal-title">دليل بو يوسف الصبر <span>- الصين</span></h1>
-        <p class="home-portal-desc">
-          المرجع الميداني السلس والمريح للأسواق، المعارض، الفنادق، وبطاقة التاكسي بالصينية ومحطات المترو في غوانزو وشنغهاي وفوشان.
-        </p>
+      <!-- Minimalist Clean Welcome Header -->
+      <section class="home-clean-hero">
+        <h1 class="home-clean-title">دليل بو يوسف الصبر <span>- الصين</span></h1>
+        <p class="home-clean-sub">دليلك السريع للأسواق، المعارض، والتنقل في جمهورية الصين الشعبية</p>
 
-        <!-- Fast Live Search Bar on Home -->
-        <div class="home-search-wrap">
-          <div class="search-container home-search-box">
-            <span class="search-icon">🔍</span>
-            <input 
-              type="text" 
-              id="homeUniversalSearch" 
-              class="search-input" 
-              placeholder="ابحث فوراً: سوق بايما، أثاث اللوفر، سوق الساعات، حقائب، مطعم حلال..." 
-              autocomplete="off"
-            />
-            <button id="homeClearSearchBtn" class="search-clear" title="مسح البحث" style="display:none;">✕</button>
-          </div>
-
-          <!-- Quick Discovery Tags -->
-          <div class="quick-tags home-quick-tags">
-            <span class="quick-tag-label">وصول مباشر:</span>
-            <button class="quick-tag" onclick="launchSearch('ملابس', 'gz')">👗 ملابس غوانزو</button>
-            <button class="quick-tag" onclick="launchSearch('أثاث', 'fs')">🛋️ أثاث فوشان</button>
-            <button class="quick-tag" onclick="launchSearch('ساعات', 'gz')">⌚ أسواق الساعات</button>
-            <button class="quick-tag" onclick="launchSearch('شنط', 'gz')">👜 حقائب وجلود</button>
-            <button class="quick-tag" onclick="launchSearch('إنارة', 'fs')">💡 إنارة غوجين</button>
-            <button class="quick-tag" onclick="launchSearch('مطعم', 'gz')">🍽️ مطاعم حلال</button>
-            <button class="quick-tag" onclick="launchSearch('نانجينغ', 'sh')">🌆 معالم شنغهاي</button>
-            <button class="quick-tag" onclick="launchSearch('اللوفر', 'fs')">🏰 قصر اللوفر</button>
-          </div>
-        </div>
-
-        <!-- Quick Stats Strip -->
-        <div class="home-stats-strip">
-          <div class="home-stat-chip"><span>📍</span> <strong id="portalStatCount">271</strong> موقعاً موثقاً</div>
-          <div class="home-stat-chip"><span>🏙️</span> <strong>3</strong> مدن تجارية</div>
-          <div class="home-stat-chip"><span>🚇</span> محطات المترو والمخارج</div>
-          <div class="home-stat-chip"><span>⚡</span> يعمل بدون نت (PWA)</div>
+        <!-- Fast Clean Search -->
+        <div class="home-clean-search">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            id="homeUniversalSearch" 
+            class="search-input" 
+            placeholder="ابحث عن سوق، مول، فندق، أو مطعم حلال (بايما، اللوفر، ساعات...)" 
+            autocomplete="off"
+          />
+          <button id="homeClearSearchBtn" class="search-clear" title="مسح البحث" style="display:none;">✕</button>
         </div>
       </section>
 
-      <!-- Section Title 1: المدن والأسواق -->
-      <div class="portal-section-head">
-        <h2>🏙️ أسواق ووجهات المدن الرئيسية</h2>
-        <p>اختر المدينة لاستعراض الأسواق والمجمعات المتخصصة بدقة وفلاترها التفصيلية</p>
-      </div>
-
-      <!-- Cities Portal Grid -->
-      <div class="cities-portal-grid">
-        <!-- City Card 1: Guangzhou -->
-        <div class="city-portal-card card-gz" onclick="switchSection('gz')">
-          <div class="city-portal-bg-decor">广州</div>
-          <div class="city-portal-header">
-            <span class="city-portal-icon">🏙️</span>
-            <span class="city-portal-badge" id="portalBadgeGz">130 موقعاً وسوقاً</span>
+      <!-- Clean Action Tiles Grid (أزرار الخدمات البسيطة والمريحة) -->
+      <div class="home-tiles-grid">
+        
+        <!-- 1. Guangzhou -->
+        <div class="home-tile" onclick="switchSection('gz')">
+          <div class="tile-icon-box" style="background: rgba(2, 132, 199, 0.12); color: #0284c7;">🏙️</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">أسواق غوانزو بالجملة</span>
+              <span class="tile-badge" id="portalBadgeGz">130 سوقاً</span>
+            </div>
+            <span class="tile-desc">ملابس بايما، ساعات، حقائب بييون، إلكترونيات، ومطاعم حلال</span>
           </div>
-          <h3>أسواق غوانزو بالجملة</h3>
-          <span class="city-portal-sub">Guangzhou · 广州</span>
-          <p>عاصمة التجارة وأسواق الجملة العالمية: أضخم مجمعات الملابس، الساعات، الحقائب، الإلكترونيات، والمطاعم الحلال.</p>
-          <div class="city-portal-tags">
-            <span>ملابس بايما وزانشي</span>
-            <span>حقائب بييون</span>
-            <span>ساعات تشانبي</span>
-            <span>شارع بكين</span>
-          </div>
-          <button class="btn-city-portal">
-            <span>استعراض أسواق غوانزو</span>
-            <span class="arrow-sym">←</span>
-          </button>
+          <span class="tile-arrow">←</span>
         </div>
 
-        <!-- City Card 2: Foshan -->
-        <div class="city-portal-card card-fs" onclick="switchSection('fs')">
-          <div class="city-portal-bg-decor">佛山</div>
-          <div class="city-portal-header">
-            <span class="city-portal-icon">🛋️</span>
-            <span class="city-portal-badge" id="portalBadgeFs">33 مجمعاً ومعرضاً</span>
+        <!-- 2. Foshan -->
+        <div class="home-tile" onclick="switchSection('fs')">
+          <div class="tile-icon-box" style="background: rgba(217, 119, 6, 0.12); color: #d97706;">🛋️</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">عالم أثاث وإنارة فوشان</span>
+              <span class="tile-badge" id="portalBadgeFs">33 مجمعاً</span>
+            </div>
+            <span class="tile-desc">معارض قصر اللوفر الفاخرة للأثاث، وأسواق الإنارة في غوجين</span>
           </div>
-          <h3>عالم أثاث وإنارة فوشان</h3>
-          <span class="city-portal-sub">Foshan · 佛山</span>
-          <p>عاصمة الأثاث ومواد البناء والإنارة في العالم (مجاورة لغوانزو): قصر اللوفر Louver للأثاث الفاخر، وأسواق الإنارة في غوجين.</p>
-          <div class="city-portal-tags">
-            <span>معارض اللوفر الفاخرة</span>
-            <span>أثاث الفلل والمنازل</span>
-            <span>مدينة الإنارة</span>
-            <span>سيراميك وبناء</span>
-          </div>
-          <button class="btn-city-portal">
-            <span>استعراض عالم أثاث فوشان</span>
-            <span class="arrow-sym">←</span>
-          </button>
+          <span class="tile-arrow">←</span>
         </div>
 
-        <!-- City Card 3: Shanghai -->
-        <div class="city-portal-card card-sh" onclick="switchSection('sh')">
-          <div class="city-portal-bg-decor">上海</div>
-          <div class="city-portal-header">
-            <span class="city-portal-icon">🌆</span>
-            <span class="city-portal-badge" id="portalBadgeSh">108 مواقع ومعالم</span>
+        <!-- 3. Shanghai -->
+        <div class="home-tile" onclick="switchSection('sh')">
+          <div class="tile-icon-box" style="background: rgba(126, 34, 206, 0.12); color: #7e22ce;">🌆</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">معالم وتجارة شنغهاي</span>
+              <span class="tile-badge" id="portalBadgeSh">108 مواقع</span>
+            </div>
+            <span class="tile-desc">شارع نانجينغ، ممشى البوند، ديزني لاند، وأفخم المولات العالمية</span>
           </div>
-          <h3>معالم وتجارة شنغهاي</h3>
-          <span class="city-portal-sub">Shanghai · 上海</span>
-          <p>المدينة العالمية الفارهة: شارع نانجينغ للتسوق، كورنيش البوند، ديزني لاند، ناطحات السحاب، وأفخم المولات العالمية.</p>
-          <div class="city-portal-tags">
-            <span>شارع نانجينغ التجاري</span>
-            <span>ممشى البوند التاريخي</span>
-            <span>ديزني لاند</span>
-            <span>مولات فاخرة</span>
-          </div>
-          <button class="btn-city-portal">
-            <span>استعراض معالم شنغهاي</span>
-            <span class="arrow-sym">←</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Section Title 2: أدوات وخدمات المسافر الذكية -->
-      <div class="portal-section-head" style="margin-top: 36px;">
-        <h2>🧰 أدوات وخدمات المسافر الذكية</h2>
-        <p>كل ما تحتاجه قبل وأثناء رحلتك للتنقل والتفاوض وإنجاز المعاملات براحة تامة</p>
-      </div>
-
-      <!-- Services & Tools Portal Grid -->
-      <div class="services-portal-grid">
-        <!-- Tool 1: Taxi Assistant -->
-        <div class="service-portal-card" onclick="switchSection('taxi')">
-          <div class="tool-portal-icon" style="background: rgba(217, 119, 6, 0.12); color: #d97706;">🚕</div>
-          <div class="tool-portal-body">
-            <h4>بطاقة سائق التاكسي (Show Taxi Driver)</h4>
-            <p>اعرض وجهتك لسائق التاكسي بالصينية بخط عملاق وواضح مع نطق صوتي وتوجيه خرائط Amap و Baidu بنقرة واحدة.</p>
-          </div>
-          <span class="tool-portal-action">فتح البطاقة ←</span>
+          <span class="tile-arrow">←</span>
         </div>
 
-        <!-- Tool 2: Pre-Travel Checklist -->
-        <div class="service-portal-card" onclick="switchSection('checklist')">
-          <div class="tool-portal-icon" style="background: rgba(5, 150, 105, 0.12); color: #059669;">📋</div>
-          <div class="tool-portal-body">
-            <h4>قائمة تجهيزات السفر الذكية</h4>
-            <p>دليل تفاعلي خطوة بخطوة: الفيزا، تفعيل Alipay و WeChat Pay ببطاقتك، باقات eSIM بدون حجب، وأهم التطبيقات.</p>
+        <!-- 4. Taxi Driver -->
+        <div class="home-tile" onclick="switchSection('taxi')">
+          <div class="tile-icon-box" style="background: rgba(180, 83, 9, 0.12); color: #b45309;">🚕</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">بطاقة سائق التاكسي</span>
+            </div>
+            <span class="tile-desc">عرض اسم المكان والعنوان بالصيني بخط عملاق مع نطق وملاحة</span>
           </div>
-          <span class="tool-portal-action">عرض القائمة ←</span>
+          <span class="tile-arrow">←</span>
         </div>
 
-        <!-- Tool 3: Chinese Maps & Metro -->
-        <div class="service-portal-card" onclick="switchSection('maps')">
-          <div class="tool-portal-icon" style="background: rgba(2, 132, 199, 0.12); color: #0284c7;">🗺️</div>
-          <div class="tool-portal-body">
-            <h4>دليل المواصلات والخرائط الصينية</h4>
-            <p>دليل التنقل في الصين بدون جوجل، خطوط المترو، وتطبيقات الخرائط الصينية الفعالة (Amap و Baidu و MetroMan).</p>
+        <!-- 5. Pre-Travel Checklist -->
+        <div class="home-tile" onclick="switchSection('checklist')">
+          <div class="tile-icon-box" style="background: rgba(4, 120, 87, 0.12); color: #047857;">📋</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">قائمة تجهيزات السفر الذكية</span>
+            </div>
+            <span class="tile-desc">دليل عملي: الفيزا، تفعيل Alipay ببطاقتك، وشريحة eSIM بدون حجب</span>
           </div>
-          <span class="tool-portal-action">دليل الخرائط ←</span>
+          <span class="tile-arrow">←</span>
         </div>
 
-        <!-- Tool 4: FX & Freight CBM -->
-        <div class="service-portal-card" onclick="switchSection('fx')">
-          <div class="tool-portal-icon" style="background: rgba(154, 112, 22, 0.12); color: var(--gold);">💱</div>
-          <div class="tool-portal-body">
-            <h4>محول العملات وحاسبة الشحن CBM</h4>
-            <p>تحويل اليوان مقابل الدينار والريال والعملات الخليجية، حاسبة الفصال والكميات، وحساب حجم الكراتين للحاويات.</p>
+        <!-- 6. Chinese Maps & Metro -->
+        <div class="home-tile" onclick="switchSection('maps')">
+          <div class="tile-icon-box" style="background: rgba(3, 105, 161, 0.12); color: #0369a1;">🗺️</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">المواصلات والخرائط الصينية</span>
+            </div>
+            <span class="tile-desc">خرائط Amap و Baidu الصينية، دليل المترو، وتطبيق ديدي Didi</span>
           </div>
-          <span class="tool-portal-action">فتح الحاسبة ←</span>
+          <span class="tile-arrow">←</span>
         </div>
 
-        <!-- Tool 5: Digital Arrival Card -->
-        <div class="service-portal-card" onclick="switchSection('arrival')">
-          <div class="tool-portal-icon" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">🛂</div>
-          <div class="tool-portal-body">
-            <h4>بطاقة دخول الصين الإلكترونية</h4>
-            <p>شرح بالخطوات المصورة لكيفية تعبئة إقرار الهجرة الصيني (NIA) مجاناً قبل ركوب الطائرة وتجنب الورقي.</p>
+        <!-- 7. FX Converter & CBM -->
+        <div class="home-tile" onclick="switchSection('fx')">
+          <div class="tile-icon-box" style="background: rgba(161, 98, 7, 0.12); color: #a16207;">💱</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">محول العملات وحاسبة الشحن CBM</span>
+            </div>
+            <span class="tile-desc">تحويل اليوان إلى العملات الخليجية، الفصال، وحساب حجم الكراتين</span>
           </div>
-          <span class="tool-portal-action">خطوات التعبئة ←</span>
+          <span class="tile-arrow">←</span>
         </div>
 
-        <!-- Tool 6: Audio Phrases -->
-        <div class="service-portal-card" onclick="switchSection('phrases')">
-          <div class="tool-portal-icon" style="background: rgba(236, 72, 153, 0.12); color: #ec4899;">🗣️</div>
-          <div class="tool-portal-body">
-            <h4>عبارات المحادثة الصينية اليومية</h4>
-            <p>أهم الجمل للتفاوض، التاكسي، الطعام والمترو مع النطق الصوتي الفوري الصريح بنقرة زر واحدة.</p>
+        <!-- 8. Arrival Card -->
+        <div class="home-tile" onclick="switchSection('arrival')">
+          <div class="tile-icon-box" style="background: rgba(67, 56, 202, 0.12); color: #4338ca;">🛂</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">بطاقة دخول الصين الإلكترونية</span>
+            </div>
+            <span class="tile-desc">خطوات تعبئة إقرار الهجرة الصيني (NIA) مجاناً قبل ركوب الطائرة</span>
           </div>
-          <span class="tool-portal-action">استمع للعبارات ←</span>
+          <span class="tile-arrow">←</span>
         </div>
 
-        <!-- Tool 7: Trip Itinerary & PDF -->
-        <div class="service-portal-card" onclick="switchSection('favorites')">
-          <div class="tool-portal-icon" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">⭐</div>
-          <div class="tool-portal-body">
-            <h4>جدول رحلتي وتصدير PDF</h4>
-            <p>الأماكن المحفوظة لتنظيم الزيارات اليومية مع إمكانية طباعة أو حفظ جدول الرحلة بصيغة PDF ورقي وأنيق.</p>
+        <!-- 9. Phrases -->
+        <div class="home-tile" onclick="switchSection('phrases')">
+          <div class="tile-icon-box" style="background: rgba(190, 24, 93, 0.12); color: #be185d;">🗣️</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">عبارات المحادثة الصينية</span>
+            </div>
+            <span class="tile-desc">جمل التخفيض، التاكسي، الطعام، والمترو مع نطق صوتي فوري</span>
           </div>
-          <span class="tool-portal-action">عرض الجدول ←</span>
+          <span class="tile-arrow">←</span>
         </div>
 
-        <!-- Tool 8: Sourcing & Freight -->
-        <div class="service-portal-card" onclick="switchSection('services')">
-          <div class="tool-portal-icon" style="background: rgba(16, 185, 129, 0.12); color: #10b981;">🛍️</div>
-          <div class="tool-portal-body">
-            <h4>خدمات التوريد والشحن من الصين</h4>
-            <p>استعراض خدمات فحص ومطابقة الجودة (QC)، البحث عن المصانع، وتنسيق شحن الحاويات حتى مستودعك.</p>
+        <!-- 10. Favorites & PDF -->
+        <div class="home-tile" onclick="switchSection('favorites')">
+          <div class="tile-icon-box" style="background: rgba(194, 65, 12, 0.12); color: #c2410c;">⭐</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">جدول رحلتي وتصدير PDF</span>
+            </div>
+            <span class="tile-desc">الأماكن المحفوظة لتنظيم الزيارات مع إمكانية الطباعة كملف PDF</span>
           </div>
-          <span class="tool-portal-action">تفاصيل التوريد ←</span>
+          <span class="tile-arrow">←</span>
         </div>
+
+        <!-- 11. Sourcing -->
+        <div class="home-tile" onclick="switchSection('services')">
+          <div class="tile-icon-box" style="background: rgba(21, 128, 61, 0.12); color: #15803d;">🛍️</div>
+          <div class="tile-content">
+            <div class="tile-title-row">
+              <span class="tile-title">خدمات التوريد والشحن</span>
+            </div>
+            <span class="tile-desc">معلومات فحص الجودة (QC)، البحث عن المصانع، وتنسيق الحاويات</span>
+          </div>
+          <span class="tile-arrow">←</span>
+        </div>
+
       </div>
     </div>
 

@@ -948,9 +948,9 @@ function updateStats() {
   const pSh = document.getElementById("portalBadgeSh");
   const pFs = document.getElementById("portalBadgeFs");
 
-  if (pGz) pGz.textContent = `${gzCount} موقعاً وسوقاً`;
-  if (pSh) pSh.textContent = `${shCount} موقعاً ومعلماً`;
-  if (pFs) pFs.textContent = `${fsCount} مجمعاً ومعرضاً`;
+  if (pGz) pGz.textContent = `${gzCount} سوقاً`;
+  if (pSh) pSh.textContent = `${shCount} مواقع`;
+  if (pFs) pFs.textContent = `${fsCount} مجمعاً`;
 
   const bGz = document.getElementById("badgeGz");
   const bSh = document.getElementById("badgeSh");
