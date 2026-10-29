@@ -184,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCbmCalculator();
   initPhrases();
   initTaxiHub();
+  initPrayerModule();
   renderChecklist();
   updateCityHeader();
   renderFilters();
@@ -596,6 +597,7 @@ function switchSection(secKey, skipHash = false) {
   const servicesView = document.getElementById("view-services");
   const phrasesView = document.getElementById("view-phrases");
   const favoritesView = document.getElementById("view-favorites");
+  const prayerView = document.getElementById("view-prayer");
 
   // Hide all
   const allViews = [
@@ -608,7 +610,8 @@ function switchSection(secKey, skipHash = false) {
     fxView,
     servicesView,
     phrasesView,
-    favoritesView
+    favoritesView,
+    prayerView
   ];
 
   allViews.forEach((el) => {
@@ -646,6 +649,9 @@ function switchSection(secKey, skipHash = false) {
   } else if (secKey === "favorites") {
     if (favoritesView) favoritesView.style.display = "block";
     renderFavorites();
+  } else if (secKey === "prayer") {
+    if (prayerView) prayerView.style.display = "block";
+    renderPrayerModule();
   }
 
   // Update sidebar & mobile nav active state
@@ -1317,4 +1323,678 @@ function escapeAttr(str) {
   return String(str)
     .replace(/"/g, "&quot;")
     .replace(/'/g, "\\'");
+}
+
+/* =================================================================
+   PRAYER TIMES, QIBLA & MOSQUES SYSTEM (مواقيت الصلاة والقبلة)
+   ================================================================= */
+const PRAYER_CITIES_DATA = {
+  guangzhou: {
+    key: "guangzhou",
+    nameAr: "غوانزو",
+    fullName: "غوانزو (Guangzhou)",
+    nameCn: "广州",
+    lat: 23.1291,
+    lng: 113.2644,
+    tz: 8,
+    mosques: [
+      {
+        ar: "مسجد الصحابي الجليل سعد بن أبي وقاص (روضة الأصحاب)",
+        cn: "先贤古墓清真寺 (怀圣先贤清真寺)",
+        addr: "广州市越秀区兰圃路901号 (兰圃公园正门旁)",
+        metro: "مترو خط 2 (محطة Yuexiu Park 越秀公园) مخرج B1",
+        desc: "أقدم وأشهر معالم المسلمين في الصين، يضم مرقد ومسجد الصحابة الكرام ويعود لأكثر من 1300 عام.",
+        badge: "الأعرق تاريخياً",
+        mapUrl: "https://uri.amap.com/marker?position=113.2598,23.1462&name=先贤古墓清真寺"
+      },
+      {
+        ar: "مسجد الجامع الكبير - منارة النور (هوايشينغ)",
+        cn: "怀圣寺 (光塔寺)",
+        addr: "广州市越秀区光塔路56号",
+        metro: "مترو خط 1/2 (محطة Gongyuanqian 公园前) أو خط 1 (محطة Ximenkou 西门口)",
+        desc: "بناه الصحابي سعد بن أبي وقاص رضي الله عنه عام 627م ويشتهر بمنارته الحجرية الأسطوانية التاريخية (منارة النور).",
+        badge: "تاريخي عريق",
+        mapUrl: "https://uri.amap.com/marker?position=113.2558,23.1245&name=广州怀圣寺"
+      },
+      {
+        ar: "مسجد شياودونغيينغ (وسط الأسواق)",
+        cn: "小东营清真寺",
+        addr: "广州市越秀区越华路小东营1号",
+        metro: "مترو خط 1/2 (محطة Gongyuanqian 公园前) مخرج E",
+        desc: "يقع بالقرب من شارع بكين التجاري (Beijing Road) ومراكز التسوق ومطاعم الحلال الإسلامية.",
+        badge: "قريب من الأسواق",
+        mapUrl: "https://uri.amap.com/marker?position=113.2687,23.1311&name=小东营清真寺"
+      },
+      {
+        ar: "مسجد هاوزهو (على نهر اللؤلؤ)",
+        cn: "濠洲清真寺",
+        addr: "广州市海珠区桥东里两广同乡会旧址旁",
+        metro: "مترو خط 2 (محطة Haizhu Square 海珠广场) مخرج A",
+        desc: "مسجد تاريخي مطل بالقرب من ضفاف نهر اللؤلؤ وأسواق الملابس بالجملة في هايتشو.",
+        badge: "إطلالة نهرية",
+        mapUrl: "https://uri.amap.com/marker?position=113.2625,23.1165&name=濠洲清真寺"
+      }
+    ]
+  },
+  foshan: {
+    key: "foshan",
+    nameAr: "فوشان",
+    fullName: "فوشان (Foshan)",
+    nameCn: "佛山",
+    lat: 23.0215,
+    lng: 113.1214,
+    tz: 8,
+    mosques: [
+      {
+        ar: "مسجد فوشان الكبير",
+        cn: "佛山清真寺",
+        addr: "佛山市禅城区汾江中路 (靠近亲仁路)",
+        metro: "مترو خط Guangfo (محطة Zumiao 祖庙) أو محطة Tongji Lu",
+        desc: "المسجد المركزي في مدينة الأثاث فوشان، تقام فيه صلاة الجمعة والصلوات الخمس ويزوره تجار الأثاث ومواد البناء العرب.",
+        badge: "عاصمة الأثاث",
+        mapUrl: "https://uri.amap.com/marker?position=113.1189,23.0315&name=佛山清真寺"
+      }
+    ]
+  },
+  shanghai: {
+    key: "shanghai",
+    nameAr: "شنغهاي",
+    fullName: "شنغهاي (Shanghai)",
+    nameCn: "上海",
+    lat: 31.2304,
+    lng: 121.4737,
+    tz: 8,
+    mosques: [
+      {
+        ar: "مسجد شياوتاويوان الكبير (وسط شنغهاي)",
+        cn: "上海小桃园清真寺",
+        addr: "上海市黄浦区小桃园街52号",
+        metro: "مترو خط 8/9/10 (محطة Laoximen 老西门) مخرج 3",
+        desc: "أكبر مساجد شنغهاي وأجملها عمارة إسلامية معاصرة، مقر الجمعية الإسلامية بشنغهاي وتقام فيه خطبة وصلاة الجمعة بحضور دبلوماسي وتجاري واسع.",
+        badge: "الأكبر في شنغهاي",
+        mapUrl: "https://uri.amap.com/marker?position=121.4886,31.2224&name=小桃园清真寺"
+      },
+      {
+        ar: "مسجد فويو التاريخي (قرب حديقة يويوان)",
+        cn: "福佑路清真寺",
+        addr: "上海市黄浦区福佑路378号",
+        metro: "مترو خط 10/14 (محطة Yuyuan 豫园) مخرج 1",
+        desc: "يقع في البلدة القديمة بالقرب من سوق وحديقة يو يوان السياحية الشهيرة، بني عام 1870م ومحاط بمطاعم إسلامية عريقة.",
+        badge: "وسط المعالم السياحية",
+        mapUrl: "https://uri.amap.com/marker?position=121.4925,31.2291&name=福佑路清真寺"
+      },
+      {
+        ar: "مسجد بودونغ الجديد (منطقة المال والأعمال)",
+        cn: "浦东清真寺",
+        addr: "上海市浦东新区源深路375号",
+        metro: "مترو خط 6 (محطة Yuanshen Stadium 源深体育中心) مخرج 2",
+        desc: "مسجد حديث وجميل يخدم منطقة الأعمال وناطحات السحاب في بودونغ مع مئذنة عالية ومصلى فسيح.",
+        badge: "حي المال والأعمال",
+        mapUrl: "https://uri.amap.com/marker?position=121.5342,31.2355&name=浦东清真寺"
+      },
+      {
+        ar: "مسجد سونغجيانغ الأثري (أقدم مساجد شنغهاي)",
+        cn: "松江清真寺",
+        addr: "上海市松江区缸甏巷21号",
+        metro: "مترو خط 9 (محطة Zuibaichi 醉白池) مخرج 1",
+        desc: "أقدم مسجد أثري في شنغهاي يعود لأسرة يوان (القرن 14م)، يمزج بين الطراز المعماري الصيني الكلاسيكي والزخرفة الإسلامية العربية.",
+        badge: "تحفة أثرية",
+        mapUrl: "https://uri.amap.com/marker?position=121.2274,31.0041&name=松江清真寺"
+      }
+    ]
+  },
+  yiwu: {
+    key: "yiwu",
+    nameAr: "إيـوو",
+    fullName: "إيـوو (Yiwu)",
+    nameCn: "义乌",
+    lat: 29.3150,
+    lng: 120.0768,
+    tz: 8,
+    mosques: [
+      {
+        ar: "مسجد إيوو الكبير (عاصمة التجارة العالمية)",
+        cn: "义乌大清真寺",
+        addr: "义乌市稠州北路与城北路交汇处",
+        metro: "تاكسي / باص 101/102 قرب سوق الفوتيان العالمي (Futian Market)",
+        desc: "أكبر ملتقى للمسلمين والتجار العرب في الصين، يتسع لأكثر من 7,000 مصلٍ، ويحيط به الحي العربي والمطاعم والمكاتب التجارية.",
+        badge: "ملتقى التجار العرب",
+        mapUrl: "https://uri.amap.com/marker?position=120.0825,29.3245&name=义乌大清真寺"
+      }
+    ]
+  },
+  shenzhen: {
+    key: "shenzhen",
+    nameAr: "شنتشن",
+    fullName: "شنتشن (Shenzhen)",
+    nameCn: "深圳",
+    lat: 22.5431,
+    lng: 114.0579,
+    tz: 8,
+    mosques: [
+      {
+        ar: "مسجد شنتشن المركزي",
+        cn: "深圳清真寺",
+        addr: "深圳市福田区梅林路7号",
+        metro: "مترو خط 9 (محطة Meilin 梅林) أو خط 4 (محطة Shangmeilin 上梅林)",
+        desc: "المسجد الرئيسي في عاصمة التقنية والإلكترونيات شنتشن، بتصميم إسلامي بديع وحدائق جميلة ومصلى فسيح.",
+        badge: "عاصمة الإلكترونيات",
+        mapUrl: "https://uri.amap.com/marker?position=114.0562,22.5694&name=深圳清真寺"
+      }
+    ]
+  }
+};
+
+let currentPrayerCityKey = "guangzhou";
+let currentCustomCoords = null; // for GPS location
+let prayerTimerInterval = null;
+let compassSensorActive = false;
+let deviceOrientationHandler = null;
+
+function initPrayerModule() {
+  if (prayerTimerInterval) clearInterval(prayerTimerInterval);
+  prayerTimerInterval = setInterval(updatePrayerLiveState, 1000);
+}
+
+function selectPrayerCity(cityKey) {
+  currentPrayerCityKey = cityKey;
+  currentCustomCoords = null;
+
+  // Update tabs
+  document.querySelectorAll("#prayerCityTabs .prayer-city-tab").forEach((tab) => {
+    if (tab.getAttribute("data-city") === cityKey) {
+      tab.classList.add("active");
+    } else {
+      tab.classList.remove("active");
+    }
+  });
+
+  const gpsBtn = document.getElementById("prayerGpsBtn");
+  if (gpsBtn) gpsBtn.classList.remove("active");
+
+  renderPrayerModule();
+}
+
+function detectGPSLocation() {
+  if (!navigator.geolocation) {
+    showToast("خاصية تحديد الموقع (GPS) غير مدعومة في متصفحك");
+    return;
+  }
+
+  showToast("جاري تحديد موقعك الجغرافي بالصين...");
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      currentCustomCoords = {
+        lat: pos.coords.latitude,
+        lng: pos.coords.longitude,
+        nameAr: "موقعي الحالي",
+        fullName: `موقعي الحالي (${pos.coords.latitude.toFixed(2)}°, ${pos.coords.longitude.toFixed(2)}°)`,
+        tz: 8,
+        mosques: []
+      };
+
+      document.querySelectorAll("#prayerCityTabs .prayer-city-tab").forEach((tab) => tab.classList.remove("active"));
+      const gpsBtn = document.getElementById("prayerGpsBtn");
+      if (gpsBtn) gpsBtn.classList.add("active");
+
+      showToast("تم تحديد موقعك بدقة وحساب المواقيت والقبلة!");
+      renderPrayerModule();
+    },
+    (err) => {
+      showToast("تعذر الحصول على الموقع الجغرافي. تأكد من منح الإذن.");
+    },
+    { enableHighAccuracy: true, timeout: 10000 }
+  );
+}
+
+function getActivePrayerCityData() {
+  if (currentCustomCoords) {
+    return currentCustomCoords;
+  }
+  return PRAYER_CITIES_DATA[currentPrayerCityKey] || PRAYER_CITIES_DATA.guangzhou;
+}
+
+function renderPrayerModule() {
+  const cityData = getActivePrayerCityData();
+  const now = new Date();
+
+  // 1. Calculate Prayer Times
+  const times = calculatePrayerTimes(now, cityData.lat, cityData.lng, cityData.tz);
+
+  // 2. Calculate Qibla
+  const qibla = calculateQibla(cityData.lat, cityData.lng);
+
+  // 3. Update Dates & Clock
+  updatePrayerDates();
+
+  // 4. Render Prayer Cards
+  renderPrayerCards(times);
+
+  // 5. Update Qibla Display & Compass
+  renderQiblaDisplay(qibla, cityData);
+
+  // 6. Render Mosques
+  renderMosquesList(cityData);
+
+  // 7. Update countdown immediately
+  updatePrayerLiveState();
+}
+
+function updatePrayerDates() {
+  const now = new Date();
+
+  // Hijri Date
+  const hijriEl = document.getElementById("prayerHijriDate");
+  if (hijriEl) {
+    try {
+      const hijriFormatter = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+      hijriEl.textContent = hijriFormatter.format(now);
+    } catch (e) {
+      hijriEl.textContent = "التقويم الهجري";
+    }
+  }
+
+  // Gregorian Date
+  const gregEl = document.getElementById("prayerGregDate");
+  if (gregEl) {
+    const gregFormatter = new Intl.DateTimeFormat("ar-EG", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+    gregEl.textContent = gregFormatter.format(now);
+  }
+}
+
+function renderPrayerCards(times) {
+  const container = document.getElementById("prayerCardsContainer");
+  if (!container) return;
+
+  const prayers = [
+    { key: "fajr", nameAr: "الفجر", nameEn: "Fajr", icon: "🌙", timeVal: times.fajr },
+    { key: "sunrise", nameAr: "الشروق", nameEn: "Sunrise", icon: "🌅", timeVal: times.sunrise },
+    { key: "dhuhr", nameAr: "الظهر", nameEn: "Dhuhr", icon: "☀️", timeVal: times.dhuhr },
+    { key: "asr", nameAr: "العصر", nameEn: "Asr", icon: "🌤️", timeVal: times.asr },
+    { key: "maghrib", nameAr: "المغرب", nameEn: "Maghrib", icon: "🌇", timeVal: times.maghrib },
+    { key: "isha", nameAr: "العشاء", nameEn: "Isha", icon: "🌌", timeVal: times.isha }
+  ];
+
+  container.innerHTML = prayers.map((p) => {
+    const formatted = formatTime12(p.timeVal);
+    return `
+      <div class="prayer-card" id="prayerCard_${p.key}" data-key="${p.key}" data-time="${p.timeVal}">
+        <span class="prayer-card-badge" id="prayerBadge_${p.key}" style="display: none;">الصلاة القادمة</span>
+        <div class="prayer-card-icon">${p.icon}</div>
+        <div class="prayer-card-name-ar">${p.nameAr}</div>
+        <div class="prayer-card-name-en">${p.nameEn}</div>
+        <div class="prayer-card-time">${formatted}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderQiblaDisplay(qibla, cityData) {
+  const angleEl = document.getElementById("qiblaAngleDisplay");
+  const distEl = document.getElementById("qiblaDistanceDisplay");
+  const cityEl = document.getElementById("qiblaCityName");
+  const pinEl = document.getElementById("compassKaabaPin");
+  const needleEl = document.getElementById("compassNeedle");
+
+  if (angleEl) angleEl.textContent = `${qibla.bearing.toFixed(1)}° WNW`;
+  if (distEl) distEl.textContent = `~${qibla.distanceKm.toLocaleString("en-US")} كم`;
+  if (cityEl) cityEl.textContent = cityData.nameAr || "الصين";
+
+  // Position needle and Kaaba marker on compass
+  if (pinEl) {
+    pinEl.style.transform = `rotate(${qibla.bearing}deg)`;
+  }
+  if (needleEl && !compassSensorActive) {
+    needleEl.style.transform = `rotate(${qibla.bearing}deg)`;
+  }
+}
+
+function renderMosquesList(cityData) {
+  const container = document.getElementById("mosquesContainer");
+  const cityNameEl = document.getElementById("mosquesCityName");
+  if (cityNameEl) cityNameEl.textContent = cityData.nameAr || "المدينة المختارة";
+  if (!container) return;
+
+  const mosques = cityData.mosques || [];
+
+  if (mosques.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1/-1; background: #fdfbf7; padding: 24px; border-radius: var(--radius-md); text-align: center; border: 1px dashed var(--border);">
+        <p style="color: var(--text-muted); margin: 0;">
+          📍 اختر إحدى المدن الرئيسية (غوانزو، فوشان، شنغهاي، إيوو) للاطلاع على دليل المساجد المعتمدة وعناوينها لسائقي التاكسي.
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = mosques.map((m) => {
+    return `
+      <div class="mosque-card">
+        <div>
+          <div class="mosque-title-row">
+            <div class="mosque-ar">${escapeHtml(m.ar)}</div>
+            ${m.badge ? `<span class="mosque-badge">${escapeHtml(m.badge)}</span>` : ""}
+          </div>
+          <div class="mosque-cn">${escapeHtml(m.cn)}</div>
+          <div class="mosque-addr">📍 ${escapeHtml(m.addr)}</div>
+          ${m.metro ? `<div class="mosque-metro">🚇 ${escapeHtml(m.metro)}</div>` : ""}
+          ${m.desc ? `<div class="mosque-desc">${escapeHtml(m.desc)}</div>` : ""}
+        </div>
+        <div class="mosque-actions">
+          <button class="btn-mosque-action" onclick="copyChineseAddress('${escapeAttr(m.cn + ' ' + m.addr)}')">
+            📋 نسخ العنوان لسائق التاكسي
+          </button>
+          ${m.mapUrl ? `
+            <a class="btn-mosque-action btn-mosque-primary" href="${m.mapUrl}" target="_blank" rel="noopener noreferrer">
+              📍 خريطة Amap
+            </a>
+          ` : ""}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function updatePrayerLiveState() {
+  const now = new Date();
+
+  // 1. Live China Time Clock (UTC+8)
+  const clockEl = document.getElementById("prayerLiveClock");
+  if (clockEl) {
+    // Current UTC time + 8 hours
+    const utcHours = now.getUTCHours();
+    const utcMinutes = now.getUTCMinutes();
+    const utcSeconds = now.getUTCSeconds();
+    const chinaHours = (utcHours + 8) % 24;
+
+    const hh = String(chinaHours).padStart(2, "0");
+    const mm = String(utcMinutes).padStart(2, "0");
+    const ss = String(utcSeconds).padStart(2, "0");
+    clockEl.textContent = `${hh}:${mm}:${ss}`;
+  }
+
+  // 2. Next prayer countdown
+  const cityData = getActivePrayerCityData();
+  const times = calculatePrayerTimes(now, cityData.lat, cityData.lng, cityData.tz);
+
+  // Current time in decimal hours in China timezone
+  const currentChinaDecHours = ((now.getUTCHours() + 8) % 24) + (now.getUTCMinutes() / 60) + (now.getUTCSeconds() / 3600);
+
+  const prayerSchedule = [
+    { key: "fajr", name: "صلاة الفجر", time: times.fajr },
+    { key: "sunrise", name: "شروق الشمس", time: times.sunrise },
+    { key: "dhuhr", name: "صلاة الظهر", time: times.dhuhr },
+    { key: "asr", name: "صلاة العصر", time: times.asr },
+    { key: "maghrib", name: "صلاة المغرب", time: times.maghrib },
+    { key: "isha", name: "صلاة العشاء", time: times.isha }
+  ];
+
+  let nextPrayer = null;
+  for (const p of prayerSchedule) {
+    if (p.time > currentChinaDecHours) {
+      nextPrayer = p;
+      break;
+    }
+  }
+
+  // If after Isha, next is Fajr tomorrow (+24 hours)
+  let diffHours = 0;
+  if (nextPrayer) {
+    diffHours = nextPrayer.time - currentChinaDecHours;
+  } else {
+    nextPrayer = prayerSchedule[0]; // Fajr tomorrow
+    diffHours = (times.fajr + 24) - currentChinaDecHours;
+  }
+
+  const diffSecTotal = Math.max(0, Math.floor(diffHours * 3600));
+  const cdH = Math.floor(diffSecTotal / 3600);
+  const cdM = Math.floor((diffSecTotal % 3600) / 60);
+  const cdS = diffSecTotal % 60;
+
+  let countdownText = "متبقي: ";
+  if (cdH > 0) countdownText += `${cdH} ساعة و `;
+  countdownText += `${cdM} دقيقة و ${cdS} ثانية`;
+
+  const nextTitleEl = document.getElementById("prayerNextTitle");
+  const nextCdEl = document.getElementById("prayerNextCountdown");
+
+  if (nextTitleEl) nextTitleEl.textContent = `الصلاة القادمة: ${nextPrayer.name}`;
+  if (nextCdEl) nextCdEl.textContent = countdownText;
+
+  // Highlight next prayer card
+  document.querySelectorAll(".prayer-card").forEach((card) => {
+    card.classList.remove("active");
+  });
+  document.querySelectorAll(".prayer-card-badge").forEach((b) => (b.style.display = "none"));
+
+  const targetCard = document.getElementById(`prayerCard_${nextPrayer.key}`);
+  const targetBadge = document.getElementById(`prayerBadge_${nextPrayer.key}`);
+  if (targetCard) targetCard.classList.add("active");
+  if (targetBadge) targetBadge.style.display = "block";
+}
+
+/* =================================================================
+   Compass Sensor Integration (Mobile Orientation)
+   ================================================================= */
+function toggleCompassSensor() {
+  const btn = document.getElementById("btnCompassSensor");
+  const statusEl = document.getElementById("compassSensorStatus");
+
+  if (compassSensorActive) {
+    // Disable
+    compassSensorActive = false;
+    if (deviceOrientationHandler) {
+      window.removeEventListener("deviceorientationabsolute", deviceOrientationHandler);
+      window.removeEventListener("deviceorientation", deviceOrientationHandler);
+    }
+    if (btn) {
+      btn.classList.remove("active");
+      btn.innerHTML = `<span>🧭 تفعيل البوصلة المباشرة (حساس حركة الهاتف)</span>`;
+    }
+    if (statusEl) {
+      statusEl.style.display = "none";
+    }
+
+    // Reset needle to stationary Qibla bearing
+    const cityData = getActivePrayerCityData();
+    const qibla = calculateQibla(cityData.lat, cityData.lng);
+    const needleEl = document.getElementById("compassNeedle");
+    const dialEl = document.getElementById("compassDial");
+    if (needleEl) needleEl.style.transform = `rotate(${qibla.bearing}deg)`;
+    if (dialEl) dialEl.style.transform = `rotate(0deg)`;
+    return;
+  }
+
+  // Request permission on iOS 13+
+  if (typeof DeviceOrientationEvent !== "undefined" && typeof DeviceOrientationEvent.requestPermission === "function") {
+    DeviceOrientationEvent.requestPermission()
+      .then((permissionState) => {
+        if (permissionState === "granted") {
+          startCompassListener();
+        } else {
+          showToast("تم رفض إذن الوصول لحساس الحركة");
+        }
+      })
+      .catch(() => {
+        showToast("تعذر تفعيل حساس الحركة في هذا الجهاز");
+      });
+  } else if ("ondeviceorientationabsolute" in window || "ondeviceorientation" in window) {
+    startCompassListener();
+  } else {
+    showToast("جهازك لا يحتوي على حساس بوصلة رقمية (مستشعر المغناطيسية)");
+  }
+}
+
+function startCompassListener() {
+  const btn = document.getElementById("btnCompassSensor");
+  const statusEl = document.getElementById("compassSensorStatus");
+  compassSensorActive = true;
+
+  if (btn) {
+    btn.classList.add("active");
+    btn.innerHTML = `<span>🛑 إيقاف البوصلة المباشرة</span>`;
+  }
+  if (statusEl) {
+    statusEl.style.display = "block";
+    statusEl.textContent = "جاري قراءة حساس الحركة... قم بتدوير هاتفك";
+  }
+
+  deviceOrientationHandler = (event) => {
+    let heading = null;
+    if (event.webkitCompassHeading) {
+      // iOS
+      heading = event.webkitCompassHeading;
+    } else if (event.alpha !== null) {
+      // Android / Chrome
+      if (event.absolute) {
+        heading = 360 - event.alpha;
+      } else {
+        heading = 360 - event.alpha;
+      }
+    }
+
+    if (heading === null || isNaN(heading)) return;
+
+    const cityData = getActivePrayerCityData();
+    const qibla = calculateQibla(cityData.lat, cityData.lng);
+
+    const dialEl = document.getElementById("compassDial");
+    const needleEl = document.getElementById("compassNeedle");
+
+    // Rotate the dial to counter heading so North points North
+    if (dialEl) {
+      dialEl.style.transform = `rotate(${-heading}deg)`;
+    }
+
+    // Needle points to Qibla relative to North
+    if (needleEl) {
+      needleEl.style.transform = `rotate(${qibla.bearing}deg)`;
+    }
+
+    // Check how close the user is to facing Qibla
+    const diff = Math.abs(((heading - qibla.bearing + 540) % 360) - 180);
+    if (statusEl) {
+      if (diff < 8) {
+        statusEl.innerHTML = `<span style="color: #27ae60; font-weight: 800;">🕋 أنت الآن باتجاه القبلة تماماً! تقبل الله</span>`;
+      } else {
+        statusEl.textContent = `الاتجاه الحالي: ${Math.round(heading)}° (القبلة: ${Math.round(qibla.bearing)}°)`;
+      }
+    }
+  };
+
+  if ("ondeviceorientationabsolute" in window) {
+    window.addEventListener("deviceorientationabsolute", deviceOrientationHandler, true);
+  } else {
+    window.addEventListener("deviceorientation", deviceOrientationHandler, true);
+  }
+}
+
+/* =================================================================
+   Astronomical Calculation Helpers (Islamic World League Method)
+   ================================================================= */
+function degToRad(deg) {
+  return (deg * Math.PI) / 180.0;
+}
+
+function radToDeg(rad) {
+  return (rad * 180.0) / Math.PI;
+}
+
+function calculatePrayerTimes(date, lat, lng, timezone = 8) {
+  let year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+
+  if (month <= 2) {
+    year -= 1;
+    month += 12;
+  }
+
+  const A = Math.floor(year / 100);
+  const B = 2 - A + Math.floor(A / 4);
+  const JD = Math.floor(365.25 * (year + 4716)) + Math.floor(30.6001 * (month + 1)) + day + B - 1524.5;
+
+  const D = JD - 2451545.0;
+  const g = (357.529 + 0.98560028 * D) % 360;
+  const q = (280.459 + 0.98564736 * D) % 360;
+  const L = (q + 1.915 * Math.sin(degToRad(g)) + 0.020 * Math.sin(degToRad(2 * g))) % 360;
+  const e = 23.439 - 0.00000036 * D;
+
+  const sinD = Math.sin(degToRad(e)) * Math.sin(degToRad(L));
+  const dec = radToDeg(Math.asin(sinD));
+
+  let ra = radToDeg(Math.atan2(Math.cos(degToRad(e)) * Math.sin(degToRad(L)), Math.cos(degToRad(L)))) / 15.0;
+  ra = (ra + 24) % 24;
+
+  let EqT = (q / 15.0) - ra;
+  while (EqT > 12) EqT -= 24;
+  while (EqT < -12) EqT += 24;
+
+  const noon = 12 + timezone - (lng / 15.0) - EqT;
+
+  function hourAngle(alt) {
+    const val = (Math.sin(degToRad(alt)) - Math.sin(degToRad(lat)) * Math.sin(degToRad(dec))) /
+                (Math.cos(degToRad(lat)) * Math.cos(degToRad(dec)));
+    if (val > 1 || val < -1) return 0;
+    return radToDeg(Math.acos(val)) / 15.0;
+  }
+
+  const fajrHA = hourAngle(-18.0);
+  const sunriseHA = hourAngle(-0.833);
+  const asrAlt = radToDeg(Math.atan(1.0 / (1.0 + Math.tan(degToRad(Math.abs(lat - dec))))));
+  const asrHA = hourAngle(asrAlt);
+  const ishaHA = hourAngle(-17.0);
+
+  return {
+    fajr: noon - fajrHA,
+    sunrise: noon - sunriseHA,
+    dhuhr: noon,
+    asr: noon + asrHA,
+    maghrib: noon + sunriseHA,
+    isha: noon + ishaHA
+  };
+}
+
+function calculateQibla(lat, lng) {
+  const mLat = degToRad(21.422487);
+  const mLng = degToRad(39.826206);
+  const pLat = degToRad(lat);
+  const pLng = degToRad(lng);
+
+  const dLng = mLng - pLng;
+  const y = Math.sin(dLng);
+  const x = Math.cos(pLat) * Math.tan(mLat) - Math.sin(pLat) * Math.cos(dLng);
+  let qibla = (radToDeg(Math.atan2(y, x)) + 360) % 360;
+
+  // Distance in km (Haversine)
+  const dLat = mLat - pLat;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(pLat) * Math.cos(mLat) * Math.sin(dLng / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const dist = Math.round(6371 * c);
+
+  return { bearing: qibla, distanceKm: dist };
+}
+
+function formatTime12(decHours) {
+  let h = Math.floor(decHours) % 24;
+  let m = Math.round((decHours - Math.floor(decHours)) * 60);
+  if (m === 60) {
+    h = (h + 1) % 24;
+    m = 0;
+  }
+  const period = h >= 12 ? "م" : "ص";
+  let h12 = h % 12;
+  if (h12 === 0) h12 = 12;
+  return `${h12}:${m < 10 ? '0' + m : m} ${period}`;
 }

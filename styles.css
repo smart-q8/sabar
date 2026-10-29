@@ -2600,4 +2600,749 @@ body {
   }
 }
 
+/* =================================================================
+   PRAYER & QIBLA SECTION (مواقيت الصلاة واتجاه القبلة)
+   ================================================================= */
+.prayer-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(135deg, rgba(20, 60, 40, 0.06), rgba(197, 160, 89, 0.12));
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.prayer-banner-icon {
+  font-size: 2.8rem;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.prayer-banner-info h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.prayer-banner-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* City Switcher */
+.prayer-city-selector {
+  margin-bottom: 22px;
+}
+
+.prayer-city-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.prayer-city-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.prayer-city-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-xs);
+}
+
+.prayer-city-tab:hover {
+  background: #fdfbf7;
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.prayer-city-tab.active {
+  background: linear-gradient(135deg, #1c3d28, #2e593d);
+  color: #fff;
+  border-color: #1c3d28;
+  box-shadow: 0 4px 12px rgba(28, 61, 40, 0.25);
+}
+
+.prayer-gps-tab {
+  background: rgba(197, 160, 89, 0.08);
+  border-color: var(--gold);
+  color: #8c6e28;
+}
+
+/* Prayer Hero Card */
+.prayer-hero-card {
+  background: linear-gradient(145deg, #15291e, #1c3a2a);
+  color: #f7f5f0;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(21, 41, 30, 0.2);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.prayer-hero-card::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.2), transparent 70%);
+  pointer-events: none;
+}
+
+.prayer-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 18px;
+}
+
+.prayer-hijri-date {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #dfc282;
+  margin-bottom: 4px;
+}
+
+.prayer-gregorian-date {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.prayer-clock-block {
+  text-align: left;
+}
+
+.prayer-clock-label {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2px;
+}
+
+.prayer-clock-digits {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.prayer-next-callout {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+}
+
+.prayer-next-icon {
+  font-size: 2rem;
+  animation: pulseRotate 3s infinite ease-in-out;
+}
+
+@keyframes pulseRotate {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.prayer-next-title {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.prayer-next-countdown {
+  display: block;
+  font-size: 0.95rem;
+  color: #dfc282;
+  font-weight: 600;
+}
+
+/* Prayer Cards Grid */
+.prayer-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.prayer-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 12px;
+  text-align: center;
+  position: relative;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-xs);
+}
+
+.prayer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.prayer-card.active {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, #fffcf5, #f8f3e5);
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.25);
+  transform: translateY(-2px);
+}
+
+.prayer-card-badge {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: #1a1508;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.prayer-card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.prayer-card-name-ar {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.prayer-card-name-en {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.prayer-card-time {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums;
+}
+
+.prayer-card.active .prayer-card-time {
+  color: #8c6e28;
+}
+
+/* Qibla Section */
+.qibla-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.qibla-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.qibla-header-icon {
+  font-size: 2.4rem;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(197, 160, 89, 0.12);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  flex-shrink: 0;
+}
+
+.qibla-header h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.qibla-header p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.qibla-content-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+/* Compass Dial */
+.qibla-compass-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fdfbf7;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 16px;
+}
+
+.compass-wrapper {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compass-dial {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff, #f7f4ec);
+  border: 8px solid #233b2b;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease-out;
+}
+
+.compass-cardinal {
+  position: absolute;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.card-n {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #c93b2b;
+}
+
+.card-s {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-e {
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card-w {
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Kaaba Pin on perimeter */
+.compass-kaaba-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  margin-top: -110px;
+  margin-left: -110px;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kaaba-pin-icon {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Needle */
+.compass-needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 180px;
+  margin-top: -90px;
+  margin-left: -7px;
+  transform-origin: center center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.needle-tip.needle-north {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 78px solid #c93b2b;
+  position: relative;
+}
+
+.needle-label {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+  white-space: nowrap;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.needle-pivot {
+  width: 18px;
+  height: 180px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: #1c3d28;
+  border: 3px solid #dfc282;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 5;
+}
+
+.needle-tip.needle-south {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 78px solid #718096;
+  margin-top: 24px;
+}
+
+/* Compass Live Controls */
+.compass-live-controls {
+  margin-top: 18px;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-compass-sensor {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-compass-sensor:hover {
+  border-color: var(--gold);
+  background: #fff;
+}
+
+.btn-compass-sensor.active {
+  background: #1c3d28;
+  color: #fff;
+  border-color: #1c3d28;
+}
+
+.compass-sensor-status {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* Qibla Info Card */
+.qibla-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.qibla-stat-box {
+  background: #fdfbf7;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.qibla-stat-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.qibla-stat-value {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1c3d28;
+}
+
+.qibla-stat-sub {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.qibla-guidance-box {
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.qibla-guidance-box h4 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #8c6e28;
+  margin-bottom: 10px;
+}
+
+.qibla-steps {
+  margin: 0;
+  padding-right: 20px;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.qibla-steps li {
+  margin-bottom: 6px;
+}
+
+/* Mosques Directory */
+.mosques-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  box-shadow: var(--shadow-sm);
+}
+
+.mosques-section-header {
+  margin-bottom: 20px;
+}
+
+.mosques-section-header h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.mosques-section-header p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.mosques-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.mosque-card {
+  background: #fdfbf7;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.mosque-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.mosque-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.mosque-ar {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.mosque-badge {
+  background: rgba(28, 61, 40, 0.1);
+  color: #1c3d28;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.mosque-cn {
+  font-size: 1rem;
+  color: #c93b2b;
+  font-weight: 700;
+  font-family: sans-serif;
+  margin-bottom: 8px;
+}
+
+.mosque-addr {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.mosque-metro {
+  font-size: 0.84rem;
+  color: #2b6cb0;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.mosque-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.mosque-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-mosque-action {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-main);
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.btn-mosque-action:hover {
+  background: #f0eee8;
+  border-color: var(--gold);
+}
+
+.btn-mosque-primary {
+  background: #1c3d28;
+  color: #fff;
+  border-color: #1c3d28;
+}
+
+.btn-mosque-primary:hover {
+  background: #2e593d;
+  color: #fff;
+}
+
+/* Responsive adjustments for Prayer View */
+@media (max-width: 991px) {
+  .prayer-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .qibla-content-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .qibla-info-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 580px) {
+  .prayer-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prayer-hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .prayer-clock-block {
+    text-align: right;
+  }
+}
+
 

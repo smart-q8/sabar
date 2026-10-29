@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="styles.css?v=5.0" />
+  <link rel="stylesheet" href="styles.css?v=6.0" />
 </head>
 <body>
 
@@ -92,6 +92,11 @@
         <button class="sidebar-btn" data-sec="taxi" onclick="switchSection('taxi')">
           <span class="sb-icon">🚕</span>
           <span class="sb-text">بطاقة سائق التاكسي</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="prayer" onclick="switchSection('prayer')">
+          <span class="sb-icon">🕌</span>
+          <span class="sb-text">مواقيت الصلاة والقبلة</span>
         </button>
 
         <button class="sidebar-btn" data-sec="checklist" onclick="switchSection('checklist')">
@@ -229,6 +234,9 @@
               </li>
               <li>
                 <strong>🗣️ عبارات المحادثة الصينية اليومية:</strong> أهم الجمل التي تحتاجها في الأسواق والتفاوض والتاكسي والمطاعم مع النطق الصوتي بنقرة زر.
+              </li>
+              <li>
+                <strong>🕌 مواقيت الصلاة واتجاه القبلة:</strong> حساب دقيق لمواقيت الصلوات الخمس في غوانزو وفوشان وشنغهاي وإيوو مع بوصلة القبلة الذكية ودليل المساجد المعتمدة.
               </li>
               <li>
                 <strong>⭐ جدول رحلتي وتصدير PDF:</strong> حفظ أماكنك المفضلة وطباعة جدول منظم كملف PDF مرتب ليومياتك.
@@ -897,6 +905,163 @@
         </div>
       </div>
 
+      <!-- ============================================================== -->
+      <!-- VIEW 10: PRAYER & QIBLA (مواقيت الصلاة واتجاه القبلة) -->
+      <!-- ============================================================== -->
+      <div id="view-prayer" class="page-view" style="display: none;">
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
+          </button>
+          <div class="page-current-tag">🕌 مواقيت الصلاة والقبلة</div>
+        </div>
+
+        <!-- Banner -->
+        <div class="prayer-banner">
+          <div class="prayer-banner-icon">🕌</div>
+          <div class="prayer-banner-info">
+            <h2>مواقيت الصلاة واتجاه القبلة في الصين</h2>
+            <p>
+              حساب فلكي دقيق وموثوق لمواقيت الصلاة بتوقيت الصين الرسمي (UTC+8) المعتمد في كافة المدن، مع بوصلة اتجاه القبلة نحو مكة المكرمة ودليل المساجد التاريخية المعتمدة للمسافرين.
+            </p>
+          </div>
+        </div>
+
+        <!-- City Switcher Pills -->
+        <div class="prayer-city-selector">
+          <span class="prayer-city-label">📍 اختر المدينة لمعرفة مواقيتها واتجاه قبلتها:</span>
+          <div class="prayer-city-tabs" id="prayerCityTabs">
+            <button class="prayer-city-tab active" data-city="guangzhou" onclick="selectPrayerCity('guangzhou')">
+              🏙️ غوانزو (Guangzhou)
+            </button>
+            <button class="prayer-city-tab" data-city="foshan" onclick="selectPrayerCity('foshan')">
+              🛋️ فوشان (Foshan)
+            </button>
+            <button class="prayer-city-tab" data-city="shanghai" onclick="selectPrayerCity('shanghai')">
+              🌆 شنغهاي (Shanghai)
+            </button>
+            <button class="prayer-city-tab" data-city="yiwu" onclick="selectPrayerCity('yiwu')">
+              🛍️ إيـوو (Yiwu)
+            </button>
+            <button class="prayer-city-tab" data-city="shenzhen" onclick="selectPrayerCity('shenzhen')">
+              🏢 شنتشن (Shenzhen)
+            </button>
+            <button class="prayer-city-tab prayer-gps-tab" id="prayerGpsBtn" onclick="detectGPSLocation()">
+              🛰️ موقعي الحالي (GPS)
+            </button>
+          </div>
+        </div>
+
+        <!-- Prayer Hero Card: Live China Time + Hijri + Next Prayer Countdown -->
+        <div class="prayer-hero-card">
+          <div class="prayer-hero-top">
+            <div class="prayer-date-block">
+              <div class="prayer-hijri-date" id="prayerHijriDate">-- هـ</div>
+              <div class="prayer-gregorian-date" id="prayerGregDate">--</div>
+            </div>
+            <div class="prayer-clock-block">
+              <span class="prayer-clock-label">🇨🇳 توقيت الصين المعتمد (CST):</span>
+              <span class="prayer-clock-digits" id="prayerLiveClock">--:--:--</span>
+            </div>
+          </div>
+
+          <div class="prayer-next-callout">
+            <div class="prayer-next-icon">⏳</div>
+            <div class="prayer-next-details">
+              <span class="prayer-next-title" id="prayerNextTitle">الصلاة القادمة: جاري الحساب...</span>
+              <span class="prayer-next-countdown" id="prayerNextCountdown">متبقي --</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prayer Cards Grid (Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha) -->
+        <div class="prayer-cards-grid" id="prayerCardsContainer"></div>
+
+        <!-- Qibla Direction & Interactive Compass -->
+        <div class="qibla-section">
+          <div class="qibla-header">
+            <div class="qibla-header-icon">🕋</div>
+            <div>
+              <h3>اتجاه القبلة نحو الكعبة المشرفة بمكة المكرمة</h3>
+              <p>زاوية القبلة الدقيقة من <span id="qiblaCityName">غوانزو</span> إلى الحرم المكي الشريف.</p>
+            </div>
+          </div>
+
+          <div class="qibla-content-grid">
+            <!-- Compass Dial Card -->
+            <div class="qibla-compass-card">
+              <div class="compass-wrapper">
+                <div class="compass-dial" id="compassDial">
+                  <!-- Cardinal Points -->
+                  <div class="compass-cardinal card-n">ش (N)</div>
+                  <div class="compass-cardinal card-e">شرق (E)</div>
+                  <div class="compass-cardinal card-s">جنوب (S)</div>
+                  <div class="compass-cardinal card-w">غرب (W)</div>
+                  
+                  <!-- Kaaba Target Marker on the ring -->
+                  <div class="compass-kaaba-pin" id="compassKaabaPin">
+                    <span class="kaaba-pin-icon" title="اتجاه الكعبة المشرفة">🕋</span>
+                  </div>
+
+                  <!-- Pointer Needle -->
+                  <div class="compass-needle" id="compassNeedle">
+                    <div class="needle-tip needle-north" title="مكة المكرمة">
+                      <span class="needle-label">القبلة 🕋</span>
+                    </div>
+                    <div class="needle-pivot"></div>
+                    <div class="needle-tip needle-south"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="compass-live-controls">
+                <button class="btn-compass-sensor" id="btnCompassSensor" onclick="toggleCompassSensor()">
+                  <span>🧭 تفعيل البوصلة المباشرة (حساس حركة الهاتف)</span>
+                </button>
+                <div class="compass-sensor-status" id="compassSensorStatus" style="display: none;"></div>
+              </div>
+            </div>
+
+            <!-- Qibla Stats and Guidance Card -->
+            <div class="qibla-info-card">
+              <div class="qibla-stat-box">
+                <span class="qibla-stat-label">📐 زاوية القبلة الدقيقة (Azimuth):</span>
+                <span class="qibla-stat-value" id="qiblaAngleDisplay">284.6° WNW</span>
+                <span class="qibla-stat-sub">شمال غرب (باتجاه الغرب مع انحراف شمالي)</span>
+              </div>
+
+              <div class="qibla-stat-box">
+                <span class="qibla-stat-label">📏 المسافة إلى مكة المكرمة:</span>
+                <span class="qibla-stat-value" id="qiblaDistanceDisplay">~7,472 كم</span>
+                <span class="qibla-stat-sub">خط جغرافي مستقيم نحو الكعبة المشرفة</span>
+              </div>
+
+              <div class="qibla-guidance-box">
+                <h4>🧭 كيف تتجه للقبلة يدوياً وبسهولة؟</h4>
+                <ol class="qibla-steps">
+                  <li><strong>جهة الغرب:</strong> حدد جهة غروب الشمس في الصين (الغرب 270°).</li>
+                  <li><strong>الانحراف المطلوب:</strong> زاوية القبلة في الصين هي <strong>285° تقريباً</strong> (أي اتجه للغرب ثم انحرف <strong>15 درجة نحو اليمين/الشمال</strong>).</li>
+                  <li><strong>في الفندق أو الغرفة:</strong> استخدم هذه البوصلة مباشرة أو ارجع لعلامة السهم في سقف الغرفة إن وجدت.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mosques Directory for Selected City -->
+        <div class="mosques-section">
+          <div class="mosques-section-header">
+            <h3>🕌 أشهر المساجد المعتمدة في <span id="mosquesCityName">غوانزو</span></h3>
+            <p>مساجد تاريخية ومراكز إسلامية لصلاة الجمعة والجماعة مع سهولة الوصول عبر المترو والتاكسي:</p>
+          </div>
+          
+          <div class="mosques-list-grid" id="mosquesContainer">
+            <!-- Mosques cards injected by JS -->
+          </div>
+        </div>
+
+      </div>
+
     </main>
   </div>
 
@@ -983,7 +1148,7 @@
   </nav>
 
   <!-- Scripts -->
-  <script src="places.js?v=5.0"></script>
-  <script src="app.js?v=5.0"></script>
+  <script src="places.js?v=6.0"></script>
+  <script src="app.js?v=6.0"></script>
 </body>
 </html>

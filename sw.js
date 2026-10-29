@@ -1,10 +1,10 @@
-const CACHE_NAME = 'sabar-china-v10';
+const CACHE_NAME = 'sabar-china-v11';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './styles.css?v=5.0',
-  './places.js?v=5.0',
-  './app.js?v=5.0',
+  './styles.css?v=6.0',
+  './places.js?v=6.0',
+  './app.js?v=6.0',
   './manifest.json',
   './favicon.svg',
   './icon-192.png',
