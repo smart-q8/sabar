@@ -4,10 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f0eee8" />
-  <meta name="description" content="دليل بويوسف الصبر الشامل للأعمال والتسوق في الصين: غوانزو للجملة والأسواق، شنغهاي للأعمال والمعالم، وفوشان لعالم الأثاث والإنارة. نسخ العناوين بالصينية، بطاقة سائق التاكسي، خريطة Amap، بطاقة دخول الصين، ومحول العملات." />
-  <meta name="keywords" content="الصبر للصين, غوانزو, شنغهاي, فوشان, أسواق الصين, كوانزو بالجملة, أثاث فوشان, بطاقة دخول الصين, مترو غوانزو, مطاعم حلال في الصين" />
+  <meta name="description" content="دليل بويوسف الصبر الشامل للأعمال والتسوق في الصين: غوانزو للجملة والأسواق، شنغهاي للأعمال والمعالم، وفوشان لعالم الأثاث والإنارة." />
   
-  <title>الصبر للصين | دليل بويوسف الصبر · غوانزو، شنغهاي، وفوشان</title>
+  <title>دليل بو يوسف الصبر - الصين | المرجع الميداني للتجارة والتسوق والسياحة</title>
   
   <!-- PWA Manifest & Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -19,990 +18,887 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="styles.css?v=3.0" />
+  <link rel="stylesheet" href="styles.css?v=4.0" />
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#home" class="brand" onclick="switchSection('home'); return false;">
-        <div class="brand-logo-icon">🇨🇳</div>
-        <div class="brand-text">
-          <span class="brand-name">دليل بو يوسف الصبر <span>- الصين</span></span>
-        </div>
-      </a>
-
-      <div class="header-actions">
-        <button class="btn-home-header" onclick="switchSection('home')" title="العودة لصفحة البدء">
-          <span>🏠 الرئيسية</span>
-        </button>
-        <button class="btn-fav-header" onclick="switchSection('favorites')">
-          <span>⭐ المفضلة</span>
-          <span class="badge-fav" id="favCountTop">0</span>
-        </button>
-        <a class="btn-snap" href="https://www.snapchat.com/add/alsaber22" target="_blank" rel="noopener noreferrer" title="سناب شات بويوسف الصبر">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.5c-3 0-4.6 2.1-4.6 5.1v2.2c-.8-.3-1.7-.4-1.9.3-.2.8 1 1.2 2 1.6-.4 2.5-1.8 3.9-4.1 4.7-.5.2-.5.8 0 1 1.1.5 2.3.5 2.8 1.6.2.4.4.6.8.5 1.4-.4 2.4-.1 3.3.5 1 .7 2.5.7 3.5 0 .9-.6 1.9-.9 3.3-.5.4.1.6-.1.8-.5.5-1.1 1.7-1.1 2.8-1.6.5-.2.5-.8 0-1-2.3-.8-3.7-2.2-4.1-4.7 1-.4 2.2-.8 2-1.6-.2-.7-1.1-.6-1.9-.3V7.6c0-3-1.6-5.1-4.6-5.1Z"/>
-          </svg>
-          <span>alsaber22</span>
-        </a>
-      </div>
+  <!-- Mobile Top Bar (< 992px) -->
+  <header class="mobile-header">
+    <button class="mobile-menu-toggle" onclick="toggleSidebar()" aria-label="فتح القائمة الجانبية">
+      <span>☰ الأقسام</span>
+    </button>
+    <div class="mobile-brand-title" onclick="switchSection('home')">
+      🇨🇳 دليل بو يوسف الصبر
     </div>
+    <button class="mobile-fav-header" onclick="switchSection('favorites')">
+      ⭐ <span id="favCountMobile">0</span>
+    </button>
   </header>
 
-  <!-- Main Container -->
-  <main class="container" id="top">
+  <!-- Sidebar Overlay for Mobile -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+  <!-- App Main Layout Wrapper -->
+  <div class="app-layout">
     
     <!-- ============================================================== -->
-    <!-- VIEW 0: HOME PORTAL (صفحة البدء الخفيفة، البسيطة، والجميلة) -->
+    <!-- SIDEBAR: أزرار الأقسام على الجانب -->
     <!-- ============================================================== -->
-    <div id="view-home" class="active-view">
-      
-      <!-- Minimalist Clean Welcome Header -->
-      <section class="home-clean-hero">
-        <h1 class="home-clean-title">دليل بو يوسف الصبر <span>- الصين</span></h1>
-        <p class="home-clean-sub">دليلك السريع للأسواق، المعارض، والتنقل في جمهورية الصين الشعبية</p>
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <a href="#home" class="sidebar-brand" onclick="switchSection('home'); return false;">
+          <div class="sidebar-brand-icon">🇨🇳</div>
+          <div class="sidebar-brand-text">
+            <span class="sidebar-brand-title">دليل بو يوسف الصبر</span>
+            <span class="sidebar-brand-sub">جمهورية الصين الشعبية</span>
+          </div>
+        </a>
+        <button class="sidebar-close-btn" onclick="closeSidebar()" aria-label="إغلاق القائمة">✕</button>
+      </div>
 
-        <!-- Fast Clean Search -->
-        <div class="home-clean-search">
-          <span class="search-icon">🔍</span>
-          <input 
-            type="text" 
-            id="homeUniversalSearch" 
-            class="search-input" 
-            placeholder="ابحث عن سوق، مول، فندق، أو مطعم حلال (بايما، اللوفر، ساعات...)" 
-            autocomplete="off"
-          />
-          <button id="homeClearSearchBtn" class="search-clear" title="مسح البحث" style="display:none;">✕</button>
-        </div>
-      </section>
+      <div class="sidebar-nav-label">أقسام الدليل والخدمات</div>
 
-      <!-- Clean Action Tiles Grid (أزرار الخدمات البسيطة والمريحة) -->
-      <div class="home-tiles-grid">
+      <!-- Navigation Section Buttons -->
+      <nav class="sidebar-nav" id="sidebarNav">
+        <button class="sidebar-btn active" data-sec="home" onclick="switchSection('home')">
+          <span class="sb-icon">🏠</span>
+          <span class="sb-text">الصفحة الرئيسية (عن الموقع)</span>
+        </button>
+
+        <div class="sidebar-nav-divider"></div>
+        <div class="sidebar-nav-subhead">أسواق المدن والمعالم</div>
+
+        <button class="sidebar-btn" data-sec="gz" onclick="switchSection('gz')">
+          <span class="sb-icon">🏙️</span>
+          <span class="sb-text">أسواق غوانزو بالجملة</span>
+          <span class="sb-badge" id="badgeGz">130</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="fs" onclick="switchSection('fs')">
+          <span class="sb-icon">🛋️</span>
+          <span class="sb-text">عالم أثاث وإنارة فوشان</span>
+          <span class="sb-badge" id="badgeFs">33</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="sh" onclick="switchSection('sh')">
+          <span class="sb-icon">🌆</span>
+          <span class="sb-text">معالم وتجارة شنغهاي</span>
+          <span class="sb-badge" id="badgeSh">108</span>
+        </button>
+
+        <div class="sidebar-nav-divider"></div>
+        <div class="sidebar-nav-subhead">أدوات المسافر الذكية</div>
+
+        <button class="sidebar-btn" data-sec="taxi" onclick="switchSection('taxi')">
+          <span class="sb-icon">🚕</span>
+          <span class="sb-text">بطاقة سائق التاكسي</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="checklist" onclick="switchSection('checklist')">
+          <span class="sb-icon">📋</span>
+          <span class="sb-text">تجهيزات السفر والفيزا</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="maps" onclick="switchSection('maps')">
+          <span class="sb-icon">🗺️</span>
+          <span class="sb-text">المواصلات والخرائط الصينية</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="fx" onclick="switchSection('fx')">
+          <span class="sb-icon">💱</span>
+          <span class="sb-text">محول العملات وحاسبة الشحن</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="arrival" onclick="switchSection('arrival')">
+          <span class="sb-icon">🛂</span>
+          <span class="sb-text">بطاقة دخول الصين الإلكترونية</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="phrases" onclick="switchSection('phrases')">
+          <span class="sb-icon">🗣️</span>
+          <span class="sb-text">عبارات المحادثة الصينية</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="favorites" onclick="switchSection('favorites')">
+          <span class="sb-icon">⭐</span>
+          <span class="sb-text">جدول رحلتي والمفضلة</span>
+          <span class="sb-badge" id="badgeFav">0</span>
+        </button>
+
+        <button class="sidebar-btn" data-sec="services" onclick="switchSection('services')">
+          <span class="sb-icon">🛍️</span>
+          <span class="sb-text">التوريد والشحن من الصين</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <a class="sidebar-snap-btn" href="https://www.snapchat.com/add/alsaber22" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path d="M12 2.5c-3 0-4.6 2.1-4.6 5.1v2.2c-.8-.3-1.7-.4-1.9.3-.2.8 1 1.2 2 1.6-.4 2.5-1.8 3.9-4.1 4.7-.5.2-.5.8 0 1 1.1.5 2.3.5 2.8 1.6.2.4.4.6.8.5 1.4-.4 2.4-.1 3.3.5 1 .7 2.5.7 3.5 0 .9-.6 1.9-.9 3.3-.5.4.1.6-.1.8-.5.5-1.1 1.7-1.1 2.8-1.6.5-.2.5-.8 0-1-2.3-.8-3.7-2.2-4.1-4.7 1-.4 2.2-.8 2-1.6-.2-.7-1.1-.6-1.9-.3V7.6c0-3-1.6-5.1-4.6-5.1Z"/>
+          </svg>
+          <span>سناب شات: alsaber22</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- ============================================================== -->
+    <!-- MAIN CONTENT AREA -->
+    <!-- ============================================================== -->
+    <main class="app-main">
+
+      <!-- ============================================================== -->
+      <!-- VIEW 0: HOME PAGE (خالية من التفاصيل والبطاقات - معلومات هامة فقط) -->
+      <!-- ============================================================== -->
+      <div id="view-home" class="page-view active-view">
         
-        <!-- 1. Guangzhou -->
-        <div class="home-tile" onclick="switchSection('gz')">
-          <div class="tile-icon-box" style="background: rgba(2, 132, 199, 0.12); color: #0284c7;">🏙️</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">أسواق غوانزو بالجملة</span>
-              <span class="tile-badge" id="portalBadgeGz">130 سوقاً</span>
-            </div>
-            <span class="tile-desc">ملابس بايما، ساعات، حقائب بييون، إلكترونيات، ومطاعم حلال</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 2. Foshan -->
-        <div class="home-tile" onclick="switchSection('fs')">
-          <div class="tile-icon-box" style="background: rgba(217, 119, 6, 0.12); color: #d97706;">🛋️</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">عالم أثاث وإنارة فوشان</span>
-              <span class="tile-badge" id="portalBadgeFs">33 مجمعاً</span>
-            </div>
-            <span class="tile-desc">معارض قصر اللوفر الفاخرة للأثاث، وأسواق الإنارة في غوجين</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 3. Shanghai -->
-        <div class="home-tile" onclick="switchSection('sh')">
-          <div class="tile-icon-box" style="background: rgba(126, 34, 206, 0.12); color: #7e22ce;">🌆</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">معالم وتجارة شنغهاي</span>
-              <span class="tile-badge" id="portalBadgeSh">108 مواقع</span>
-            </div>
-            <span class="tile-desc">شارع نانجينغ، ممشى البوند، ديزني لاند، وأفخم المولات العالمية</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 4. Taxi Driver -->
-        <div class="home-tile" onclick="switchSection('taxi')">
-          <div class="tile-icon-box" style="background: rgba(180, 83, 9, 0.12); color: #b45309;">🚕</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">بطاقة سائق التاكسي</span>
-            </div>
-            <span class="tile-desc">عرض اسم المكان والعنوان بالصيني بخط عملاق مع نطق وملاحة</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 5. Pre-Travel Checklist -->
-        <div class="home-tile" onclick="switchSection('checklist')">
-          <div class="tile-icon-box" style="background: rgba(4, 120, 87, 0.12); color: #047857;">📋</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">قائمة تجهيزات السفر الذكية</span>
-            </div>
-            <span class="tile-desc">دليل عملي: الفيزا، تفعيل Alipay ببطاقتك، وشريحة eSIM بدون حجب</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 6. Chinese Maps & Metro -->
-        <div class="home-tile" onclick="switchSection('maps')">
-          <div class="tile-icon-box" style="background: rgba(3, 105, 161, 0.12); color: #0369a1;">🗺️</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">المواصلات والخرائط الصينية</span>
-            </div>
-            <span class="tile-desc">خرائط Amap و Baidu الصينية، دليل المترو، وتطبيق ديدي Didi</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 7. FX Converter & CBM -->
-        <div class="home-tile" onclick="switchSection('fx')">
-          <div class="tile-icon-box" style="background: rgba(161, 98, 7, 0.12); color: #a16207;">💱</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">محول العملات وحاسبة الشحن CBM</span>
-            </div>
-            <span class="tile-desc">تحويل اليوان إلى العملات الخليجية، الفصال، وحساب حجم الكراتين</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 8. Arrival Card -->
-        <div class="home-tile" onclick="switchSection('arrival')">
-          <div class="tile-icon-box" style="background: rgba(67, 56, 202, 0.12); color: #4338ca;">🛂</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">بطاقة دخول الصين الإلكترونية</span>
-            </div>
-            <span class="tile-desc">خطوات تعبئة إقرار الهجرة الصيني (NIA) مجاناً قبل ركوب الطائرة</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 9. Phrases -->
-        <div class="home-tile" onclick="switchSection('phrases')">
-          <div class="tile-icon-box" style="background: rgba(190, 24, 93, 0.12); color: #be185d;">🗣️</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">عبارات المحادثة الصينية</span>
-            </div>
-            <span class="tile-desc">جمل التخفيض، التاكسي، الطعام، والمترو مع نطق صوتي فوري</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 10. Favorites & PDF -->
-        <div class="home-tile" onclick="switchSection('favorites')">
-          <div class="tile-icon-box" style="background: rgba(194, 65, 12, 0.12); color: #c2410c;">⭐</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">جدول رحلتي وتصدير PDF</span>
-            </div>
-            <span class="tile-desc">الأماكن المحفوظة لتنظيم الزيارات مع إمكانية الطباعة كملف PDF</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-        <!-- 11. Sourcing -->
-        <div class="home-tile" onclick="switchSection('services')">
-          <div class="tile-icon-box" style="background: rgba(21, 128, 61, 0.12); color: #15803d;">🛍️</div>
-          <div class="tile-content">
-            <div class="tile-title-row">
-              <span class="tile-title">خدمات التوريد والشحن</span>
-            </div>
-            <span class="tile-desc">معلومات فحص الجودة (QC)، البحث عن المصانع، وتنسيق الحاويات</span>
-          </div>
-          <span class="tile-arrow">←</span>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- VIEW 1: PLACES CATALOG (غوانزو · شنغهاي · فوشان) -->
-    <!-- ============================================================== -->
-    <div id="view-catalog" style="display: none;">
-      
-      <!-- Sticky Subview Breadcrumb Bar -->
-      <div class="subview-nav-bar">
-        <button class="btn-back-home" onclick="switchSection('home')">
-          <span>🏠 العودة للرئيسية</span>
-        </button>
-        <div class="subview-breadcrumbs">
-          <span class="crumb-link" onclick="switchSection('home')">الرئيسية</span>
-          <span class="crumb-sep">/</span>
-          <span class="crumb-current" id="catalogCrumbTitle">أسواق غوانزو بالجملة</span>
-        </div>
-      </div>
-
-      <!-- City Switch Tabs Bar -->
-      <div class="city-selector-tabs">
-        <button class="city-sel-btn active" id="tabBtnGz" onclick="switchSection('gz')">
-          <span>🏙️ غوانزو</span>
-          <span class="city-sel-badge" id="badgeGz">130</span>
-        </button>
-        <button class="city-sel-btn" id="tabBtnFs" onclick="switchSection('fs')">
-          <span>🛋️ أثاث فوشان</span>
-          <span class="city-sel-badge" id="badgeFs">33</span>
-        </button>
-        <button class="city-sel-btn" id="tabBtnSh" onclick="switchSection('sh')">
-          <span>🌆 شنغهاي</span>
-          <span class="city-sel-badge" id="badgeSh">108</span>
-        </button>
-      </div>
-
-      <!-- Dynamic City Header Box -->
-      <div class="city-header-box" id="cityHeaderBox">
-        <div class="city-bg-watermark" id="cityWatermark">广州</div>
-        <div class="city-header-title">
-          <h2 id="cityNameAr">غوانزو</h2>
-          <span class="city-cn-label" id="cityNameCn">Guangzhou · 广州</span>
-        </div>
-        <p class="city-header-desc" id="cityBlurb">
-          عاصمة التجارة وأسواق الجملة في جنوب الصين. تضم أضخم مجمعات الملابس، الحقائب، الساعات، الإلكترونيات، ومطاعم الأكل الحلال.
-        </p>
-      </div>
-
-      <!-- Catalog Live Search Bar -->
-      <div class="search-container" style="margin-top: 16px;">
-        <span class="search-icon">🔍</span>
-        <input 
-          type="text" 
-          id="globalSearch" 
-          class="search-input" 
-          placeholder="ابحث في هذه المدينة: اسم السوق، المترو، التخصص، أو مطعم حلال..." 
-          autocomplete="off"
-        />
-        <button id="clearSearchBtn" class="search-clear" title="مسح البحث">✕</button>
-      </div>
-
-      <!-- Quick Search Suggestions inside Catalog -->
-      <div class="quick-tags" style="margin-bottom: 14px;">
-        <span class="quick-tag-label">فلترة سريعة:</span>
-        <button class="quick-tag" onclick="quickSearch('ملابس')">👗 ملابس</button>
-        <button class="quick-tag" onclick="quickSearch('أثاث')">🛋️ أثاث</button>
-        <button class="quick-tag" onclick="quickSearch('ساعات')">⌚ ساعات</button>
-        <button class="quick-tag" onclick="quickSearch('شنط')">👜 حقائب</button>
-        <button class="quick-tag" onclick="quickSearch('إنارة')">💡 إنارة</button>
-        <button class="quick-tag" onclick="quickSearch('مطعم')">🍽️ مطاعم</button>
-        <button class="quick-tag" onclick="quickSearch('ألعاب')">🧸 ألعاب</button>
-        <button class="quick-tag" onclick="quickSearch('بايما')">白马 بايما</button>
-      </div>
-
-      <!-- Category Filter Chips -->
-      <div class="chips-wrap" id="categoryChips"></div>
-
-      <!-- Specialized Niche Sub-category Chips -->
-      <div class="subchips-wrap" id="subCategoryChips">
-        <span class="subchip-title">🏷️ تخصص السوق:</span>
-        <button class="subchip active" data-sub="الكل" onclick="setSubFilter('الكل')">الكل</button>
-        <button class="subchip" data-sub="نسائي" onclick="setSubFilter('نسائي')">👗 ملابس نسائية</button>
-        <button class="subchip" data-sub="أطفال" onclick="setSubFilter('أطفال')">👶 ملابس أطفال</button>
-        <button class="subchip" data-sub="رجالي" onclick="setSubFilter('رجالي')">👔 ملابس رجالية</button>
-        <button class="subchip" data-sub="حقائب" onclick="setSubFilter('حقائب')">👜 حقائب وجلود</button>
-        <button class="subchip" data-sub="ساعات" onclick="setSubFilter('ساعات')">⌚ ساعات</button>
-        <button class="subchip" data-sub="أحذية" onclick="setSubFilter('أحذية')">👠 أحذية</button>
-        <button class="subchip" data-sub="أثاث" onclick="setSubFilter('أثاث')">🛋️ أثاث</button>
-        <button class="subchip" data-sub="إنارة" onclick="setSubFilter('إنارة')">💡 إنارة</button>
-        <button class="subchip" data-sub="إلكترونيات" onclick="setSubFilter('إلكترونيات')">📱 إلكترونيات</button>
-        <button class="subchip" data-sub="أقمشة" onclick="setSubFilter('أقمشة')">🧵 أقمشة</button>
-        <button class="subchip" data-sub="تجميل" onclick="setSubFilter('تجميل')">💄 تجميل وعطور</button>
-        <button class="subchip" data-sub="ألعاب" onclick="setSubFilter('ألعاب')">🧸 ألعاب وقرطاسية</button>
-        <button class="subchip" data-sub="نظارات" onclick="setSubFilter('نظارات')">👓 نظارات</button>
-      </div>
-
-      <!-- Places Grid -->
-      <div class="places-grid" id="placesContainer"></div>
-
-      <!-- Empty State -->
-      <div class="empty-box" id="emptyState" style="display: none;">
-        <div class="empty-box-icon">🔍</div>
-        <h3>لم يتم العثور على نتائج مطابقة</h3>
-        <p>جرّب البحث بكلمة أخرى أو قم بمسح الفلتر لعرض جميع المواقع المتاحة.</p>
-      </div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- VIEW 2: DEDICATED TAXI ASSISTANT (بطاقة سائق التاكسي السريعة) -->
-    <!-- ============================================================== -->
-    <div id="view-taxi" style="display: none;">
-      <div class="subview-nav-bar">
-        <button class="btn-back-home" onclick="switchSection('home')">
-          <span>🏠 العودة للرئيسية</span>
-        </button>
-        <div class="subview-breadcrumbs">
-          <span class="crumb-link" onclick="switchSection('home')">الرئيسية</span>
-          <span class="crumb-sep">/</span>
-          <span class="crumb-current">بطاقة سائق التاكسي</span>
-        </div>
-      </div>
-
-      <div class="taxi-page-banner">
-        <div class="taxi-page-icon">🚕</div>
-        <div class="taxi-page-info">
-          <h2>بطاقة سائق التاكسي التفاعلية (Show Taxi Driver)</h2>
-          <p>
-            تجنب صعوبات التفاهم باللغة الصينية مع سائق التاكسي! ابحث عن وجهتك أو اختر من القائمة، واعرض الشاشة الكبيرة بالصينية الواضحة، مع نطق اسم المكان وفتح الخرائط الصينية بنقرة واحدة.
+        <!-- Welcome Hero Info -->
+        <section class="home-info-hero">
+          <div class="home-hero-badge">🇨🇳 المنصة الرقمية الميدانية الشاملة للتجارة والسياحة في الصين</div>
+          <h1 class="home-info-title">دليل بو يوسف الصبر <span>- الصين</span></h1>
+          <p class="home-info-subtitle">
+            مرجع ميداني عملي وموثق يجمع خلاصة الخبرة المباشرة في أسواق ومصانع ومدن الصين، لمساعدة التاجر والمسافر العربي على إنجاز أعماله وتسوقه وتنقلاته بكل راحة ويسر.
           </p>
-        </div>
-      </div>
+        </section>
 
-      <!-- Instant Place Search & Selector -->
-      <div class="taxi-selector-box">
-        <label class="taxi-label">🔍 اختر أو ابحث عن وجهتك من بين 271 موقعاً:</label>
-        <div class="search-container">
-          <span class="search-icon">📍</span>
-          <input 
-            type="text" 
-            id="taxiHubSearch" 
-            class="search-input" 
-            placeholder="ابحث عن: بايما، اللوفر، سوق الساعات، برج كانتون، مطار باييون، ديزني..." 
-            oninput="handleTaxiSearchInput(this.value)"
-          />
-        </div>
-
-        <div class="quick-tags" style="margin-top: 10px;">
-          <span class="quick-tag-label">وجهات شائعة للتاكسي:</span>
-          <button class="quick-tag" onclick="selectTaxiDestinationById('p_1')">سوق بايما</button>
-          <button class="quick-tag" onclick="selectTaxiDestinationById('p_12')">سوق بييون للشنط</button>
-          <button class="quick-tag" onclick="selectTaxiDestinationById('p_13')">سوق الساعات تشانبي</button>
-          <button class="quick-tag" onclick="selectTaxiDestinationById('p_240')">قصر اللوفر فوشان</button>
-          <button class="quick-tag" onclick="selectTaxiDestinationById('p_28')">برج كانتون</button>
-          <button class="quick-tag" onclick="selectTaxiDestinationById('p_132')">شارع نانجينغ شنغهاي</button>
-          <button class="quick-tag" onclick="selectTaxiDestinationById('p_131')">ممشى البوند شنغهاي</button>
-        </div>
-
-        <!-- Dropdown search suggestions -->
-        <div id="taxiSuggestions" class="taxi-suggestions-list" style="display:none;"></div>
-      </div>
-
-      <!-- Giant Taxi Card Display -->
-      <div class="taxi-giant-card" id="taxiHubDisplay">
-        <div class="taxi-giant-top-bar">
-          <span class="taxi-giant-badge">🇨🇳 请带我去这里 (رجاءً خذني إلى هنا بالعداد)</span>
-          <span class="taxi-giant-city-tag" id="taxiDisplayCity">غوانزو</span>
-        </div>
-
-        <div class="taxi-giant-ar" id="taxiDisplayAr">سوق بايما للملابس</div>
-        <div class="taxi-giant-cn" id="taxiDisplayCn">白马服装批发市场</div>
-        <div class="taxi-giant-addr" id="taxiDisplayAddr">📍 广州市越秀区站南路16号</div>
-        <div class="taxi-giant-metro" id="taxiDisplayMetro">🚇 مترو خط 2/5 (محطة Guangzhou Railway Station 广州火车站) مخرج D1</div>
-
-        <div class="taxi-giant-actions">
-          <button class="btn-giant-action btn-speak" onclick="speakCurrentTaxi()">
-            <span>🔊 استمع للنطق الصيني</span>
-          </button>
-          <button class="btn-giant-action btn-copy" onclick="copyCurrentTaxi()">
-            <span>📋 نسخ العنوان الصيني</span>
-          </button>
-          <button class="btn-giant-action btn-amap" onclick="openCurrentTaxiAmap()">
-            <span>📍 خريطة Amap (高德)</span>
-          </button>
-          <button class="btn-giant-action btn-baidu" onclick="openCurrentTaxiBaidu()">
-            <span>🗺️ خريطة Baidu</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Custom Address Input for Personal Hotels -->
-      <div class="taxi-custom-box">
-        <h3>🏨 أو اكتب اسم أو عنوان فندقك الخاص لعرضه وتكبيره للسائق:</h3>
-        <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
-          <input 
-            type="text" 
-            id="customTaxiInput" 
-            class="fx-input" 
-            placeholder="الصق هنا اسم الفندق أو عنوانه بالصيني (مثال: 广州白天鹅宾馆 - 广州市荔湾区沙面南街1号)"
-            style="flex: 1; min-width: 260px;"
-          />
-          <button class="btn-card btn-card-copy" onclick="applyCustomTaxiAddress()">
-            ✨ عرض وتكبير للسائق
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- VIEW 3: PRE-TRAVEL CHECKLIST (قائمة تجهيزات السفر الذكية) -->
-    <!-- ============================================================== -->
-    <div id="view-checklist" style="display: none;">
-      <div class="subview-nav-bar">
-        <button class="btn-back-home" onclick="switchSection('home')">
-          <span>🏠 العودة للرئيسية</span>
-        </button>
-        <div class="subview-breadcrumbs">
-          <span class="crumb-link" onclick="switchSection('home')">الرئيسية</span>
-          <span class="crumb-sep">/</span>
-          <span class="crumb-current">قائمة تجهيزات السفر الذكية</span>
-        </div>
-      </div>
-
-      <!-- Checklist Header -->
-      <div class="checklist-header-card">
-        <div class="checklist-badge">✈️ استعد لرحلتك كالمحترفين وبدون مفاجآت</div>
-        <h2>📋 قائمة مهام وتجهيزات السفر إلى الصين</h2>
-        <p>
-          دليل عملي تفاعلي خطوة بخطوة: الفيزا، تفعيل الدفع الإلكتروني، باقات الإنترنت دون حجب، وأهم التطبيقات. انقر على أي بند لإنجازه، ويتم حفظ تقدمك تلقائياً في جهازك.
-        </p>
-
-        <!-- Progress Bar -->
-        <div class="checklist-progress-wrap">
-          <div class="checklist-progress-text">
-            <span>نسبة الجاهزية للسفر: <strong id="checklistPercent">0%</strong></span>
-            <span id="checklistCountText">0 من 16 بنداً مكتملاً</span>
+        <!-- Information Cards (معلومات هامة عن الموقع) -->
+        <div class="home-info-sections">
+          
+          <!-- Card 1: نبذة عن الدليل وأهدافه -->
+          <div class="info-card">
+            <div class="info-card-header">
+              <span class="info-card-icon">📖</span>
+              <h3>عن هذا الدليل والهدف منه</h3>
+            </div>
+            <p>
+              أُعد هذا الدليل خصيصاً لخدمة الزائر والتاجر العربي القادم إلى الصين، حيث تم رصد وتوثيق أكثر من <strong>270 موقعاً معتمداً</strong> بدقة متناهية، تشمل أسواق الجملة الضخمة، معارض الأثاث والإنارة، المولات الكبرى، وأفضل المطاعم الإسلامية الحلال ومحطات المترو التي تخدمها.
+            </p>
+            <p style="margin-top: 10px;">
+              الهدف الأساسي هو إزالة عائق اللغة وصعوبة التنقل، وتمكينك من الوصول إلى وجهتك مباشرة دون الحاجة لوسطاء أو مرشدين مكلفين.
+            </p>
           </div>
-          <div class="checklist-progress-bar">
-            <div class="checklist-progress-fill" id="checklistProgressFill" style="width: 0%;"></div>
+
+          <!-- Card 2: المدن المشمولة في الدليل -->
+          <div class="info-card">
+            <div class="info-card-header">
+              <span class="info-card-icon">🏙️</span>
+              <h3>المدن التجارية الرئيسية المشمولة</h3>
+            </div>
+            <div class="cities-summary-grid">
+              <div class="city-summary-box" onclick="switchSection('gz')">
+                <strong>🏙️ غوانزو (Guangzhou):</strong>
+                <span>عاصمة تجارة الجملة العالمية: أضخم مجمعات الملابس الجاهزة، الساعات، الحقائب، الإلكترونيات، والمطاعم الحلال. (130 موقعاً)</span>
+                <span class="summary-btn-link">تصفح أسواق غوانزو ←</span>
+              </div>
+
+              <div class="city-summary-box" onclick="switchSection('fs')">
+                <strong>🛋️ فوشان (Foshan):</strong>
+                <span>عاصمة الأثاث ومواد البناء والإنارة في العالم (مجاورة لغوانزو): قصر اللوفر Louver للأثاث الفاخر، ومجمعات الإنارة في غوجين. (33 موقعاً)</span>
+                <span class="summary-btn-link">تصفح أثاث فوشان ←</span>
+              </div>
+
+              <div class="city-summary-box" onclick="switchSection('sh')">
+                <strong>🌆 شنغهاي (Shanghai):</strong>
+                <span>المدينة العالمية الفارهة ومراكز الأعمال: شارع نانجينغ للتسوق، كورنيش البوند، ديزني لاند، وأفخم المولات العالمية. (108 مواقع)</span>
+                <span class="summary-btn-link">تصفح معالم شنغهاي ←</span>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="checklist-actions-bar">
-          <button class="btn-card" onclick="selectAllChecklist()">✅ تحديد الكل كمكتمل</button>
-          <button class="btn-card" onclick="resetChecklist()">🔄 إعادة تعيين القائمة</button>
-        </div>
-      </div>
-
-      <!-- Checklist Categories -->
-      <div class="checklist-categories-grid" id="checklistContainer">
-        <!-- Rendered dynamically via JavaScript -->
-      </div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- VIEW 4: CHINESE MAPS & METRO (المواصلات والخرائط الصينية) -->
-    <!-- ============================================================== -->
-    <div id="view-maps" style="display: none;">
-      <div class="subview-nav-bar">
-        <button class="btn-back-home" onclick="switchSection('home')">
-          <span>🏠 العودة للرئيسية</span>
-        </button>
-        <div class="subview-breadcrumbs">
-          <span class="crumb-link" onclick="switchSection('home')">الرئيسية</span>
-          <span class="crumb-sep">/</span>
-          <span class="crumb-current">دليل المواصلات والخرائط الصينية</span>
-        </div>
-      </div>
-
-      <div class="maps-hero-card">
-        <span class="maps-badge">🗺️ التنقل الذكي في جمهورية الصين الشعبية</span>
-        <h2>دليل المواصلات والخرائط والمترو في الصين</h2>
-        <p>
-          كيف تتنقل بسهولة ودقة في مدن الصين بدون خرائط جوجل، وكيف تستخدم تطبيقات الخرائط الصينية المعتمدة ومترو الأنفاق وخدمة ديدي Didi.
-        </p>
-      </div>
-
-      <div class="maps-cards-grid">
-        <!-- Card 1: Google Maps reality -->
-        <div class="map-guide-card">
-          <div class="map-guide-icon">⚠️</div>
-          <h3>لماذا لا تعمل خرائط Google في الصين؟</h3>
-          <p>
-            تطبيقات جوجل وخدماتها محجوبة داخل الصين، كما تطبق الصين نظام إحداثيات مشفر خاص يسمى <strong>GCJ-02 (إحداثيات المريخ)</strong> مما يجعل مواقع جوجل غير دقيقة بفارق 500 متر.
-          </p>
-          <div class="map-advice-box">
-            💡 <strong>الحل المعتمد:</strong> اعتمد على تطبيقات الخرائط الصينية المحلية (Amap و Baidu و Apple Maps) للحصول على دقة متناهية وإرشادات مترو دقيقة.
+          <!-- Card 3: خدمات الدليل التي تجدها بالقائمة الجانبية -->
+          <div class="info-card">
+            <div class="info-card-header">
+              <span class="info-card-icon">🧰</span>
+              <h3>ماذا يقدم لك الموقع؟ (متاح في القائمة الجانبية)</h3>
+            </div>
+            <ul class="info-features-list">
+              <li>
+                <strong>🚕 بطاقة سائق التاكسي (Show Taxi Driver):</strong> بطاقة بملء الشاشة باللغة الصينية الواضحة تعرض اسم المكان والعنوان ومحطة المترو مع النطق الصوتي الفوري لتبرزها لسائق التاكسي مباشرة.
+              </li>
+              <li>
+                <strong>📋 قائمة تجهيزات السفر (Pre-Travel Checklist):</strong> فحص الجواز والفيزا، تفعيل بطاقتك البنكية في Alipay و WeChat Pay، وشراء شريحة eSIM تعمل بدون حجب للمواقع والتطبيقات.
+              </li>
+              <li>
+                <strong>🗺️ دليل الخرائط والمترو:</strong> شرح استخدام خرائط Amap و Baidu الصينية المعتمدة كبديل عن Google المحجوب، وكيفية طلب التاكسي عبر تطبيق Didi.
+              </li>
+              <li>
+                <strong>💱 محول العملات وحاسبة الشحن CBM:</strong> تحويل أسعار اليوان للعملات الخليجية، حاسبة الفصال والكميات، وحاسبة المتر المكعب لتقدير سعة الحاويات البحرية.
+              </li>
+              <li>
+                <strong>🛂 بطاقة دخول الصين الإلكترونية:</strong> شرح رسمي مجاني لكيفية تعبئة إقرار الهجرة والجوازات (NIA) قبل ركوب الطائرة وتجنب الطوابير والبطاقات الورقية.
+              </li>
+              <li>
+                <strong>🗣️ عبارات المحادثة الصينية اليومية:</strong> أهم الجمل التي تحتاجها في الأسواق والتفاوض والتاكسي والمطاعم مع النطق الصوتي بنقرة زر.
+              </li>
+              <li>
+                <strong>⭐ جدول رحلتي وتصدير PDF:</strong> حفظ أماكنك المفضلة وطباعة جدول منظم كملف PDF مرتب ليومياتك.
+              </li>
+            </ul>
           </div>
-        </div>
 
-        <!-- Card 2: Top Maps -->
-        <div class="map-guide-card">
-          <div class="map-guide-icon">📍</div>
-          <h3>أفضل تطبيقات الخرائط داخل الصين</h3>
-          <ul class="maps-features-list">
-            <li>
-              <strong>高德地图 (Amap / Gaode):</strong> الخريطة رقم 1 المعتمدة في الصين للسيارات والتكاسي والمشي، وتتيح طلب التاكسي مباشرة.
-            </li>
-            <li>
-              <strong>百度地图 (Baidu Maps):</strong> خريطة بايدو الشهيرة، ممتازة جداً لمسارات المترو والحافلات والبحث عن المحلات التجارية.
-            </li>
-            <li>
-              <strong>Apple Maps (خرائط آبل):</strong> تعمل بكفاءة عالية على أجهزة iPhone داخل الصين وتستخدم بيانات AutoNavi/Amap محلياً دون حجب.
-            </li>
-          </ul>
-          <div style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;">
-            <a class="btn-card" href="https://uri.amap.com/search?keyword=Guangzhou" target="_blank" rel="noopener noreferrer">
-              🌐 فتح موقع Amap
-            </a>
-            <a class="btn-card" href="https://map.baidu.com" target="_blank" rel="noopener noreferrer">
-              🌐 فتح موقع Baidu Map
-            </a>
+          <!-- Card 4: إرشادات ونصائح ذهبية هامة للمسافر -->
+          <div class="info-card" style="border-right: 4px solid var(--gold);">
+            <div class="info-card-header">
+              <span class="info-card-icon">💡</span>
+              <h3>نصائح ذهبية هامة قبل السفر إلى الصين</h3>
+            </div>
+            <div class="tips-list">
+              <div class="tip-item">
+                <strong>1. تفعيل Alipay مبكراً:</strong> الصين مجتمع غير نقدي (Cashless) بنسبة 99%؛ قم بربط بطاقتك البنكية الخليجية بتطبيق Alipay وتأكيد الجواز قبل الإقلاع.
+              </div>
+              <div class="tip-item">
+                <strong>2. باقة إنترنت بتجوال دولي:</strong> اشترِ شريحة eSIM تدعم التجوال (Roaming) لتصفح الواتساب، جوجل، وإنستغرام بحرية تامة دون الحاجة إلى برامج VPN.
+              </div>
+              <div class="tip-item">
+                <strong>3. لا تعتمد على خرائط Google:</strong> خرائط جوجل محجوبة وإحداثياتها غير دقيقة في الصين؛ اعتمد على خرائط <strong>Amap (高德地图)</strong> أو <strong>Apple Maps</strong>.
+              </div>
+              <div class="tip-item">
+                <strong>4. بطاقة دخول الصين مجانية:</strong> تعبئة بطاقة الهجرة الإلكترونية مجانية 100% عبر موقع الهجرة الصيني الرسمي، احذر من المواقع الوهمية التي تطلب رسوماً.
+              </div>
+            </div>
           </div>
+
+          <!-- Card 5: حساب المتابعة والتواصل -->
+          <div class="info-card info-card-snap">
+            <div class="info-card-header">
+              <span class="info-card-icon">👻</span>
+              <h3>للتغطيات الميدانية اليومية في الصين</h3>
+            </div>
+            <p>
+              تابع التغطيات الحية للأسواق والمعارض التجارية الكبرى (معرض كانتون، معارض الأثاث، وأسواق الجملة) عبر الحساب المعتمد في سناب شات:
+            </p>
+            <div style="margin-top: 14px;">
+              <a class="btn-snap-large" href="https://www.snapchat.com/add/alsaber22" target="_blank" rel="noopener noreferrer">
+                <span>👻 متابعة سناب شات: alsaber22 (بو يوسف الصبر)</span>
+              </a>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Card 3: Metro Guide -->
-        <div class="map-guide-card">
-          <div class="map-guide-icon">🚇</div>
-          <h3>دليل مترو الأنفاق في غوانزو وشنغهاي وفوشان</h3>
-          <p>
-            المترو هو أسرع وأرخص وسيلة تنقل في الصين لتفادي زحام الشوارع:
-          </p>
-          <ul class="maps-features-list">
-            <li>
-              <strong>تطبيق MetroMan:</strong> التطبيق الأفضل على الإطلاق للمسافر الأجنبي، يعمل بدون إنترنت ويدعم اللغتين الإنجليزية والعربية لكل خطوط مدن الصين.
-            </li>
-            <li>
-              <strong>الدفع برمز النقل في Alipay:</strong> يمكنك تفعيل خيار (Transport) داخل تطبيق Alipay ومسح الرمز على بوابات المترو دون الحاجة لشراء تذاكر ورقية.
-            </li>
-            <li>
-              <strong>خط غوانفو (Guangfo Line):</strong> يربط بين شبكة مترو غوانزو ومدينة فوشان مباشرة خلال 30 دقيقة.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Card 4: Didi Ride-Hailing -->
-        <div class="map-guide-card">
-          <div class="map-guide-icon">🚖</div>
-          <h3>كيف تطلب تاكسي عبر تطبيق Didi في الصين؟</h3>
-          <p>
-            تطبيق <strong>Didi (ديدي)</strong> هو المعادل الصيني لتطبيق أوبر:
-          </p>
-          <ul class="maps-features-list">
-            <li>
-              <strong>لا حاجة لتطبيق صيني منفصل:</strong> افتح تطبيق **Alipay** واضغط على خدمة **Didi** المصغرة.
-            </li>
-            <li>
-              <strong>الواجهة باللغة الإنجليزية:</strong> اكتب وجهتك بالإنجليزية أو الصينية، وتعرف السعر مسبقاً وتُخصم التكلفة تلقائياً من بطاقتك البنكية.
-            </li>
-            <li>
-              <strong>تجنب الخلاف على الأسعار:</strong> يضمن لك السعر الرسمي عبر العداد أو السعر الثابت دون الحاجة للحديث مع السائق.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- VIEW 5: CHINA DIGITAL ARRIVAL CARD (بطاقة دخول الصين) -->
-    <!-- ============================================================== -->
-    <div id="view-arrival" style="display: none;">
-      <div class="subview-nav-bar">
-        <button class="btn-back-home" onclick="switchSection('home')">
-          <span>🏠 العودة للرئيسية</span>
-        </button>
-        <div class="subview-breadcrumbs">
-          <span class="crumb-link" onclick="switchSection('home')">الرئيسية</span>
-          <span class="crumb-sep">/</span>
-          <span class="crumb-current">بطاقة دخول الصين الإلكترونية</span>
-        </div>
       </div>
 
-      <div class="arrival-hero-banner">
-        <span class="arrival-tag">خدمة حكومية صينية مجانية · إلزامية قبل الوصول</span>
-        <h2>🛂 بطاقة دخول الصين الإلكترونية (China Digital Arrival Card)</h2>
-        <p>
-          نظام تعبئة إقرار الدخول الإلكتروني المعتمد من قبل الإدارة الوطنية للهجرة في جمهورية الصين الشعبية (NIA). يُطلب من المسافرين الأجانب تعبئته قبل الوصول لتسهيل وتيسير ختم الدخول في المطار دون الحاجة لملء البطاقات الورقية يدويًا في الطائرة.
-        </p>
+      <!-- ============================================================== -->
+      <!-- VIEW 1: PLACES CATALOG (غوانزو · فوشان · شنغهاي) -->
+      <!-- ============================================================== -->
+      <div id="view-catalog" class="page-view" style="display: none;">
         
-        <div class="arrival-links">
-          <a class="btn-official" href="https://s.nia.gov.cn/ArrivalCardFillingPC/" target="_blank" rel="noopener noreferrer">
-            <span>🌐 الدخول للبوابة الرسمية للهجرة الصينية (NIA)</span>
-          </a>
-          <a class="btn-secondary-link" href="https://english.shanghai.gov.cn/en-ServicesandGuides-OnlineServices/20260805/698aae992e9b4232a58f00e9e49dd22b.html" target="_blank" rel="noopener noreferrer">
-            <span>📺 الدليل المرئي الرسمي (بوابة شنغهاي الحكومية)</span>
-          </a>
+        <!-- Header with Return to Home Button -->
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
+          </button>
+          <div class="page-current-tag" id="catalogCrumbTitle">أسواق غوانزو بالجملة</div>
         </div>
 
-        <div class="alert-warning">
-          <span>⚠️</span>
-          <div>
-            <strong>تنبيه أمان هام:</strong> تعبئة بطاقة الدخول <u>مجانية بالكامل</u> عبر الموقع الرسمي للهجرة الصينية. احذر من المواقع الوهمية أو الوسطاء الذين يطلبون رسوماً مالية.
+        <!-- City Selector Buttons (غوانزو · فوشان · شنغهاي) -->
+        <div class="catalog-city-switchers">
+          <button class="city-switch-btn active" id="tabBtnGz" onclick="switchSection('gz')">
+            <span>🏙️ غوانزو للجملة</span>
+            <span class="city-switch-num" id="catBadgeGz">130</span>
+          </button>
+          <button class="city-switch-btn" id="tabBtnFs" onclick="switchSection('fs')">
+            <span>🛋️ أثاث فوشان</span>
+            <span class="city-switch-num" id="catBadgeFs">33</span>
+          </button>
+          <button class="city-switch-btn" id="tabBtnSh" onclick="switchSection('sh')">
+            <span>🌆 معالم شنغهاي</span>
+            <span class="city-switch-num" id="catBadgeSh">108</span>
+          </button>
+        </div>
+
+        <!-- Dynamic City Header Box -->
+        <div class="city-header-box" id="cityHeaderBox">
+          <div class="city-bg-watermark" id="cityWatermark">广州</div>
+          <div class="city-header-title">
+            <h2 id="cityNameAr">غوانزو</h2>
+            <span class="city-cn-label" id="cityNameCn">Guangzhou · 广州</span>
+          </div>
+          <p class="city-header-desc" id="cityBlurb">
+            عاصمة التجارة وأسواق الجملة في جنوب الصين. تضم أضخم مجمعات الملابس، الحقائب، الساعات، الإلكترونيات، ومطاعم الأكل الحلال.
+          </p>
+        </div>
+
+        <!-- SINGLE CLEAN SEARCH BAR (شريط بحث واحد فقط وبسيط) -->
+        <div class="catalog-clean-search-wrap">
+          <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input 
+              type="text" 
+              id="globalSearch" 
+              class="search-input" 
+              placeholder="ابحث هنا: اسم السوق، البضاعة، المترو، أو مطعم حلال..." 
+              autocomplete="off"
+            />
+            <button id="clearSearchBtn" class="search-clear" title="مسح البحث">✕</button>
+          </div>
+        </div>
+
+        <!-- SINGLE CLEAN CATEGORY CHIPS ROW -->
+        <div class="chips-wrap" id="categoryChips"></div>
+
+        <!-- Places Grid -->
+        <div class="places-grid" id="placesContainer"></div>
+
+        <!-- Empty State -->
+        <div class="empty-box" id="emptyState" style="display: none;">
+          <div class="empty-box-icon">🔍</div>
+          <h3>لم يتم العثور على نتائج مطابقة</h3>
+          <p>جرّب البحث بكلمة أخرى أو قم بالضغط على تصنيف (الكل) لعرض كافة المواقع.</p>
+        </div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 2: TAXI ASSISTANT (بطاقة سائق التاكسي) -->
+      <!-- ============================================================== -->
+      <div id="view-taxi" class="page-view" style="display: none;">
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
+          </button>
+          <div class="page-current-tag">🚕 بطاقة سائق التاكسي</div>
+        </div>
+
+        <div class="taxi-page-banner">
+          <div class="taxi-page-icon">🚕</div>
+          <div class="taxi-page-info">
+            <h2>بطاقة سائق التاكسي الصينية المكبرة (Show Taxi Driver)</h2>
+            <p>
+              اختر وجهتك أو ابحث عنها، واعرض الشاشة الكبيرة بالصينية الواضحة لسائق التاكسي لتصل إلى مكانك فوراً دون أي حاجة للتفاهم الشفهي، مع نطق اسم المكان وفتح الخرائط الصينية بنقرة واحدة.
+            </p>
+          </div>
+        </div>
+
+        <!-- Place Selector Box -->
+        <div class="taxi-selector-box">
+          <label class="taxi-label">🔍 اختر أو ابحث عن وجهتك من بين 271 موقعاً:</label>
+          <div class="search-container">
+            <span class="search-icon">📍</span>
+            <input 
+              type="text" 
+              id="taxiHubSearch" 
+              class="search-input" 
+              placeholder="ابحث عن: بايما، اللوفر، سوق الساعات، برج كانتون، مطار باييون، ديزني..." 
+              oninput="handleTaxiSearchInput(this.value)"
+            />
+          </div>
+          <div id="taxiSuggestions" class="taxi-suggestions-list" style="display:none;"></div>
+        </div>
+
+        <!-- Giant Taxi Card Display -->
+        <div class="taxi-giant-card" id="taxiHubDisplay">
+          <div class="taxi-giant-top-bar">
+            <span class="taxi-giant-badge">🇨🇳 师傅您好，请打表带我去这里 (رجاءً خذني إلى هنا بالعداد)</span>
+            <span class="taxi-giant-city-tag" id="taxiDisplayCity">غوانزو</span>
+          </div>
+
+          <div class="taxi-giant-ar" id="taxiDisplayAr">سوق بايما للملابس</div>
+          <div class="taxi-giant-cn" id="taxiDisplayCn">白马服装批发市场</div>
+          <div class="taxi-giant-addr" id="taxiDisplayAddr">📍 广州市越秀区站南路16号</div>
+          <div class="taxi-giant-metro" id="taxiDisplayMetro">🚇 مترو خط 2/5 (محطة Guangzhou Railway Station 广州火车站) مخرج D1</div>
+
+          <div class="taxi-giant-actions">
+            <button class="btn-giant-action btn-speak" onclick="speakCurrentTaxi()">
+              <span>🔊 استمع للنطق الصيني</span>
+            </button>
+            <button class="btn-giant-action btn-copy" onclick="copyCurrentTaxi()">
+              <span>📋 نسخ العنوان الصيني</span>
+            </button>
+            <button class="btn-giant-action btn-amap" onclick="openCurrentTaxiAmap()">
+              <span>📍 خريطة Amap (高德)</span>
+            </button>
+            <button class="btn-giant-action btn-baidu" onclick="openCurrentTaxiBaidu()">
+              <span>🗺️ خريطة Baidu</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom Destination Input -->
+        <div class="taxi-custom-box">
+          <h3>🏨 أو اكتب اسم أو عنوان فندقك الخاص لعرضه وتكبيره للسائق:</h3>
+          <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;">
+            <input 
+              type="text" 
+              id="customTaxiInput" 
+              class="fx-input" 
+              placeholder="الصق اسم الفندق أو عنوانه بالصيني (مثال: 广州白天鹅宾馆 - 广州市荔湾区沙面南街1号)"
+              style="flex: 1; min-width: 260px;"
+            />
+            <button class="btn-card btn-card-copy" onclick="applyCustomTaxiAddress()">
+              ✨ عرض وتكبير للسائق
+            </button>
           </div>
         </div>
       </div>
 
-      <h3 style="margin-bottom: 16px; font-size: 1.3rem;">📸 خطوات التعبئة خطوة بخطوة باللغة العربية:</h3>
+      <!-- ============================================================== -->
+      <!-- VIEW 3: PRE-TRAVEL CHECKLIST (تجهيزات السفر) -->
+      <!-- ============================================================== -->
+      <div id="view-checklist" class="page-view" style="display: none;">
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
+          </button>
+          <div class="page-current-tag">📋 قائمة تجهيزات السفر الذكية</div>
+        </div>
 
-      <div class="arrival-steps-grid">
-        <div class="arrival-step-card">
-          <div class="arrival-step-num">١</div>
-          <div class="mock-screen">
-            <div class="mock-title">NIA IMMIGRATION</div>
-            <div class="mock-field">Arrival Card Filling</div>
-            <span class="mock-btn">Entry Declaration</span>
+        <div class="checklist-header-card">
+          <div class="checklist-badge">✈️ استعد لرحلتك كالمحترفين وبدون مفاجآت</div>
+          <h2>قائمة مهام وتجهيزات السفر إلى الصين</h2>
+          <p>
+            دليل عملي تفاعلي خطوة بخطوة: الفيزا، تفعيل الدفع الإلكتروني، باقات الإنترنت دون حجب، وأهم التطبيقات. انقر على أي بند لإنجازه، ويتم حفظ تقدمك تلقائياً في جهازك.
+          </p>
+
+          <!-- Progress Bar -->
+          <div class="checklist-progress-wrap">
+            <div class="checklist-progress-text">
+              <span>نسبة الجاهزية للسفر: <strong id="checklistPercent">0%</strong></span>
+              <span id="checklistCountText">0 من 16 بنداً مكتملاً</span>
+            </div>
+            <div class="checklist-progress-bar">
+              <div class="checklist-progress-fill" id="checklistProgressFill" style="width: 0%;"></div>
+            </div>
           </div>
-          <strong>ابدأ طلب الدخول</strong>
-          <p>افتح الرابط الرسمي واضغط على خيار «Entry Declaration» لبدء إدخال إقرارك.</p>
-        </div>
 
-        <div class="arrival-step-card">
-          <div class="arrival-step-num">٢</div>
-          <div class="mock-screen">
-            <div class="mock-title">Terms &amp; Instructions</div>
-            <div class="mock-field">Read Declaration Rules</div>
-            <span class="mock-btn">I AGREE</span>
+          <div class="checklist-actions-bar">
+            <button class="btn-card" onclick="selectAllChecklist()">✅ تحديد الكل كمكتمل</button>
+            <button class="btn-card" onclick="resetChecklist()">🔄 إعادة تعيين القائمة</button>
           </div>
-          <strong>الموافقة على الشروط</strong>
-          <p>اطلع على إرشادات الدخول والتعليمات ثم اضغط «I AGREE» للمتابعة.</p>
         </div>
 
-        <div class="arrival-step-card">
-          <div class="arrival-step-num">٣</div>
-          <div class="mock-screen">
-            <div class="mock-title">Identity &amp; Passport</div>
-            <div class="mock-field">Passport Number: ******</div>
-            <span class="mock-btn">Next Step</span>
-          </div>
-          <strong>بيانات الجواز والهوية</strong>
-          <p>اختر نوع الجواز وأدخل الاسم كما في الجواز، رقم الجواز، وتاريخ الميلاد بدقة.</p>
-        </div>
-
-        <div class="arrival-step-card">
-          <div class="arrival-step-num">٤</div>
-          <div class="mock-screen">
-            <div class="mock-title">Flight &amp; Travel Info</div>
-            <div class="mock-field">Flight No: CZ3002</div>
-            <span class="mock-btn">Next Step</span>
-          </div>
-          <strong>بيانات الرحلة والوصول</strong>
-          <p>أدخل تاريخ الوصول المجدول، رقم رحلة الطيران، والغرض من الزيارة (تجارة / سياحة).</p>
-        </div>
-
-        <div class="arrival-step-card">
-          <div class="arrival-step-num">٥</div>
-          <div class="mock-screen">
-            <div class="mock-title">Hotel / Stay Address</div>
-            <div class="mock-field">Hotel in Guangzhou / SH</div>
-            <span class="mock-btn">Submit &amp; Save QR</span>
-          </div>
-          <strong>عنوان الإقامة بالصين</strong>
-          <p>ضع اسم الفندق وعنوانه في الصين (يمكنك نسخ عنوان فندقك من قسم الفنادق بالدليل)، ثم احفظ رمز QR في هاتفك.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- VIEW 6: FX CONVERTER & CBM FREIGHT (محول العملات وحاسبة الشحن) -->
-    <!-- ============================================================== -->
-    <div id="view-fx" style="display: none;">
-      <div class="subview-nav-bar">
-        <button class="btn-back-home" onclick="switchSection('home')">
-          <span>🏠 العودة للرئيسية</span>
-        </button>
-        <div class="subview-breadcrumbs">
-          <span class="crumb-link" onclick="switchSection('home')">الرئيسية</span>
-          <span class="crumb-sep">/</span>
-          <span class="crumb-current">محول العملات وحاسبة الشحن CBM</span>
-        </div>
+        <!-- Checklist Categories -->
+        <div class="checklist-categories-grid" id="checklistContainer"></div>
       </div>
 
-      <div class="fx-grid">
-        <!-- Live FX Converter -->
-        <div class="tool-card">
-          <div class="tool-card-header">
-            <div class="tool-icon">💱</div>
-            <div class="tool-card-title">
-              <h3>تحويل العملات المباشر</h3>
-              <p>سعر اليوان الصيني مقابل العملات الخليجية والدولار</p>
-            </div>
-          </div>
-
-          <div class="fx-input-group">
-            <label class="fx-label">المبلغ باليوان الصيني (CNY ¥):</label>
-            <div class="fx-input-row">
-              <input type="number" id="cnyInput" class="fx-input" value="1000" min="1" />
-            </div>
-          </div>
-
-          <table class="fx-rates-table">
-            <tbody>
-              <tr>
-                <td>🇰🇼 الدينار الكويتي (KWD)</td>
-                <td class="fx-rate-val" id="resKWD">42.85 KWD</td>
-              </tr>
-              <tr>
-                <td>🇸🇦 الريال السعودي (SAR)</td>
-                <td class="fx-rate-val" id="resSAR">518.20 SAR</td>
-              </tr>
-              <tr>
-                <td>🇦🇪 الدرهم الإماراتي (AED)</td>
-                <td class="fx-rate-val" id="resAED">507.50 AED</td>
-              </tr>
-              <tr>
-                <td>🇶🇦 الريال القطري (QAR)</td>
-                <td class="fx-rate-val" id="resQAR">503.40 QAR</td>
-              </tr>
-              <tr>
-                <td>🇴🇲 الريال العماني (OMR)</td>
-                <td class="fx-rate-val" id="resOMR">53.15 OMR</td>
-              </tr>
-              <tr>
-                <td>🇧🇭 الدينار البحريني (BHD)</td>
-                <td class="fx-rate-val" id="resBHD">52.10 BHD</td>
-              </tr>
-              <tr>
-                <td>🇺🇸 الدولار الأمريكي (USD)</td>
-                <td class="fx-rate-val" id="resUSD">138.30 USD</td>
-              </tr>
-            </tbody>
-          </table>
-          <small style="display: block; margin-top: 12px; color: var(--text-subtle); font-size: 0.75rem;">
-            * الأسعار تقريبية بناءً على متوسط أسعار الصرف الحية للأسواق العالمية.
-          </small>
+      <!-- ============================================================== -->
+      <!-- VIEW 4: CHINESE MAPS & METRO (المواصلات والخرائط) -->
+      <!-- ============================================================== -->
+      <div id="view-maps" class="page-view" style="display: none;">
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
+          </button>
+          <div class="page-current-tag">🗺️ المواصلات والخرائط الصينية</div>
         </div>
 
-        <!-- Bargain & Shopping Calculator -->
-        <div class="tool-card">
-          <div class="tool-card-header">
-            <div class="tool-icon">🧮</div>
-            <div class="tool-card-title">
-              <h3>حاسبة الفصال والكميات الصينية</h3>
-              <p>احسب التكلفة الإجمالية والخصم المقترح للمشتريات</p>
+        <div class="maps-hero-card">
+          <span class="maps-badge">🗺️ التنقل الذكي في جمهورية الصين الشعبية</span>
+          <h2>دليل المواصلات والخرائط والمترو في الصين</h2>
+          <p>
+            كيف تتنقل بسهولة ودقة في مدن الصين بدون خرائط جوجل، وكيف تستخدم تطبيقات الخرائط الصينية المعتمدة ومترو الأنفاق وخدمة ديدي Didi.
+          </p>
+        </div>
+
+        <div class="maps-cards-grid">
+          <div class="map-guide-card">
+            <div class="map-guide-icon">⚠️</div>
+            <h3>لماذا لا تعمل خرائط Google في الصين؟</h3>
+            <p>
+              تطبيقات جوجل وخدماتها محجوبة داخل الصين، كما تطبق الصين نظام إحداثيات مشفر خاص يسمى <strong>GCJ-02 (إحداثيات المريخ)</strong> مما يجعل مواقع جوجل غير دقيقة بفارق 500 متر.
+            </p>
+            <div class="map-advice-box">
+              💡 <strong>الحل المعتمد:</strong> اعتمد على تطبيقات الخرائط الصينية المحلية (Amap و Baidu و Apple Maps) للحصول على دقة متناهية وإرشادات مترو دقيقة.
             </div>
           </div>
 
-          <div class="fx-input-group">
-            <label class="fx-label">سعر القطعة باليوان الصيني (CNY):</label>
-            <input type="number" id="calcPrice" class="fx-input" value="85" min="1" />
+          <div class="map-guide-card">
+            <div class="map-guide-icon">📍</div>
+            <h3>أفضل تطبيقات الخرائط داخل الصين</h3>
+            <ul class="maps-features-list">
+              <li><strong>高德地图 (Amap / Gaode):</strong> الخريطة رقم 1 المعتمدة في الصين للسيارات والتكاسي والمشي.</li>
+              <li><strong>百度地图 (Baidu Maps):</strong> خريطة بايدو الشهيرة، ممتازة جداً لمسارات المترو والحافلات.</li>
+              <li><strong>Apple Maps (خرائط آبل):</strong> تعمل بكفاءة عالية على أجهزة iPhone داخل الصين وتستخدم بيانات AutoNavi/Amap محلياً دون حجب.</li>
+            </ul>
           </div>
 
-          <div class="fx-input-group">
-            <label class="fx-label">الكمية المطلوبة (قطع / درزن):</label>
-            <input type="number" id="calcQty" class="fx-input" value="12" min="1" />
+          <div class="map-guide-card">
+            <div class="map-guide-icon">🚇</div>
+            <h3>دليل مترو الأنفاق في الصين</h3>
+            <ul class="maps-features-list">
+              <li><strong>تطبيق MetroMan:</strong> التطبيق الأفضل على الإطلاق للمسافر، يعمل بدون إنترنت ويدعم اللغتين الإنجليزية والعربية لكل خطوط مدن الصين.</li>
+              <li><strong>الدفع برمز النقل في Alipay:</strong> يمكنك تفعيل خيار (Transport) داخل Alipay ومسح الرمز على بوابات المترو مباشرة.</li>
+            </ul>
           </div>
 
-          <div class="fx-input-group">
-            <label class="fx-label">نسبة الفصال / الخصم المقترحة:</label>
-            <div style="display: flex; gap: 8px;">
-              <button class="chip" onclick="applyDiscount(0)">بدون خصم (0%)</button>
-              <button class="chip active" onclick="applyDiscount(15)">15%</button>
-              <button class="chip" onclick="applyDiscount(25)">25%</button>
-              <button class="chip" onclick="applyDiscount(35)">35%</button>
-            </div>
+          <div class="map-guide-card">
+            <div class="map-guide-icon">🚖</div>
+            <h3>طلب تاكسي عبر خدمة Didi</h3>
+            <p>
+              تطبيق <strong>Didi (ديدي)</strong> مدمج مباشرة داخل تطبيق <strong>Alipay</strong> بواجهة إنجليزية كاملة؛ يمكنك تحديد وجهتك ومعرفة السعر مسبقاً وتُخصم التكلفة تلقائياً من بطاقتك البنكية.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 5: ARRIVAL CARD (بطاقة دخول الصين) -->
+      <!-- ============================================================== -->
+      <div id="view-arrival" class="page-view" style="display: none;">
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
+          </button>
+          <div class="page-current-tag">🛂 بطاقة دخول الصين الإلكترونية</div>
+        </div>
+
+        <div class="arrival-hero-banner">
+          <span class="arrival-tag">خدمة حكومية صينية مجانية · إلزامية قبل الوصول</span>
+          <h2>🛂 بطاقة دخول الصين الإلكترونية (China Digital Arrival Card)</h2>
+          <p>
+            نظام تعبئة إقرار الدخول الإلكتروني المعتمد من قبل الإدارة الوطنية للهجرة في جمهورية الصين الشعبية (NIA). يُطلب من المسافرين الأجانب تعبئته قبل الوصول لتسهيل وتيسير ختم الدخول في المطار دون الحاجة لملء البطاقات الورقية يدويًا في الطائرة.
+          </p>
+          
+          <div class="arrival-links">
+            <a class="btn-official" href="https://s.nia.gov.cn/ArrivalCardFillingPC/" target="_blank" rel="noopener noreferrer">
+              <span>🌐 الدخول للبوابة الرسمية للهجرة الصينية (NIA)</span>
+            </a>
+            <a class="btn-secondary-link" href="https://english.shanghai.gov.cn/en-ServicesandGuides-OnlineServices/20260805/698aae992e9b4232a58f00e9e49dd22b.html" target="_blank" rel="noopener noreferrer">
+              <span>📺 الدليل المرئي الرسمي (بوابة شنغهاي الحكومية)</span>
+            </a>
           </div>
 
-          <div style="background: rgba(0,0,0,0.03); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; margin-top: 18px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-              <span style="color: var(--text-muted);">السعر الإجمالي بعد الخصم:</span>
-              <strong style="color: var(--gold-light); font-size: 1.3rem;" id="calcTotalCny">867 CNY</strong>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-main);">
-              <span>ما يعادله بالدينار الكويتي:</span>
-              <strong id="calcTotalKwd">~ 37.1 KWD</strong>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-main); margin-top: 4px;">
-              <span>ما يعادله بالريال السعودي:</span>
-              <strong id="calcTotalSar">~ 449.1 SAR</strong>
+          <div class="alert-warning">
+            <span>⚠️</span>
+            <div>
+              <strong>تنبيه أمان هام:</strong> تعبئة بطاقة الدخول <u>مجانية بالكامل</u> عبر الموقع الرسمي للهجرة الصينية. احذر من المواقع الوهمية أو الوسطاء الذين يطلبون رسوماً مالية.
             </div>
           </div>
         </div>
 
-        <!-- Freight & CBM Container Calculator -->
-        <div class="tool-card" style="grid-column: 1 / -1;">
-          <div class="tool-card-header">
-            <div class="tool-icon">🚢</div>
-            <div class="tool-card-title">
-              <h3>حاسبة حجم الشحن والكراتين (CBM Calculator)</h3>
-              <p>احسب الحجم بالمتر المكعب (CBM) وتقدير سعة الحاويات البحرية والوزن الحجمي للشحن الجوي</p>
-            </div>
-          </div>
+        <h3 style="margin-bottom: 16px; font-size: 1.3rem;">📸 خطوات التعبئة خطوة بخطوة باللغة العربية:</h3>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 12px;">
+        <div class="arrival-steps-grid">
+          <div class="arrival-step-card">
+            <div class="arrival-step-num">١</div>
+            <strong>ابدأ طلب الدخول</strong>
+            <p>افتح الرابط الرسمي واضغط على خيار «Entry Declaration» لبدء إدخال إقرارك.</p>
+          </div>
+          <div class="arrival-step-card">
+            <div class="arrival-step-num">٢</div>
+            <strong>الموافقة على الشروط</strong>
+            <p>اطلع على إرشادات الدخول والتعليمات ثم اضغط «I AGREE» للمتابعة.</p>
+          </div>
+          <div class="arrival-step-card">
+            <div class="arrival-step-num">٣</div>
+            <strong>بيانات الجواز والهوية</strong>
+            <p>اختر نوع الجواز وأدخل الاسم كما في الجواز، رقم الجواز، وتاريخ الميلاد بدقة.</p>
+          </div>
+          <div class="arrival-step-card">
+            <div class="arrival-step-num">٤</div>
+            <strong>بيانات الرحلة والوصول</strong>
+            <p>أدخل تاريخ الوصول المجدول، رقم رحلة الطيران، والغرض من الزيارة (تجارة / سياحة).</p>
+          </div>
+          <div class="arrival-step-card">
+            <div class="arrival-step-num">٥</div>
+            <strong>عنوان الإقامة بالصين</strong>
+            <p>ضع اسم الفندق وعنوانه في الصين، ثم احفظ رمز QR في هاتفك لإبرازه عند الجوازات.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 6: FX CONVERTER & CBM (العملات وحاسبة الشحن) -->
+      <!-- ============================================================== -->
+      <div id="view-fx" class="page-view" style="display: none;">
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
+          </button>
+          <div class="page-current-tag">💱 محول العملات وحاسبة الشحن CBM</div>
+        </div>
+
+        <div class="fx-grid">
+          <!-- Live FX Converter -->
+          <div class="tool-card">
+            <div class="tool-card-header">
+              <div class="tool-icon">💱</div>
+              <div class="tool-card-title">
+                <h3>تحويل العملات المباشر</h3>
+                <p>سعر اليوان الصيني مقابل العملات الخليجية والدولار</p>
+              </div>
+            </div>
+
             <div class="fx-input-group">
-              <label class="fx-label">الطول (سم L):</label>
-              <input type="number" id="cbmLength" class="fx-input" value="60" min="1" />
+              <label class="fx-label">المبلغ باليوان الصيني (CNY ¥):</label>
+              <div class="fx-input-row">
+                <input type="number" id="cnyInput" class="fx-input" value="1000" min="1" />
+              </div>
             </div>
-            <div class="fx-input-group">
-              <label class="fx-label">العرض (سم W):</label>
-              <input type="number" id="cbmWidth" class="fx-input" value="40" min="1" />
+
+            <table class="fx-rates-table">
+              <tbody>
+                <tr>
+                  <td>🇰🇼 الدينار الكويتي (KWD)</td>
+                  <td class="fx-rate-val" id="resKWD">42.85 KWD</td>
+                </tr>
+                <tr>
+                  <td>🇸🇦 الريال السعودي (SAR)</td>
+                  <td class="fx-rate-val" id="resSAR">518.20 SAR</td>
+                </tr>
+                <tr>
+                  <td>🇦🇪 الدرهم الإماراتي (AED)</td>
+                  <td class="fx-rate-val" id="resAED">507.50 AED</td>
+                </tr>
+                <tr>
+                  <td>🇶🇦 الريال القطري (QAR)</td>
+                  <td class="fx-rate-val" id="resQAR">503.40 QAR</td>
+                </tr>
+                <tr>
+                  <td>🇴🇲 الريال العماني (OMR)</td>
+                  <td class="fx-rate-val" id="resOMR">53.15 OMR</td>
+                </tr>
+                <tr>
+                  <td>🇧🇭 الدينار البحريني (BHD)</td>
+                  <td class="fx-rate-val" id="resBHD">52.10 BHD</td>
+                </tr>
+                <tr>
+                  <td>🇺🇸 الدولار الأمريكي (USD)</td>
+                  <td class="fx-rate-val" id="resUSD">138.30 USD</td>
+                </tr>
+              </tbody>
+            </table>
+            <small style="display: block; margin-top: 12px; color: var(--text-subtle); font-size: 0.75rem;">
+              * الأسعار تقريبية بناءً على متوسط أسعار الصرف الحية للأسواق العالمية.
+            </small>
+          </div>
+
+          <!-- Bargain & Shopping Calculator -->
+          <div class="tool-card">
+            <div class="tool-card-header">
+              <div class="tool-icon">🧮</div>
+              <div class="tool-card-title">
+                <h3>حاسبة الفصال والكميات الصينية</h3>
+                <p>احسب التكلفة الإجمالية والخصم المقترح للمشتريات</p>
+              </div>
             </div>
+
             <div class="fx-input-group">
-              <label class="fx-label">الارتفاع (سم H):</label>
-              <input type="number" id="cbmHeight" class="fx-input" value="50" min="1" />
+              <label class="fx-label">سعر القطعة باليوان الصيني (CNY):</label>
+              <input type="number" id="calcPrice" class="fx-input" value="85" min="1" />
             </div>
+
             <div class="fx-input-group">
-              <label class="fx-label">عدد الكراتين:</label>
-              <input type="number" id="cbmQty" class="fx-input" value="20" min="1" />
+              <label class="fx-label">الكمية المطلوبة (قطع / درزن):</label>
+              <input type="number" id="calcQty" class="fx-input" value="12" min="1" />
             </div>
+
             <div class="fx-input-group">
-              <label class="fx-label">وزن الكرتون (كجم):</label>
-              <input type="number" id="cbmWeight" class="fx-input" value="15" min="1" />
+              <label class="fx-label">نسبة الفصال / الخصم المقترحة:</label>
+              <div style="display: flex; gap: 8px;">
+                <button class="chip" onclick="applyDiscount(0)">بدون خصم (0%)</button>
+                <button class="chip active" onclick="applyDiscount(15)">15%</button>
+                <button class="chip" onclick="applyDiscount(25)">25%</button>
+                <button class="chip" onclick="applyDiscount(35)">35%</button>
+              </div>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.03); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; margin-top: 18px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <span style="color: var(--text-muted);">السعر الإجمالي بعد الخصم:</span>
+                <strong style="color: var(--gold-light); font-size: 1.3rem;" id="calcTotalCny">867 CNY</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-main);">
+                <span>ما يعادله بالدينار الكويتي:</span>
+                <strong id="calcTotalKwd">~ 37.1 KWD</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-main); margin-top: 4px;">
+                <span>ما يعادله بالريال السعودي:</span>
+                <strong id="calcTotalSar">~ 449.1 SAR</strong>
+              </div>
             </div>
           </div>
 
-          <div class="cbm-results-box">
-            <div class="cbm-stat">
-              <span class="cbm-lbl">الحجم الإجمالي (CBM)</span>
-              <strong class="cbm-val" id="resTotalCbm">2.40 م³</strong>
+          <!-- Freight & CBM Container Calculator -->
+          <div class="tool-card" style="grid-column: 1 / -1;">
+            <div class="tool-card-header">
+              <div class="tool-icon">🚢</div>
+              <div class="tool-card-title">
+                <h3>حاسبة حجم الشحن والكراتين (CBM Calculator)</h3>
+                <p>احسب الحجم بالمتر المكعب (CBM) وتقدير سعة الحاويات البحرية والوزن الحجمي للشحن الجوي</p>
+              </div>
             </div>
-            <div class="cbm-stat">
-              <span class="cbm-lbl">الوزن الفعلي الكلي</span>
-              <strong class="cbm-val" id="resTotalWeight">300 كجم</strong>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 12px;">
+              <div class="fx-input-group">
+                <label class="fx-label">الطول (سم L):</label>
+                <input type="number" id="cbmLength" class="fx-input" value="60" min="1" />
+              </div>
+              <div class="fx-input-group">
+                <label class="fx-label">العرض (سم W):</label>
+                <input type="number" id="cbmWidth" class="fx-input" value="40" min="1" />
+              </div>
+              <div class="fx-input-group">
+                <label class="fx-label">الارتفاع (سم H):</label>
+                <input type="number" id="cbmHeight" class="fx-input" value="50" min="1" />
+              </div>
+              <div class="fx-input-group">
+                <label class="fx-label">عدد الكراتين:</label>
+                <input type="number" id="cbmQty" class="fx-input" value="20" min="1" />
+              </div>
+              <div class="fx-input-group">
+                <label class="fx-label">وزن الكرتون (كجم):</label>
+                <input type="number" id="cbmWeight" class="fx-input" value="15" min="1" />
+              </div>
             </div>
-            <div class="cbm-stat">
-              <span class="cbm-lbl">الوزن الحجمي للشحن الجوي</span>
-              <strong class="cbm-val" id="resAirVolWeight">480 كجم</strong>
+
+            <div class="cbm-results-box">
+              <div class="cbm-stat">
+                <span class="cbm-lbl">الحجم الإجمالي (CBM)</span>
+                <strong class="cbm-val" id="resTotalCbm">2.40 م³</strong>
+              </div>
+              <div class="cbm-stat">
+                <span class="cbm-lbl">الوزن الفعلي الكلي</span>
+                <strong class="cbm-val" id="resTotalWeight">300 كجم</strong>
+              </div>
+              <div class="cbm-stat">
+                <span class="cbm-lbl">الوزن الحجمي للشحن الجوي</span>
+                <strong class="cbm-val" id="resAirVolWeight">480 كجم</strong>
+              </div>
+              <div class="cbm-stat">
+                <span class="cbm-lbl">تقدير الحاوية البحرية</span>
+                <strong class="cbm-val" id="resContainer20">~ 8.6% من حاوية 20 قدم</strong>
+              </div>
             </div>
-            <div class="cbm-stat">
-              <span class="cbm-lbl">تقدير الحاوية البحرية</span>
-              <strong class="cbm-val" id="resContainer20">~ 8.6% من حاوية 20 قدم</strong>
+
+            <div class="cbm-advice-box" id="cbmAdvice">
+              💡 <strong>توصية الشحن:</strong> حجم شحنتك اقتصادي ومناسب جداً للشحن الجزئي البحري المجمّع <strong>(LCL)</strong>.
             </div>
           </div>
+        </div>
+      </div>
 
-          <div class="cbm-advice-box" id="cbmAdvice">
-            💡 <strong>توصية الشحن:</strong> حجم شحنتك اقتصادي ومناسب جداً للشحن الجزئي البحري المجمّع <strong>(LCL)</strong>.
+      <!-- ============================================================== -->
+      <!-- VIEW 7: SOURCING & FREIGHT (التوريد والشحن) -->
+      <!-- ============================================================== -->
+      <div id="view-services" class="page-view" style="display: none;">
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
+          </button>
+          <div class="page-current-tag">🛍️ التوريد والشحن من الصين</div>
+        </div>
+
+        <div class="services-hero">
+          <h2>🛍️ خدمات التوريد والشحن من جمهورية الصين الشعبية</h2>
+          <p>
+            نساعدك بخبرتنا الميدانية الطويلة في الوصول إلى المصانع الموثوقة وتنسيق شحن بضائعك ومشترياتك حتى باب مستودعك أو بيتك بكل سهولة وأمان.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon-box">📦</div>
+            <h3>توفير المنتجات والبحث عن المصانع</h3>
+            <p>البحث في أسواق الجملة ومصانع غوانزو، فوشان، وييوو عن المنتجات التي تبحث عنها، ومقارنة عروض الأسعار وجودة التصنيع.</p>
+            <button class="btn-service-action" onclick="showServiceInquiry('توفير المنتجات والبحث عن المصانع')">
+              📦 طلب استفسار توريد
+            </button>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">🔍</div>
+            <h3>فحص ومطابقة الجودة (QC)</h3>
+            <p>معاينة البضائع وفحص العينات والمطابقة مع المواصفات والكميات المتفق عليها قبل السداد النهائي وتحميل الحاويات.</p>
+            <button class="btn-service-action" onclick="showServiceInquiry('فحص ومطابقة الجودة')">
+              🔍 طلب فحص جودة
+            </button>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">✈️</div>
+            <h3>الشحن الجوي السريع</h3>
+            <p>تنسيق شحن العينات والطلبات المستعجلة والطرود الشخصية جوًا مع التتبع المستمر حتى الاستلام.</p>
+            <button class="btn-service-action" onclick="showServiceInquiry('الشحن الجوي السريع')">
+              ✈️ طلب تسعيرة شحن جوي
+            </button>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">🚢</div>
+            <h3>الشحن البحري (حاويات و LCL)</h3>
+            <p>شحن الحاويات الكاملة (20 و 40 قدم) أو الشحن الجزئي المجمّع للأثاث ومواد البناء والبضائع التجارية.</p>
+            <button class="btn-service-action" onclick="showServiceInquiry('الشحن البحري')">
+              🚢 طلب تسعيرة حاوية بحرية
+            </button>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">🏠</div>
+            <h3>التخليص والتوصيل للعنوان</h3>
+            <p>متابعة إجراءات التخليص الجمركي وإصدار البوالص وترتيب نقل البضاعة من الميناء حتى مقر العمل أو المنزل.</p>
+            <button class="btn-service-action" onclick="showServiceInquiry('التخليص والتوصيل للعنوان')">
+              🏠 استفسار توصيل
+            </button>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">🛋️</div>
+            <h3>شحن وتجميع أثاث فوشان</h3>
+            <p>خدمة خاصة لمشتريات الفلل والمنازل من أسواق الأثاث في فوشان: استلام من معارض اللوفر وتغليف وتجميع بحاوية واحدة.</p>
+            <button class="btn-service-action" onclick="showServiceInquiry('شحن وتجميع أثاث فوشان')">
+              🛋️ استفسار شحن أثاث
+            </button>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ============================================================== -->
-    <!-- VIEW 7: SOURCING & FREIGHT (خدمات التوريد والشحن من الصين) -->
-    <!-- ============================================================== -->
-    <div id="view-services" style="display: none;">
-      <div class="subview-nav-bar">
-        <button class="btn-back-home" onclick="switchSection('home')">
-          <span>🏠 العودة للرئيسية</span>
-        </button>
-        <div class="subview-breadcrumbs">
-          <span class="crumb-link" onclick="switchSection('home')">الرئيسية</span>
-          <span class="crumb-sep">/</span>
-          <span class="crumb-current">التوريد والشحن من الصين</span>
-        </div>
-      </div>
-
-      <div class="services-hero">
-        <h2>🛍️ خدمات التوريد والشحن من جمهورية الصين الشعبية</h2>
-        <p>
-          نساعدك بخبرتنا الميدانية الطويلة في الوصول إلى المصانع الموثوقة وتنسيق شحن بضائعك ومشترياتك حتى باب مستودعك أو بيتك بكل سهولة وأمان.
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon-box">📦</div>
-          <h3>توفير المنتجات والبحث عن المصانع</h3>
-          <p>
-            البحث في أسواق الجملة ومصانع غوانزو، فوشان، وييوو عن المنتجات التي تبحث عنها، ومقارنة عروض الأسعار وجودة التصنيع.
-          </p>
-          <button class="btn-service-action" onclick="showServiceInquiry('توفير المنتجات والبحث عن المصانع')">
-            📦 طلب استفسار توريد
+      <!-- ============================================================== -->
+      <!-- VIEW 8: PHRASES (عبارات المحادثة) -->
+      <!-- ============================================================== -->
+      <div id="view-phrases" class="page-view" style="display: none;">
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
           </button>
+          <div class="page-current-tag">🗣️ عبارات المحادثة الصينية</div>
         </div>
 
-        <div class="service-card">
-          <div class="service-icon-box">🔍</div>
-          <h3>فحص ومطابقة الجودة (QC)</h3>
-          <p>
-            معاينة البضائع وفحص العينات والمطابقة مع المواصفات والكميات المتفق عليها قبل السداد النهائي وتحميل الحاويات.
-          </p>
-          <button class="btn-service-action" onclick="showServiceInquiry('فحص ومطابقة الجودة')">
-            🔍 طلب فحص جودة
-          </button>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon-box">✈️</div>
-          <h3>الشحن الجوي السريع</h3>
-          <p>
-            تنسيق شحن العينات والطلبات المستعجلة والطرود الشخصية جوًا مع التتبع المستمر حتى الاستلام.
-          </p>
-          <button class="btn-service-action" onclick="showServiceInquiry('الشحن الجوي السريع')">
-            ✈️ طلب تسعيرة شحن جوي
-          </button>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon-box">🚢</div>
-          <h3>الشحن البحري (حاويات و LCL)</h3>
-          <p>
-            شحن الحاويات الكاملة (20 و 40 قدم) أو الشحن الجزئي المجمّع للأثاث ومواد البناء والبضائع التجارية.
-          </p>
-          <button class="btn-service-action" onclick="showServiceInquiry('الشحن البحري')">
-            🚢 طلب تسعيرة حاوية بحرية
-          </button>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon-box">🏠</div>
-          <h3>التخليص والتوصيل للعنوان</h3>
-          <p>
-            متابعة إجراءات التخليص الجمركي وإصدار البوالص وترتيب نقل البضاعة من الميناء حتى مقر العمل أو المنزل.
-          </p>
-          <button class="btn-service-action" onclick="showServiceInquiry('التخليص والتوصيل للعنوان')">
-            🏠 استفسار توصيل
-          </button>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon-box">🛋️</div>
-          <h3>شحن وتجميع أثاث فوشان</h3>
-          <p>
-            خدمة خاصة لمشتريات الفلل والمنازل من أسواق الأثاث في فوشان: استلام من معارض اللوفر وتغليف وتجميع بحاوية واحدة.
-          </p>
-          <button class="btn-service-action" onclick="showServiceInquiry('شحن وتجميع أثاث فوشان')">
-            🛋️ استفسار شحن أثاث
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- VIEW 8: TRAVEL PHRASES (عبارات المسافر في الصين) -->
-    <!-- ============================================================== -->
-    <div id="view-phrases" style="display: none;">
-      <div class="subview-nav-bar">
-        <button class="btn-back-home" onclick="switchSection('home')">
-          <span>🏠 العودة للرئيسية</span>
-        </button>
-        <div class="subview-breadcrumbs">
-          <span class="crumb-link" onclick="switchSection('home')">الرئيسية</span>
-          <span class="crumb-sep">/</span>
-          <span class="crumb-current">عبارات سريعة للمسافر</span>
-        </div>
-      </div>
-
-      <div style="margin-bottom: 24px;">
-        <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 6px;">🗣️ عبارات سريعة لا غنى عنها في الصين</h2>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">
-          انقر على زر السماعة 🔊 لسماع النطق الصيني الفوري، أو اعرض الشاشة مباشرة للبائع أو سائق التاكسي.
-        </p>
-      </div>
-
-      <div class="phrases-grid" id="phrasesList">
-        <!-- Rendered dynamically -->
-      </div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- VIEW 9: FAVORITES & ITINERARY (المفضلة وجدول الرحلة والطباعة) -->
-    <!-- ============================================================== -->
-    <div id="view-favorites" style="display: none;">
-      <div class="subview-nav-bar">
-        <button class="btn-back-home" onclick="switchSection('home')">
-          <span>🏠 العودة للرئيسية</span>
-        </button>
-        <div class="subview-breadcrumbs">
-          <span class="crumb-link" onclick="switchSection('home')">الرئيسية</span>
-          <span class="crumb-sep">/</span>
-          <span class="crumb-current">جدول رحلتي والمفضلة</span>
-        </div>
-      </div>
-
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-        <div>
-          <h2 style="font-size: 1.6rem; font-weight: 800;">⭐ جدول رحلتي والأماكن المفضلة</h2>
+        <div style="margin-bottom: 24px;">
+          <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 6px;">🗣️ عبارات سريعة لا غنى عنها في الصين</h2>
           <p style="color: var(--text-muted); font-size: 0.95rem;">
-            الأماكن التي قمت بحفظها لتنظيم زيارات اليوم دون الحاجة للبحث مجدداً. يمكنك نسخ الجدول أو طباعته كملف PDF.
+            انقر على زر السماعة 🔊 لسماع النطق الصيني الفوري، أو اعرض الشاشة مباشرة للبائع أو سائق التاكسي.
           </p>
         </div>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <button class="btn-card btn-card-copy" onclick="printTripPlan()">🖨️ طباعة / حفظ كـ PDF</button>
-          <button class="btn-card" onclick="copyTripPlan()">📋 نسخ الجدول</button>
-          <button class="btn-card" onclick="clearFavorites()">🗑️ تفريغ المفضلة</button>
+
+        <div class="phrases-grid" id="phrasesList"></div>
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- VIEW 9: FAVORITES & ITINERARY (جدول رحلتي والمفضلة) -->
+      <!-- ============================================================== -->
+      <div id="view-favorites" class="page-view" style="display: none;">
+        <div class="page-header-row">
+          <button class="btn-return-home" onclick="switchSection('home')">
+            <span>🏠 العودة للصفحة الرئيسية</span>
+          </button>
+          <div class="page-current-tag">⭐ جدول رحلتي والمفضلة</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h2 style="font-size: 1.5rem; font-weight: 800;">⭐ الأماكن المحفوظة لرحلتي</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              الأماكن التي قمت بحفظها لتنظيم زياراتك. يمكنك طباعة الجدول أو تنزيله كملف PDF.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="btn-card btn-card-copy" onclick="printTripPlan()">🖨️ طباعة / حفظ كـ PDF</button>
+            <button class="btn-card" onclick="copyTripPlan()">📋 نسخ الجدول</button>
+            <button class="btn-card" onclick="clearFavorites()">🗑️ تفريغ المفضلة</button>
+          </div>
+        </div>
+
+        <div class="places-grid" id="favoritesContainer"></div>
+
+        <div class="empty-box" id="favEmptyState" style="display: none;">
+          <div class="empty-box-icon">⭐</div>
+          <h3>قائمة المفضلة فارغة حالياً</h3>
+          <p>اضغط على رمز النجمة ⭐ في بطاقة أي مكان ترغب بزيارته لإضافته هنا إلى جدول رحلتك.</p>
         </div>
       </div>
 
-      <div class="places-grid" id="favoritesContainer"></div>
-
-      <div class="empty-box" id="favEmptyState" style="display: none;">
-        <div class="empty-box-icon">⭐</div>
-        <h3>قائمة المفضلة فارغة حالياً</h3>
-        <p>اضغط على رمز النجمة ⭐ في بطاقة أي مكان ترغب بزيارته لإضافته هنا إلى جدول رحلتك.</p>
-      </div>
-    </div>
-
-  </main>
+    </main>
+  </div>
 
   <!-- Giant Taxi Fullscreen Modal -->
   <div class="modal-overlay" id="taxiModal" onclick="closeTaxiModal(event)">
@@ -1011,11 +907,7 @@
       
       <div class="modal-taxi-header">🚕 请带我去这里 (رجاءً خذني إلى هنا)</div>
       <div class="modal-place-ar" id="taxiModalAr">اسم المكان بالعربي</div>
-      
-      <!-- Giant Chinese Place Name -->
       <div class="modal-giant-cn" id="taxiModalCn">白马服装批发市场</div>
-      
-      <!-- Giant Chinese Address -->
       <div class="modal-giant-address" id="taxiModalAddr">广州市越秀区站南路16号</div>
       <div class="modal-giant-metro" id="taxiModalMetro"></div>
 
@@ -1045,8 +937,8 @@
       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
         يسعدنا اهتمامكم بخدماتنا من جمهورية الصين الشعبية. خدمة استقبال الطلبات المباشرة وتقدير الحاويات يتم تنسيقها دورياً بالتزامن مع مواسم المعارض التجارية الكبرى (معرض كانتون فوشان وغيرها).
       </p>
-      <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px; margin-bottom: 20px;">
-        <span style="display: block; font-size: 0.85rem; color: var(--gold-light); font-weight: 700; margin-bottom: 4px;">
+      <div style="background: rgba(0,0,0,0.03); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px; margin-bottom: 20px;">
+        <span style="display: block; font-size: 0.85rem; color: var(--gold); font-weight: 700; margin-bottom: 4px;">
           📢 لمتابعة التغطيات الميدانية والرحلات القادمة:
         </span>
         <span style="font-size: 0.9rem; color: var(--text-main);">
@@ -1062,11 +954,11 @@
   <!-- Floating Toast Message -->
   <div class="toast-msg" id="toast">تم النسخ بنجاح</div>
 
-  <!-- Mobile Sticky Bottom Navigation Bar -->
+  <!-- Mobile Bottom Bar (< 992px) -->
   <nav class="mobile-nav-bar" id="mobileBottomNav">
     <button class="mobile-nav-item active" data-sec="home" onclick="switchSection('home')">
       <span class="m-icon">🏠</span>
-      <span>البدء</span>
+      <span>الرئيسية</span>
     </button>
     <button class="mobile-nav-item" data-sec="gz" onclick="switchSection('gz')">
       <span class="m-icon">🏙️</span>
@@ -1084,38 +976,14 @@
       <span class="m-icon">🚕</span>
       <span>التاكسي</span>
     </button>
-    <button class="mobile-nav-item" data-sec="favorites" onclick="switchSection('favorites')">
-      <span class="m-icon">⭐</span>
-      <span>رحلتي</span>
-      <span class="mobile-badge" id="mobileFavBadge" style="display: none;">0</span>
+    <button class="mobile-nav-item" onclick="toggleSidebar()">
+      <span class="m-icon">☰</span>
+      <span>الأقسام</span>
     </button>
   </nav>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-copy">
-          <strong>دليل بو يوسف الصبر - الصين (alsaber22)</strong><br />
-          دليل رقمي متخصص وعملي للتجارة والتسوق والسياحة في جمهورية الصين الشعبية.
-        </div>
-        <div class="header-actions">
-          <a class="btn-snap" href="https://www.snapchat.com/add/alsaber22" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-              <path d="M12 2.5c-3 0-4.6 2.1-4.6 5.1v2.2c-.8-.3-1.7-.4-1.9.3-.2.8 1 1.2 2 1.6-.4 2.5-1.8 3.9-4.1 4.7-.5.2-.5.8 0 1 1.1.5 2.3.5 2.8 1.6.2.4.4.6.8.5 1.4-.4 2.4-.1 3.3.5 1 .7 2.5.7 3.5 0 .9-.6 1.9-.9 3.3-.5.4.1.6-.1.8-.5.5-1.1 1.7-1.1 2.8-1.6.5-.2.5-.8 0-1-2.3-.8-3.7-2.2-4.1-4.7 1-.4 2.2-.8 2-1.6-.2-.7-1.1-.6-1.9-.3V7.6c0-3-1.6-5.1-4.6-5.1Z"/>
-            </svg>
-            <span>متابعة السناب شات alsaber22</span>
-          </a>
-        </div>
-      </div>
-      <p style="font-size: 0.78rem; color: var(--text-subtle); text-align: center; margin-top: 16px;">
-        جميع العناوين والبيانات جمعت بعناية لتسهيل تنقل الزائر العربي. يُرجى دوماً التأكد من مواعيد فتح الأسواق وشهادات الحلال في المطاعم.
-      </p>
-    </div>
-  </footer>
-
   <!-- Scripts -->
-  <script src="places.js?v=3.0"></script>
-  <script src="app.js?v=3.0"></script>
+  <script src="places.js?v=4.0"></script>
+  <script src="app.js?v=4.0"></script>
 </body>
 </html>

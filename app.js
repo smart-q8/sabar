@@ -179,7 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loadFavorites();
   loadChecklist();
   initPWA();
-  initHomeSearch();
   initCatalogSearch();
   initFxConverter();
   initCbmCalculator();
@@ -259,14 +258,11 @@ function toggleFavorite(id, event) {
 
 function updateFavBadges() {
   const count = state.favorites.size;
-  const topBadge = document.getElementById("favCountTop");
-  const mBadge = document.getElementById("mobileFavBadge");
+  const mobileFav = document.getElementById("favCountMobile");
+  const badgeFav = document.getElementById("badgeFav");
 
-  if (topBadge) topBadge.textContent = count;
-  if (mBadge) {
-    mBadge.textContent = count;
-    mBadge.style.display = count > 0 ? "inline-block" : "none";
-  }
+  if (mobileFav) mobileFav.textContent = count;
+  if (badgeFav) badgeFav.textContent = count;
 }
 
 function clearFavorites() {
@@ -545,8 +541,39 @@ function openCurrentTaxiBaidu() {
 /* =================================================================
    Navigation & Section Switching
    ================================================================= */
+/* =================================================================
+   Sidebar Drawer Controls (< 992px)
+   ================================================================= */
+function toggleSidebar() {
+  const sidebar = document.getElementById("appSidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  if (!sidebar) return;
+  const isOpen = sidebar.classList.contains("open");
+  if (isOpen) {
+    sidebar.classList.remove("open");
+    if (overlay) overlay.classList.remove("active");
+    document.body.style.overflow = "";
+  } else {
+    sidebar.classList.add("open");
+    if (overlay) overlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById("appSidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  if (sidebar) sidebar.classList.remove("open");
+  if (overlay) overlay.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+/* =================================================================
+   Navigation & Section Switching
+   ================================================================= */
 function switchSection(secKey, skipHash = false) {
   state.activeSection = secKey;
+  closeSidebar();
 
   // View containers
   const homeView = document.getElementById("view-home");
@@ -611,7 +638,7 @@ function switchSection(secKey, skipHash = false) {
     renderFavorites();
   }
 
-  // Update tabs UI & Mobile Nav
+  // Update sidebar & mobile nav active state
   updateTabsUI(secKey);
 
   // Sync Hash
@@ -624,6 +651,16 @@ function switchSection(secKey, skipHash = false) {
 }
 
 function updateTabsUI(activeKey) {
+  // Sidebar Buttons
+  document.querySelectorAll("#sidebarNav .sidebar-btn").forEach((btn) => {
+    const sec = btn.getAttribute("data-sec");
+    if (sec === activeKey) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+
   // Mobile Bottom Nav
   document.querySelectorAll("#mobileBottomNav .mobile-nav-item").forEach((btn) => {
     const sec = btn.getAttribute("data-sec");
@@ -682,35 +719,6 @@ function updateCityHeader() {
 /* =================================================================
    Search & Filter Logic
    ================================================================= */
-function initHomeSearch() {
-  const homeInput = document.getElementById("homeUniversalSearch");
-  const clearBtn = document.getElementById("homeClearSearchBtn");
-
-  if (homeInput) {
-    homeInput.addEventListener("input", (e) => {
-      const val = e.target.value.trim();
-      if (clearBtn) clearBtn.style.display = val ? "block" : "none";
-    });
-
-    homeInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        const val = homeInput.value.trim();
-        if (val) {
-          launchSearch(val);
-        }
-      }
-    });
-  }
-
-  if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-      if (homeInput) homeInput.value = "";
-      clearBtn.style.display = "none";
-      if (homeInput) homeInput.focus();
-    });
-  }
-}
-
 function launchSearch(query, preferredCity = null) {
   // If user searched for furniture and didn't specify city, pick Foshan
   let targetCity = preferredCity || state.currentCity;
@@ -937,20 +945,9 @@ function createPlaceCardHtml(place, showCityBadge = false) {
 }
 
 function updateStats() {
-  const countEl = document.getElementById("portalStatCount");
-  if (countEl) countEl.textContent = PLACES.length;
-
   const gzCount = PLACES.filter((p) => p.city === "gz").length;
   const shCount = PLACES.filter((p) => p.city === "sh").length;
   const fsCount = PLACES.filter((p) => p.city === "fs").length;
-
-  const pGz = document.getElementById("portalBadgeGz");
-  const pSh = document.getElementById("portalBadgeSh");
-  const pFs = document.getElementById("portalBadgeFs");
-
-  if (pGz) pGz.textContent = `${gzCount} سوقاً`;
-  if (pSh) pSh.textContent = `${shCount} مواقع`;
-  if (pFs) pFs.textContent = `${fsCount} مجمعاً`;
 
   const bGz = document.getElementById("badgeGz");
   const bSh = document.getElementById("badgeSh");
@@ -959,6 +956,14 @@ function updateStats() {
   if (bGz) bGz.textContent = gzCount;
   if (bSh) bSh.textContent = shCount;
   if (bFs) bFs.textContent = fsCount;
+
+  const catGz = document.getElementById("catBadgeGz");
+  const catSh = document.getElementById("catBadgeSh");
+  const catFs = document.getElementById("catBadgeFs");
+
+  if (catGz) catGz.textContent = gzCount;
+  if (catSh) catSh.textContent = shCount;
+  if (catFs) catFs.textContent = fsCount;
 }
 
 /* =================================================================
