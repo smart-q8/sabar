@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   
-  <link rel="stylesheet" href="styles.css?v=6.0" />
+  <link rel="stylesheet" href="styles.css?v=7.0" />
 </head>
 <body>
 
@@ -248,20 +248,134 @@
           <div class="info-card" style="border-right: 4px solid var(--gold);">
             <div class="info-card-header">
               <span class="info-card-icon">💡</span>
-              <h3>نصائح ذهبية هامة قبل السفر إلى الصين</h3>
+              <div>
+                <h3 style="margin: 0;">نصائح ذهبية هامة قبل السفر إلى الصين</h3>
+                <p style="margin: 4px 0 0; font-size: 0.88rem; color: var(--text-muted);">
+                  روابط رسمية ومباشرة للخدمات الحكومية وتطبيقات الدفع والخرائط والإنترنت المعتمدة للمسافرين:
+                </p>
+              </div>
             </div>
+            
             <div class="tips-list">
-              <div class="tip-item">
-                <strong>1. تفعيل Alipay مبكراً:</strong> الصين مجتمع غير نقدي (Cashless) بنسبة 99%؛ قم بربط بطاقتك البنكية الخليجية بتطبيق Alipay وتأكيد الجواز قبل الإقلاع.
+              <!-- Tip 1: Alipay -->
+              <div class="tip-card">
+                <div class="tip-card-header">
+                  <span class="tip-badge">💳 الدفع غير النقدي</span>
+                  <h4>1. تفعيل تطبيق Alipay وربط البطاقة البنكية</h4>
+                </div>
+                <p>
+                  الصين مجتمع غير نقدي بنسبة 99%. النقد الورقي أصبح شبه مهجور في المتاجر والمطاعم والتكاسي. حمّل تطبيق Alipay وثبّت بطاقتك البنكية الخليجية (Visa / MasterCard / mada) وقم بتوثيق الجواز مسبقاً قبل موعد رحلتك.
+                </p>
+                <div class="tip-links-wrap">
+                  <a class="tip-link-btn tip-link-primary" href="https://www.alipay.com/" target="_blank" rel="noopener noreferrer">
+                    <span>🌐 موقع Alipay الرسمي</span>
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  </a>
+                  <a class="tip-link-btn" href="https://apps.apple.com/app/alipay-simplify-your-life/id333206289" target="_blank" rel="noopener noreferrer">
+                    <span>🍏 تحميل للآيفون (App Store)</span>
+                  </a>
+                  <a class="tip-link-btn" href="https://play.google.com/store/apps/details?id=com.eg.android.AlipayGphone" target="_blank" rel="noopener noreferrer">
+                    <span>🤖 تحميل للأندرويد (Google Play)</span>
+                  </a>
+                  <button class="tip-link-btn tip-link-internal" onclick="switchSection('checklist')">
+                    <span>📋 خطوات تجهيز الدفع بالدليل ←</span>
+                  </button>
+                </div>
               </div>
-              <div class="tip-item">
-                <strong>2. باقة إنترنت بتجوال دولي:</strong> اشترِ شريحة eSIM تدعم التجوال (Roaming) لتصفح الواتساب، جوجل، وإنستغرام بحرية تامة دون الحاجة إلى برامج VPN.
+
+              <!-- Tip 2: eSIM Roaming -->
+              <div class="tip-card">
+                <div class="tip-card-header">
+                  <span class="tip-badge">📶 إنترنت بدون حجب</span>
+                  <h4>2. باقة إنترنت بتجوال دولي (eSIM) لتخطي الحجب</h4>
+                </div>
+                <p>
+                  تطبيقات واتساب، جوجل، وإنستغرام محجوبة داخل الصين عند استخدام شبكات Wi-Fi الصينية أو الشرائح المحلية. الحل الأمثل هو شراء شريحة إلكترونية <strong>eSIM بتجوال دولي (Roaming)</strong> تمنحك إنترنت مفتوح بالكامل دون الحاجة لأي برامج VPN.
+                </p>
+                <div class="tip-links-wrap">
+                  <a class="tip-link-btn tip-link-primary" href="https://www.airalo.com/china-esim" target="_blank" rel="noopener noreferrer">
+                    <span>🌐 باقة الصين على Airalo</span>
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  </a>
+                  <a class="tip-link-btn" href="https://www.trip.com/things-to-do/detail/47113175/" target="_blank" rel="noopener noreferrer">
+                    <span>🌐 شريحة eSIM الصين في Trip.com</span>
+                  </a>
+                  <a class="tip-link-btn" href="https://www.getnomad.app/china-esim" target="_blank" rel="noopener noreferrer">
+                    <span>🌐 باقة Nomad eSIM الصين</span>
+                  </a>
+                  <button class="tip-link-btn tip-link-internal" onclick="switchSection('checklist')">
+                    <span>📋 فحص الشريحة في قائمة السفر ←</span>
+                  </button>
+                </div>
               </div>
-              <div class="tip-item">
-                <strong>3. لا تعتمد على خرائط Google:</strong> خرائط جوجل محجوبة وإحداثياتها غير دقيقة في الصين؛ اعتمد على خرائط <strong>Amap (高德地图)</strong> أو <strong>Apple Maps</strong>.
+
+              <!-- Tip 3: Navigation Amap & Metro -->
+              <div class="tip-card">
+                <div class="tip-card-header">
+                  <span class="tip-badge">📍 الملاحة والخرائط</span>
+                  <h4>3. بدائل خرائط Google المحجوبة في الصين</h4>
+                </div>
+                <p>
+                  تطبيقات خرائط جوجل محجوبة وإحداثياتها غير متطابقة في الصين. اعتمد على خرائط <strong>Amap (高德地图)</strong> وهي الخريطة الوطنية الأكثر دقة لسيارات الأجرة والمشي، أو خرائط <strong>Apple Maps</strong> لأجهزة آيفون، وتطبيق <strong>MetroMan</strong> لخطوط المترو بدون إنترنت.
+                </p>
+                <div class="tip-links-wrap">
+                  <a class="tip-link-btn tip-link-primary" href="https://www.amap.com/" target="_blank" rel="noopener noreferrer">
+                    <span>🌐 موقع خرائط Amap (高德地图)</span>
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  </a>
+                  <a class="tip-link-btn" href="https://apps.apple.com/app/gaode-maps/id461703208" target="_blank" rel="noopener noreferrer">
+                    <span>🍏 تحميل Amap للآيفون</span>
+                  </a>
+                  <a class="tip-link-btn" href="http://www.metroman.cn/" target="_blank" rel="noopener noreferrer">
+                    <span>🚇 موقع مترو الصين MetroMan</span>
+                  </a>
+                  <button class="tip-link-btn tip-link-internal" onclick="switchSection('maps')">
+                    <span>🗺️ دليل الخرائط والمترو بالتفصيل ←</span>
+                  </button>
+                </div>
               </div>
-              <div class="tip-item">
-                <strong>4. بطاقة دخول الصين مجانية:</strong> تعبئة بطاقة الهجرة الإلكترونية مجانية 100% عبر موقع الهجرة الصيني الرسمي، احذر من المواقع الوهمية التي تطلب رسوماً.
+
+              <!-- Tip 4: Digital Arrival Card NIA -->
+              <div class="tip-card">
+                <div class="tip-card-header">
+                  <span class="tip-badge">🛂 الجوازات والهجرة</span>
+                  <h4>4. بطاقة دخول الصين الإلكترونية الرسمية (مجانية 100%)</h4>
+                </div>
+                <p>
+                  تعبئة بطاقة دخول الصين الإلكترونية قبل صعود الطائرة توفر عليك وقت الانتظار وتغنيك عن الأوراق في الطائرة. الخدمة مجانية بالكامل عبر البوابة الحكومية الرسمية لإدارة الهجرة الوطنية (NIA)، ولا تتطلب أي رسوم على الإطلاق.
+                </p>
+                <div class="tip-links-wrap">
+                  <a class="tip-link-btn tip-link-primary" href="https://s.nia.gov.cn/ArrivalCardFillingPC/" target="_blank" rel="noopener noreferrer">
+                    <span>🏛️ البوابة الرسمية للهجرة الصينية (NIA)</span>
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  </a>
+                  <a class="tip-link-btn" href="https://english.shanghai.gov.cn/en-ServicesandGuides-OnlineServices/20260805/698aae992e9b4232a58f00e9e49dd22b.html" target="_blank" rel="noopener noreferrer">
+                    <span>📰 الدليل الحكومي الإرشادي (شنغهاي)</span>
+                  </a>
+                  <button class="tip-link-btn tip-link-internal" onclick="switchSection('arrival')">
+                    <span>🛂 شرح خطوات التعبئة بالعربي بالصور ←</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Tip 5: High-speed trains -->
+              <div class="tip-card">
+                <div class="tip-card-header">
+                  <span class="tip-badge">🚄 القطارات السريعة</span>
+                  <h4>5. حجز تذاكر القطارات السريعة بين المدن (غوانزو - فوشان - شنغهاي)</h4>
+                </div>
+                <p>
+                  شبكة القطارات السريعة في الصين هي الوسيلة الأكثر سرعة وراحة للتنقل بين المدن الصناعية والتجارية. احجز تذاكرك مسبقاً برقم الجواز عبر الموقع الرسمي لسكك حديد الصين (12306) أو عبر منصة Trip.com باللغة العربية والإنجليزية.
+                </p>
+                <div class="tip-links-wrap">
+                  <a class="tip-link-btn tip-link-primary" href="https://www.12306.cn/en/index.html" target="_blank" rel="noopener noreferrer">
+                    <span>🚄 موقع سكك حديد الصين الرسمي (12306)</span>
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                  </a>
+                  <a class="tip-link-btn" href="https://www.trip.com/trains/china/" target="_blank" rel="noopener noreferrer">
+                    <span>🌐 حجز قطارات الصين عبر Trip.com</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -1148,7 +1262,7 @@
   </nav>
 
   <!-- Scripts -->
-  <script src="places.js?v=6.0"></script>
-  <script src="app.js?v=6.0"></script>
+  <script src="places.js?v=7.0"></script>
+  <script src="app.js?v=7.0"></script>
 </body>
 </html>

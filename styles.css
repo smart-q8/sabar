@@ -1797,25 +1797,124 @@ body {
 }
 
 /* Tips List */
+/* Golden Tips Enhanced Cards */
 .tips-list {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.tip-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-right: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-xs);
+  transition: all 0.2s ease;
+}
+
+.tip-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.tip-card-header {
+  display: flex;
+  align-items: center;
   gap: 10px;
-  margin-top: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
 }
 
-.tip-item {
-  background: var(--gold-bg);
-  border: 1px solid var(--gold-border);
-  border-radius: var(--radius-sm);
-  padding: 12px 14px;
-  font-size: 0.9rem;
+.tip-badge {
+  background: rgba(197, 160, 89, 0.15);
+  color: #8c6e28;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.tip-card-header h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
   color: var(--text-main);
-  line-height: 1.6;
+  margin: 0;
 }
 
-.tip-item strong {
-  color: var(--gold-light);
+.tip-card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0 0 14px 0;
+}
+
+.tip-links-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.tip-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fdfbf7;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.tip-link-btn:hover {
+  background: #fff;
+  border-color: var(--gold);
+  color: #8c6e28;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.tip-link-btn svg {
+  opacity: 0.6;
+}
+
+.tip-link-primary {
+  background: #1c3d28;
+  color: #ffffff;
+  border-color: #1c3d28;
+}
+
+.tip-link-primary:hover {
+  background: #2e593d;
+  color: #ffffff;
+  border-color: #2e593d;
+}
+
+.tip-link-primary svg {
+  opacity: 0.9;
+  stroke: #dfc282;
+}
+
+.tip-link-internal {
+  background: rgba(197, 160, 89, 0.1);
+  color: #8c6e28;
+  border-color: rgba(197, 160, 89, 0.3);
+}
+
+.tip-link-internal:hover {
+  background: rgba(197, 160, 89, 0.2);
+  color: #6d541c;
 }
 
 /* Snapchat Card */
